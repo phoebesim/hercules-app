@@ -1,14 +1,14 @@
-//
-//  ContentView.swift
-//  HerculesApp
-//
-//  Created by Phoebe Sim on 7/11/25.
-//
+
+
+
+
+
+
 
 
 import SwiftUI
 
-struct ContentView: View   {
+struct HomeScreenView: View   {
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -21,5 +21,5 @@ struct ContentView: View   {
 }
 
 #Preview {
-    ContentView()
+    HomescreenView()
 }

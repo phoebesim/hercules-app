@@ -7,12 +7,25 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		055529482EBDFD3D00BA8624 /* HerculesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HerculesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D924718F2EC17A06008E9E97 /* HerculesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = HerculesApp.app; path = "/Users/tkrobot/Documents/hercules-app/build/Debug-iphoneos/HerculesApp.app"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		D99A050A2EC17942009ADD02 /* Exceptions for "HerculesApp" folder in "HerculesApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				HomescreenView.swift,
+			);
+			target = 055529472EBDFD3D00BA8624 /* HerculesApp */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		0555294A2EBDFD3D00BA8624 /* HerculesApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				D99A050A2EC17942009ADD02 /* Exceptions for "HerculesApp" folder in "HerculesApp" target */,
+			);
 			path = HerculesApp;
 			sourceTree = "<group>";
 		};
@@ -33,16 +46,7 @@
 			isa = PBXGroup;
 			children = (
 				0555294A2EBDFD3D00BA8624 /* HerculesApp */,
-				055529492EBDFD3D00BA8624 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		055529492EBDFD3D00BA8624 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				055529482EBDFD3D00BA8624 /* HerculesApp.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -67,7 +71,7 @@
 			packageProductDependencies = (
 			);
 			productName = HerculesApp;
-			productReference = 055529482EBDFD3D00BA8624 /* HerculesApp.app */;
+			productReference = D924718F2EC17A06008E9E97 /* HerculesApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -95,7 +99,7 @@
 			mainGroup = 0555293F2EBDFD3D00BA8624;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 055529492EBDFD3D00BA8624 /* Products */;
+			productRefGroup = 0555293F2EBDFD3D00BA8624;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
