@@ -22,15 +22,15 @@ struct ContentView: View {
                 .padding()
         }
         
-        ZStack{
-            Image(.hello)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 400, height: 700)
-        }
+        //ZStack{
+          //  Image(.hello)
+           //     .resizable()
+             //   .aspectRatio(contentMode: .fit)
+        //        .frame(width: 400, height: 700)
+        //}
         
-        VStack{
-            Button("Start Game") {
+        //VStack{
+          //  Button("Start Game") {
                 
                 
                 
@@ -40,9 +40,9 @@ struct ContentView: View {
                 
                 
                 
-            }
+      //      }
             
-        }
+//        }
         
     }
     

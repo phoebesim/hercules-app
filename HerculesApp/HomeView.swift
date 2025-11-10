@@ -30,9 +30,10 @@ struct HomeView: View   {
             }
             .controlSize(.extraLarge)
             .padding()
-            .background(Color.blue)
-            .foregroundColor(.white)
+            .background(Color.white)
+            .foregroundColor(.black)
             .cornerRadius(15)
+            .shadow(color: .black, radius: 5, x: 0, y: 5)
             
             
             

@@ -13,21 +13,48 @@ struct FirstinfoView: View   {
     @State private var animatedText: String = ""
     
     var body: some View {
-        VStack {
-            //Image("Hercules")
-            //  .resizable()
-            //.aspectRatio(contentMode: .fill)
-            //.ignoresSafeArea()
-            //.brightness(-0.9)
+        
+        
+        ZStack {
+            Image("Hercules")
+                .resizable()
+                .frame(width: 500, height: 900)
+                .ignoresSafeArea()
+                .brightness(-0.4)
+                .aspectRatio(contentMode: .fill)
+            
             VStack {
                 Text(animatedText)
+                    .padding()
+                    .foregroundStyle(.white)
                     .font(.title)
                     .padding()
+                    .padding()
+                    .padding()
             }
-            .onAppear()
+            .onAppear {
+                animateText()
+                
+            }
             
+            Button("Continue") {
+            }
+            .offset(x:0, y: 300)
+            .padding()
+            .foregroundColor(.white)
         }
+        
         .padding()
+    }
+    
+    func animateText() {
+        for (index, character) in textToType.enumerated() {
+            DispatchQueue.main.asyncAfter(deadline: .now() + Double(index) * 0.05) {
+                animatedText.append(character)
+                
+                UIImpactFeedbackGenerator(style: .light).impactOccurred()
+            }
+        }
     }
 }
 
