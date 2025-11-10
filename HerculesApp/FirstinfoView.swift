@@ -1,14 +1,13 @@
-
-
-
-
-
-
-
+//
+//  FirstinfoView.swift
+//  HerculesApp
+//
+//  Created by T Krobot on 10/11/25.
+//
 
 import SwiftUI
 
-struct HomeScreenView: View   {
+struct FirstinfoView: View   {
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -21,5 +20,5 @@ struct HomeScreenView: View   {
 }
 
 #Preview {
-    HomescreenView()
+    FirstinfoView()
 }
