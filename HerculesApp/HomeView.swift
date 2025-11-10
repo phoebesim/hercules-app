@@ -26,7 +26,6 @@ struct HomeView: View   {
             Spacer()
             
             Button("Start!") {
-            
             }
             .controlSize(.extraLarge)
             .padding()
