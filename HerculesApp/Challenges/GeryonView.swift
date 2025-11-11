@@ -9,21 +9,22 @@ import SwiftUI
 
 struct GeryonView: View {
     @State private var step: CGFloat = 300
-    @State private var randomNumber: Double = 0.0
-    @State private var image: String = "GreenLight"
-    
+    @State private var timer: Timer?
+    @State private var isGreen: Bool = true
+    @State private var loseSheetShown = false
+    //@State private var winSheetShown = false
     
     var body: some View {
-        
         ZStack {
             Image(.grass)
                 .resizable()
                 .ignoresSafeArea()
                 .aspectRatio(contentMode: .fill)
+                .frame(width: 500, height: 500)
             Image(.geryon)
                 .resizable()
                 .frame(width: 250, height: 300)
-                .offset(y:-190)
+                .offset(y:-170)
             Image(.cow)
                 .resizable()
                 .frame(width: 180, height: 120)
@@ -54,6 +55,11 @@ struct GeryonView: View {
                 .offset(y: step)
             Button("Walk") {
                 step -= 10
+                changeLight()
+                if isGreen == false {
+                    loseSheetShown = true
+                    step = 300
+                }
             }
             .buttonStyle(.borderedProminent)
             .offset(y:380)
@@ -63,17 +69,30 @@ struct GeryonView: View {
             .controlSize(.large)
             .buttonBorderShape(.circle)
             .fontWeight(.bold)
-            Image(image)
+            Image(isGreen ? "GreenLight":"RedLight")
                 .offset(x: 130, y: -190)
         }
-        
-        
+        .sheet(isPresented: $loseSheetShown) {
+            Text("You need to steal Geryon's cattle while he is sleeping! Only move when the light is green!")
+                .presentationDetents([.medium, .large, .fraction(0.2)])
+        }
+        .padding()
     }
-    func generateNewNumber() {
-        randomNumber = Double.random(in: 1...100)
+    
+    
+    func randomDelay() -> Double {
+        return Double.random(in: 0.3...1.9)
     }
+    
     func changeLight(){
-        
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: randomDelay(), repeats: true) { t in
+            isGreen.toggle()
+            t.invalidate()
+            DispatchQueue.main.asyncAfter(deadline: .now() + randomDelay()) {
+                changeLight()
+            }
+        }
     }
 }
 
