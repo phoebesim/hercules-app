@@ -60,13 +60,16 @@ struct GeryonView: View {
                     loseSheetShown = true
                     step = 300
                 }
+                if step == 10 {
+                    //you win!! add this later
+                }
             }
             .buttonStyle(.borderedProminent)
             .offset(y:380)
             .tint(.white)
             .padding(50)
             .foregroundStyle(.black)
-            .controlSize(.large)
+            .controlSize(.extraLarge)
             .buttonBorderShape(.circle)
             .fontWeight(.bold)
             Image(isGreen ? "GreenLight":"RedLight")
@@ -81,7 +84,7 @@ struct GeryonView: View {
     
     
     func randomDelay() -> Double {
-        return Double.random(in: 0.3...1.9)
+        return Double.random(in: 0.3...2.5)
     }
     
     func changeLight(){
