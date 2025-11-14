@@ -1,14 +1,14 @@
 //
-//  FirstinfoView.swift
+//  AftlionView.swift
 //  HerculesApp
 //
-//  Created by T Krobot on 10/11/25.
+//  Created by T Krobot on 14/11/25.
 //
 
 import SwiftUI
 
-struct FirstinfoView: View   {
-    let textToType = "You have incurred Hera’s wrath...Because you exist. You are a result of Zeus’ infidelity. Hera tried to stop your birth. Hera tried to kill you as a baby. Hera turned you into a murderer. Hera made you a slave for your cousin and king Eurystheus. Now, you must perform 10 labours for him. You are Hercules."
+struct AftlionView: View {
+    let textToType = "The Nemean lion’s fur could not be penetrated by arrows, but thanks to your quick thinking, you used a club to stun it, then strangled it!"
     
     @State private var animatedText: String = ""
     
@@ -28,17 +28,17 @@ struct FirstinfoView: View   {
                     .padding()
                     .foregroundStyle(.white)
                     .font(.title)
-                    .padding()
-                    .padding()
-                    .padding()
+                    .multilineTextAlignment(.center)
+                    .frame(maxWidth: .infinity)
+                    .padding(50)
             }
             .onAppear {
                 animateText()
-                
             }
             
+
+            
             Button("Continue") {
-                
             }
             .padding()
             .background(Color.white)
@@ -46,7 +46,6 @@ struct FirstinfoView: View   {
             .offset(x:0, y: 300)
             .padding()
             .foregroundColor(.black)
-            
         }
         
         .padding()
@@ -64,5 +63,5 @@ struct FirstinfoView: View   {
 }
 
 #Preview {
-    FirstinfoView()
+    AftlionView()
 }

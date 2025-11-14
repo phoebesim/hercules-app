@@ -1,14 +1,8 @@
-//
-//  BeforelioninfoView.swift
-//  HerculesApp
-//
-//  Created by T Krobot on 10/11/25.
-//
 
 import SwiftUI
 
-struct BeforelioninfoView: View {
-    let textToType = "Your first labour: to kill the Nemean lion. If you kill the lion in 30 days, it will be sacrificed to your father, Zeus. If not, a boy will be sacrificed to Zeus."
+struct AfthindView: View   {
+    let textToType = "After a year of searching, you finally captured the hind with a net while it was asleep. But you immediately realised you had messed up: the hind was a sacred animal to the fierce goddess Artemis! Luckily for you, you met her and on your way back to King Eurystheus. You begged her for forgiveness. After listening to your explanation, she forgave you on the condition you would return the hind to the wild. Just before the King could grab it from your hands, you let go of the hind and it dashed back to the wild!"
     
     @State private var animatedText: String = ""
     
@@ -28,9 +22,11 @@ struct BeforelioninfoView: View {
                     .padding()
                     .foregroundStyle(.white)
                     .font(.title)
-                    .padding()
-                    .padding()
-                    .padding()
+                    .multilineTextAlignment(.center)
+                    .frame(maxWidth: .infinity)
+                    .padding(50)
+                
+                Spacer()
             }
             .onAppear {
                 animateText()
@@ -38,10 +34,15 @@ struct BeforelioninfoView: View {
             }
             
             Button("Continue") {
+                
             }
+            .padding()
+            .background(Color.white)
+            .cornerRadius(15)
             .offset(x:0, y: 300)
             .padding()
-            .foregroundColor(.white)
+            .foregroundColor(.black)
+            
         }
         
         .padding()
@@ -59,5 +60,6 @@ struct BeforelioninfoView: View {
 }
 
 #Preview {
-    BeforelioninfoView()
+    AfthindView()
 }
+
