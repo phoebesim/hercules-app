@@ -13,7 +13,7 @@ struct DeerView: View {
     @State private var message: String = ""
     @State private var gameOver = false
     
-    private let tolerance: CGFloat = 25
+    private let tolerance: CGFloat = 20
 
    
     var body: some View {

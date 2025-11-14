@@ -84,7 +84,7 @@ struct GeryonView: View {
     
     
     func randomDelay() -> Double {
-        return Double.random(in: 0.3...2.5)
+        return Double.random(in: 0.3...0.6)
     }
     
     func changeLight(){
