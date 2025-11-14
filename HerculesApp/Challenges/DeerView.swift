@@ -20,7 +20,7 @@ struct DeerView: View {
         
         ZStack{
             
-            Image("grass")
+            Image("Grass")
                 .resizable()
                 .brightness(-0.232)
                 .scaledToFill()
