@@ -114,6 +114,19 @@ struct AugeanView: View {
             .background(Color.gray.opacity(0.2))
             .cornerRadius(10)
             
+            if isComplete {
+                Color.white.opacity(0.85)
+                .ignoresSafeArea()
+                .transition(.opacity)
+                .zIndex(1)
+                    
+            Text("You won!!!")
+            .font(.system(size: 48, weight: .bold))
+            .foregroundColor(.black)
+            .transition(.scale)
+            .zIndex(2)
+                                }
+            
         }
     }
     
@@ -192,6 +205,7 @@ struct PipeView: View {
                 .stroke(isConnected ? Color.blue: Color.gray, lineWidth: 8)
                 .frame(width: 60, height: 60)
                 .rotationEffect(.degrees(pipe.rotation))
+
             
         }
     }

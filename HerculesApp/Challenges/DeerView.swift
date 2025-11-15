@@ -13,7 +13,9 @@ struct DeerView: View {
     @State private var message: String = ""
     @State private var gameOver = false
     
-    private let tolerance: CGFloat = 20
+    private let tolerance: CGFloat = 15
+    
+    //ADD: SLIDER TO CONTROL DIFFICULTY
 
    
     var body: some View {

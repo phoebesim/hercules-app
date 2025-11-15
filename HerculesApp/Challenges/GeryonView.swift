@@ -12,10 +12,24 @@ struct GeryonView: View {
     @State private var timer: Timer?
     @State private var isGreen: Bool = true
     @State private var loseSheetShown = false
-    //@State private var winSheetShown = false
+    
     
     var body: some View {
         ZStack {
+            if step < 45 {
+                Color.white.opacity(0.85)
+                    .ignoresSafeArea()
+                    .transition(.opacity)
+                    .zIndex(1)
+                    .ignoresSafeArea()
+                
+                Text("You won!!!")
+                    .font(.system(size: 48, weight: .bold))
+                    .foregroundColor(.black)
+                    .transition(.scale)
+                    .zIndex(2)
+                    .ignoresSafeArea()
+            }
             Image(.grass)
                 .resizable()
                 .ignoresSafeArea()
@@ -84,7 +98,7 @@ struct GeryonView: View {
     
     
     func randomDelay() -> Double {
-        return Double.random(in: 0.3...0.6)
+        return Double.random(in: 0.3...1.2)
     }
     
     func changeLight(){
