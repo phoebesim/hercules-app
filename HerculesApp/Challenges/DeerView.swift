@@ -49,7 +49,11 @@ struct DeerView: View {
                 
                 Spacer()
                 
-                Image("Arrow")
+                Image(systemName: "arrowshape.up.fill")
+                    .resizable()
+                    .frame(width: 80, height: 80)
+                    .foregroundStyle(.white)
+               
                 
    
                 Button(action: checkIfAtCenter) {
@@ -60,7 +64,8 @@ struct DeerView: View {
                         .background(Color.white)
                         .foregroundColor(.black)
                         .clipShape(Circle())
-                        .offset(x:0)
+                        .offset(y: 20)
+                        .bold()
                     
                 }
                 

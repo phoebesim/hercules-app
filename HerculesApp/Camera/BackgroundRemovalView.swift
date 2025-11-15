@@ -36,6 +36,7 @@ struct BackgroundRemovalView: View {
         .sheet(isPresented: $showingCamera) {
             // Present the CameraView when showingCamera is true
             CameraView(selectedImage: $processedImage, onCapture: handleCapturedImage)
+                .ignoresSafeArea()
         }
     }
     
@@ -103,3 +104,6 @@ struct BackgroundRemovalView: View {
     }
 }
 
+#Preview {
+    BackgroundRemovalView()
+}
