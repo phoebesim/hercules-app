@@ -13,7 +13,6 @@ struct StymphalianView: View {
     @State private var audioPlayer:AVAudioPlayer?
     @State private var count = 0
     @State private var vibrate = false
-    @State private var birdNumber: Int
     @State private var sitting1 = "StymphalianBirdSitting"
     @State private var sitting2 = "StymphalianBirdSitting"
     @State private var sitting3 = "StymphalianBirdSitting"
@@ -22,43 +21,88 @@ struct StymphalianView: View {
     @State private var sitting6 = "StymphalianBirdSitting"
     @State private var sitting7 = "StymphalianBirdSitting"
     @State private var sitting8 = "StymphalianBirdSitting"
+    
 
+    
     
     var body: some View {
         ZStack{
             Image("GrassBranches")
                 .resizable()
                 .frame(width: 500, height: 1000)
-            Image("Krotala")
-                .resizable()
-                .frame(width: 300, height: 300)
-                .rotationEffect(.degrees(130))
-                .offset(y: 290)
+            
+                Image("Krotala")
+                    .resizable()
+                    .frame(width: 300, height: 300)
+                    .rotationEffect(.degrees(130))
+                    .offset(y: 290)
+            
+            HStack {
+                Image(systemName: "iphone.gen3.radiowaves.left.and.right")
+                    .foregroundStyle(.white)
+                Text("Shake your phone from left to right!")
+                    .foregroundStyle(.white)
+            }
+            .offset(y:120)
+            
+          
                 .onShake {
                     playSound()
                     vibrate.toggle()
+                    count += 1
+                    flyRandomBird()
                 }
-                .sensoryFeedback(.impact(flexibility: .rigid), trigger: vibrate)
+                
+            .buttonStyle(.borderedProminent)
+            .sensoryFeedback(.impact(flexibility: .rigid), trigger: vibrate)
+
             
-            Bird(imageID: sitting1, size: 200, positionX: -160, positionY: -70)
-            Bird(imageID: sitting2, size: 200, positionX: -90, positionY: -70)
-            Bird(imageID: sitting3, size: 200, positionX: -10, positionY: -65)
-            Bird(imageID: sitting4, size: 200, positionX: 160, positionY: -220)
-            Bird(imageID: sitting5, size: 200, positionX: 95, positionY: -205)
-            Bird(imageID: sitting6, size: 200, positionX: 30, positionY: -180)
-            Bird(imageID: sitting7, size: 200, positionX: 160, positionY: -220)
-            Bird(imageID: sitting8, size: 200, positionX: -160, positionY: -360)
+            
+            Bird(imageID: sitting1, positionX: -160, positionY: -70)
+            Bird(imageID: sitting2, positionX: -90, positionY: -70)
+            Bird(imageID: sitting3, positionX: -10, positionY: -65)
+            Bird(imageID: sitting4, positionX: 160, positionY: -220)
+            Bird(imageID: sitting5, positionX: 95, positionY: -205)
+            Bird(imageID: sitting6, positionX: 30, positionY: -180)
+            Bird(imageID: sitting7, positionX: -160, positionY: -360)
             
         }
         
     }
     
-    /*func randomBird() -> Int {
-        var birdNumber = Int.random(in: 1...8)
-    }*/
+    
+    
+    func flyRandomBird() {
+        let randomBird = Int.random(in: 1...8)
+        
+        if randomBird == 1 {
+            sitting1 = "StymphalianBirdFlying"
+
+        }
+        if randomBird == 2 {
+            sitting2 = "StymphalianBirdFlying"
+        }
+        if randomBird == 3 {
+            sitting3 = "StymphalianBirdFlying"
+        }
+        if randomBird == 4 {
+            sitting4 = "StymphalianBirdFlying"
+        }
+        if randomBird == 5 {
+            sitting5 = "StymphalianBirdFlying"
+        }
+        if randomBird == 6 {
+            sitting6 = "StymphalianBirdFlying"
+        }
+        if randomBird == 7{
+            sitting7 = "StymphalianBirdFlying"
+        }
+        
+    }
+    
     
     func playSound() {
-   
+        
         guard let soundURL = Bundle.main.url(forResource: "castanet", withExtension: ".m4a") else {
             print("no sound found")
             return
@@ -74,15 +118,15 @@ struct StymphalianView: View {
     }
 }
 
+
 struct Bird: View {
     var imageID: String
-    var size: CGFloat
     var positionX: CGFloat
     var positionY: CGFloat
     var body: some View {
         Image(imageID)
             .resizable()
-            .frame(width: size, height: size)
+            .frame(width: 200, height: 230)
             .offset(x:positionX, y:positionY)
     }
 }
@@ -123,6 +167,6 @@ extension View {
 
 
 
-/*#Preview {
+#Preview {
     StymphalianView()
-}*/
+}
