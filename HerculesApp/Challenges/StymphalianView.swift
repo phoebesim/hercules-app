@@ -53,9 +53,9 @@ struct StymphalianView: View {
         
     }
     
-    func randomBird() -> Int {
+    /*func randomBird() -> Int {
         var birdNumber = Int.random(in: 1...8)
-    }
+    }*/
     
     func playSound() {
    
