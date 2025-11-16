@@ -55,6 +55,7 @@ enum Direction: CaseIterable {
 
 
 struct AugeanView: View {
+    let lightRed = Color(red: 0.969, green: 0.667, blue: 0.584)
     @State private var grid: [[Pipe]] = [[
         Pipe(type: .end, rotation: 0),
         Pipe(type: .end, rotation: 180),
@@ -100,12 +101,14 @@ struct AugeanView: View {
                 ForEach(0..<4) { row in
                     HStack(spacing: 4) {
                         ForEach(0..<4) { col in
-                            PipeView(pipe: grid[row][col], isConnected: connectedPipes.contains(where: { $0.row == row && $0.col == col }))
-                                
-                                    
-                                .onTapGesture {
-                                    rotatePipe(row: row, col: col)
-                                }
+                            PipeView(
+                                pipe: grid[row][col],
+                                isConnected: connectedPipes.contains(where: { $0.row == row && $0.col == col }),
+                                backgroundColor: (row == 2 && col == 2) ? lightRed : .white
+                            )
+                            .onTapGesture {
+                                rotatePipe(row: row, col: col)
+                            }
                         }
                     }
                 }
@@ -115,17 +118,8 @@ struct AugeanView: View {
             .cornerRadius(10)
             
             if isComplete {
-                Color.white.opacity(0.85)
-                .ignoresSafeArea()
-                .transition(.opacity)
-                .zIndex(1)
-                    
-            Text("You won!!!")
-            .font(.system(size: 48, weight: .bold))
-            .foregroundColor(.black)
-            .transition(.scale)
-            .zIndex(2)
-                                }
+                WinView()
+            }
             
         }
     }
@@ -182,6 +176,7 @@ struct AugeanView: View {
 struct PipeView: View {
     let pipe: Pipe
     let isConnected: Bool
+    var backgroundColor: Color = .white
     var pipeShape: some Shape {
         switch pipe.type {
         case .straight:
@@ -199,7 +194,7 @@ struct PipeView: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 8)
-                .fill(isConnected ? Color.white: Color.white)
+                .fill(backgroundColor)
                 .frame(width: 70, height: 70)
             pipeShape
                 .stroke(isConnected ? Color.blue: Color.gray, lineWidth: 8)
@@ -272,3 +267,4 @@ struct AnyShape: Shape { //so the other pipes can return as the same type
 #Preview {
     AugeanView()
 }
+
