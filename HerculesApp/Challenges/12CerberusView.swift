@@ -32,7 +32,9 @@ struct CerberusView: View {
                 Image("Cerberus")
                     .resizable()
                     .frame(width: 250, height: 250)
-                
+                if progress == 100 {
+                    WinView()
+                }
                 
             }
             

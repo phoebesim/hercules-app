@@ -13,11 +13,11 @@ struct DeerView: View {
     @State private var message: String = ""
     @State private var gameOver = false
     
-    private let tolerance: CGFloat = 15
+    private let tolerance: CGFloat = 20
     
     //ADD: SLIDER TO CONTROL DIFFICULTY
-
-   
+    
+    
     var body: some View {
         
         ZStack{
@@ -45,7 +45,7 @@ struct DeerView: View {
                     .frame(width:200, height:200)
                     .brightness(-0.1)
                     .offset(x: xOffset, y: -10)
-                    
+                
                 
                 Spacer()
                 
@@ -53,9 +53,9 @@ struct DeerView: View {
                     .resizable()
                     .frame(width: 80, height: 80)
                     .foregroundStyle(.white)
-               
                 
-   
+                
+                
                 Button(action: checkIfAtCenter) {
                     
                     Text("Shoot!")
@@ -86,27 +86,17 @@ struct DeerView: View {
             .onAppear{
                 Timer.scheduledTimer(withTimeInterval:0.9, repeats: true) {_ in
                     withAnimation(.easeInOut(duration: 0.8) ) {
-                    xOffset = CGFloat.random(in: -200...200)
+                        xOffset = CGFloat.random(in: -200...200)
                     }
                 }
                 
             }
-        if gameOver {
-            Color.white.opacity(0.85)
-            .ignoresSafeArea()
-            .transition(.opacity)
-            .zIndex(1)
-                
-        Text("You won!!!")
-        .font(.system(size: 48, weight: .bold))
-        .foregroundColor(.black)
-        .transition(.scale)
-        .zIndex(2)
-                            }
-
-                
-                }
-                        
+            if gameOver {
+                WinView()
+            }
+            
+        }
+        
         
     }
     

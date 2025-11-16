@@ -9,6 +9,18 @@ import SwiftUI
 import AVFoundation
 
 struct StymphalianView: View {
+    
+    var allBirdsAreFlying: Bool {
+        sitting1 == "StymphalianBirdFlying" &&
+        sitting2 == "StymphalianBirdFlying" &&
+        sitting3 == "StymphalianBirdFlying" &&
+        sitting4 == "StymphalianBirdFlying" &&
+        sitting5 == "StymphalianBirdFlying" &&
+        sitting6 == "StymphalianBirdFlying" &&
+        sitting7 == "StymphalianBirdFlying"
+    }
+    
+    
     @State private var text = "shake"
     @State private var audioPlayer:AVAudioPlayer?
     @State private var count = 0
@@ -42,6 +54,10 @@ struct StymphalianView: View {
                     .foregroundStyle(.white)
                 Text("Flick your phone diagonally slowly!")
                     .foregroundStyle(.white)
+                
+                if allBirdsAreFlying {
+                    WinView()
+                }
             }
             .offset(y:120)
             

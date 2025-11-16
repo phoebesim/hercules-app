@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PathView: View {
+struct QuestView: View {
     
     @State private var showingPopover = false
     @State private var showingPopover1 = false
@@ -59,5 +59,5 @@ struct PathView: View {
 }
 
 #Preview {
-    PathView()
+    QuestView()
 }
