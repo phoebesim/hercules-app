@@ -37,7 +37,7 @@ struct BeforeStableView: View   {
             }
             
             Button("Continue") {
-                
+               AugeanView()
             }
             .padding()
             .background(Color.white)
