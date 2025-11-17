@@ -38,7 +38,7 @@ struct QuestView: View {
         }
             VStack {
                 Button{
-                  BeforelioninfoView()
+                  BeforeLionView()
                 }label: {
                     Image("Lion")
                         .resizable()
@@ -56,7 +56,7 @@ struct QuestView: View {
                     
                 }
                 Button{
-                 DeerView()
+                 BeforeHindView()
                 }label: {
                     Image("Deer")
                         .resizable()
@@ -74,7 +74,7 @@ struct QuestView: View {
                     
                 }
                 Button{
-                    
+                 BeforeStableView()
                 }label: {
                     Image("Stable")
                         .resizable()
