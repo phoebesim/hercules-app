@@ -9,16 +9,10 @@ import SwiftUI
 import Combine
 
 struct LionView: View {
-    
-@State private var arrowPosition: CGFloat = 50
-@State private var movingUp = true
-@State private var isShooting = false
-@State private var shotArrowOffset: CGFloat = 0
-@State private var shotSuccess = false
-    
-let timer = Timer.publish(every:0.05, on: .main, in: .common).autoconnect()
-    
-    let pillarHeight: CGFloat = 100
+    @State private var yOffset: CGFloat = 0
+    @State private var imagePosition: CGPoint? = nil
+    @State private var success: Bool = false
+ 
     
     var body: some View {
        
@@ -31,24 +25,26 @@ let timer = Timer.publish(every:0.05, on: .main, in: .common).autoconnect()
                     .font(.title)
                     .foregroundColor(.white)
                     .bold()
-                
-                Image("Lion")
-                    .resizable()
-                    .frame(width: 300, height:300)
-                
-                if shotSuccess && isShooting {
-                    Image("Pencil")
-                        .offset(y: -30)
-                        .frame(width: 200, height: 150)
-                }
-                
-                    
-                
-                
                 ZStack {
-                    Image("Pencil")
+                    Image("Lion")
                         .resizable()
-                        .frame(width: 200, height: 150)
+                        .frame(width: 300, height:300)
+                    
+                    if success == true {
+                        Image("Pencil")
+                            .resizable()
+                            .frame(width: 120, height: 120)
+                            .offset(x:0, y:100)
+                    }
+                }
+                ZStack {
+                    
+                    if success == false {
+                        Image("Pencil")
+                            .resizable()
+                            .frame(width: 200, height: 150)
+                        
+                    }
                         
                     
                     Image("Bow")
@@ -58,17 +54,38 @@ let timer = Timer.publish(every:0.05, on: .main, in: .common).autoconnect()
                 }
                 
     
-                
-                Button("Shoot!") {
+                HStack {
+                    Image("wall")
+                        .resizable()
+                        .frame(width: 60, height: 120)
+                        .offset(y: -50)
                     
+                    Image("arrow")
+                        .offset(y: yOffset)
+                        .onAppear {
+                            withAnimation(.easeInOut(duration: 0.3).repeatForever(autoreverses: true)) {
+                                yOffset = -100
+                            }
+                        }
+                    
+                    
+                    Button("Shoot!") {
+                    
+                        if yOffset == -100 {
+                        success = true
+                                
+                        } else {
+                            success = false
+                        }
+                    }
+                    .font(.title2)
+                    .padding(50)
+                    .background(Color.white)
+                    .foregroundColor(.black)
+                    .clipShape(Circle())
+                    .offset(x:0)
+                    .padding()
                 }
-                .font(.title2)
-                .padding(50)
-                .background(Color.white)
-                .foregroundColor(.black)
-                .clipShape(Circle())
-                .offset(x:0)
-                .padding()
             
                 
             }
