@@ -1,159 +1,107 @@
-//
-//  LionView.swift
-//  HerculesApp
-//
-//  Created by T Krobot on 14/11/25.
-//
-
 import SwiftUI
 import Combine
 
 struct LionView: View {
     @State private var yOffset: CGFloat = 0
     @State private var success: Bool = false
-    @State private var arrowYPosition: CGFloat = 150
-    @State private var arrowDirection: CGFloat = 1
-    @State private var isShooting = false
-    @State private var shotArrowXPosition: CGFloat = 120
-    @State private var shotArrowOpacity: Double = 0
     @State private var hasWon: Bool = false
-    
-    let timer = Timer.publish(every: 0.03, on: .main, in: .common).autoconnect()
-    let greenZoneRange: ClosedRange<CGFloat> = 50...150
-    let yellowZoneRange: ClosedRange<CGFloat> = 150...250
-    let redZoneRange: ClosedRange<CGFloat> = 250...350
-    
-    
+
     var body: some View {
-        GeometryReader { geometry in
-            ZStack{
-                Image("Grass")
-                
-                if hasWon {
-                    ZStack {
-                        Spacer()
-                        WinView()
-                        Spacer()
-                    }
-                }
-                VStack {
-                    Spacer()
-                    Text("Shoot the Nemean Lion!")
-                        .font(.title)
-                        .foregroundColor(.white)
-                        .bold()
-                    
-                    Image("Lion")
-                        .resizable()
-                        .frame(width: 300, height:300)
-                    
-                    ZStack {
-                        Image("Bow")
-                            .resizable()
-                            .frame(width: 250, height: 150)
-                            .padding()
-                        
-                        
-                        if !success {
-                            Image("Pencil")
-                                .resizable()
-                                .frame(width: 120, height: 220)
-                                .zIndex(1)
-                            
+        ZStack {
+            Image("Grass")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
+
+            VStack {
+                Text("Shoot the Nemean Lion!")
+                    .font(.title)
+                    .foregroundColor(.white)
+                    .bold()
+                    .padding(.top, 40)
+
+                Image("Lion")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 300, height: 300)
+
+                Spacer()
+
+                HStack(alignment: .center, spacing: 40) {
+
+                    // ------- LEFT SIDE: ZONES + MOVING ARROW -------
+                    ZStack(alignment: .top) {
+                        VStack(spacing: 0) {
+                            zone(color: .green, label: "GREEN")
+                            zone(color: .yellow, label: "YELLOW")
+                            zone(color: .red, label: "RED")
                         }
-                    }
-                    
-                    
-                    HStack(alignment: .bottom, spacing: 0){
-                        VStack (spacing:0) {
-                            
-                            
-                            ZStack {
-                                Rectangle()
-                                    .fill(Color.green)
-                                    .frame(width: 60, height: 100)
-                                    .border(Color.green.opacity(0.7), width: 3)
-                                Text("GREEN")
-                                    .font(.caption)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.white)
-                            }
-                            ZStack {
-                                Rectangle()
-                                    .fill(Color.yellow)
-                                    .frame(width: 60, height: 100)
-                                    .border(Color.yellow.opacity(0.7), width: 3)
-                                Text("YELLOW")
-                                    .font(.caption)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.black)
-                            }
-                            ZStack {
-                                Rectangle()
-                                    .fill(Color.red)
-                                    .frame(width: 60, height: 100)
-                                    .border(Color.red.opacity(0.7), width: 3)
-                                Text("RED")
-                                    .font(.caption)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.white)
-                            }
-                        }
-                        
-                        
+                        .frame(width: 80, height: 300)
+
                         Image(systemName: "arrowshape.left.fill")
+                            .foregroundColor(.white)
                             .offset(y: yOffset)
-                            .foregroundStyle(.white)
-                            .onAppear {
-                                withAnimation(.easeInOut(duration: 0.3).repeatForever(autoreverses: true)) {
-                                    yOffset = -100
-                                }
-                            }
-                        if shotArrowOpacity > 0 {
-                            VStack {
-                                Spacer()
-                                HStack {
-                                    Spacer()
-                                    
-                                    Image("Pencil")
-                                        .resizable()
-                                        .frame(width: 120, height:220)
-                                        .offset(x: shotArrowXPosition - geometry.size.width + 200)
-                                        .opacity(shotArrowOpacity)
-                                    
-                                }
+                            .padding(.leading, 100)
+                    }
+                    .onAppear {
+                        withAnimation(.easeInOut(duration: 0.5).repeatForever(autoreverses: true)) {yOffset = 300
+                        }
+                    }
+
+                    // ------- RIGHT SIDE: BOW + SHOOT BUTTON -------
+                    VStack(spacing: 20) {
+                        ZStack {
+                            Image("Bow")
+                                .resizable()
+                                .frame(width: 250, height: 150)
+
+                            if !success {
+                                Image("Pencil")
+                                    .resizable()
+                                    .frame(width: 80, height: 200)
                             }
                         }
-                        
-                        
-                        Button("Shoot!") {
-                            
-                            if yOffset == -100 {
+
+                        Button {
+                            if yOffset > -109 && yOffset < -301 {
                                 success = true
-                                
                             } else {
                                 success = false
                             }
+                        } label: {
+                            ZStack {
+                                Circle()
+                                    .foregroundStyle(.white)
+                                    Text("Shoot!")
+                                    .font(.title2)
+                                    .bold()
+                                    .padding()
+                                    .background(.white)
+                                    .foregroundColor(.black)
+        
+                                    .frame(width: 150, height: 150)
+                            }
                         }
-                        .font(.title2)
-                        .padding(50)
-                        .background(Color.white)
-                        .foregroundColor(.black)
-                        .clipShape(Circle())
-                        .offset(x:0)
-                        
                     }
-                    
-                    Spacer()
                 }
-                .padding(.trailing, 50)
-                
-                Spacer()
-                    .frame(height: 200)
-                
-                Spacer()
-                
+                .padding(.bottom, 50)
             }
+
+            if hasWon {
+                WinView()
+            }
+        }
+    }
+
+    // MARK: - Zone helper
+    func zone(color: Color, label: String) -> some View {
+        ZStack {
+            Rectangle()
+                .fill(color)
+            Text(label)
+                .font(.caption)
+                .fontWeight(.bold)
+                .foregroundColor(color == .yellow ? .black : .white)
         }
     }
 }

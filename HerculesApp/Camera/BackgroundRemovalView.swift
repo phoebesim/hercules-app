@@ -8,6 +8,9 @@ struct BackgroundRemovalView: View {
     @State private var processedImage: UIImage?
     @State private var showingCamera = false
     
+    var onDone: (UIImage?) -> Void
+    
+    
     // Create a shared CIContext instance once for efficiency
     private let ciContext = CIContext()
     
@@ -18,12 +21,13 @@ struct BackgroundRemovalView: View {
                     .resizable()
                     .scaledToFit()
                     .padding()
+               //     .rotationEffect(Angle(degrees: 90))
             } else {
                 Text("Tap the button to take a photo.")
                     .font(.headline)
                     .padding()
             }
-
+            
             Button("Take Photo & Remove Background") {
                 // Check if camera is available before presenting
                 if UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -53,6 +57,7 @@ struct BackgroundRemovalView: View {
                 
                 await MainActor.run {
                     self.processedImage = convertToUIImage(ciImage: outputImage)
+                    onDone(self.processedImage)
                 }
             }
         }
@@ -94,7 +99,7 @@ struct BackgroundRemovalView: View {
         guard let outputImage = filter.outputImage else { return inputImage }
         return outputImage
     }
-
+    
     
     private func convertToUIImage(ciImage: CIImage) -> UIImage? {
         guard let cgImage = ciContext.createCGImage(ciImage, from: ciImage.extent) else {
@@ -105,5 +110,7 @@ struct BackgroundRemovalView: View {
 }
 
 #Preview {
-    BackgroundRemovalView()
+    BackgroundRemovalView { finalImage in
+        print("done", finalImage != nil)
+    }
 }

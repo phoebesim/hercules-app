@@ -1,14 +1,8 @@
-//
-//  AftlionView.swift
-//  HerculesApp
-//
-//  Created by T Krobot on 14/11/25.
-//
 
 import SwiftUI
 
-struct AftlionView: View {
-    let textToType = "The Nemean lion’s fur could not be penetrated by arrows, but thanks to your quick thinking, you used a club to stun it, then strangled it!"
+struct AftHindView: View   {
+    let textToType = "After a year of searching, you finally captured the hind with a net while it was asleep. But you immediately realised you had messed up: the hind was a sacred animal to the fierce goddess Artemis! Luckily for you, you met her and on your way back to King Eurystheus. You begged her for forgiveness. After listening to your explanation, she forgave you on the condition you would return the hind to the wild. Just before the King could grab it from your hands, you let go of the hind and it dashed back to the wild!"
     
     @State private var animatedText: String = ""
     
@@ -31,14 +25,16 @@ struct AftlionView: View {
                     .multilineTextAlignment(.center)
                     .frame(maxWidth: .infinity)
                     .padding(50)
+                
+                Spacer()
             }
             .onAppear {
                 animateText()
+                
             }
             
-
-            
             Button("Continue") {
+                
             }
             .padding()
             .background(Color.white)
@@ -46,6 +42,7 @@ struct AftlionView: View {
             .offset(x:0, y: 300)
             .padding()
             .foregroundColor(.black)
+            
         }
         
         .padding()
@@ -63,5 +60,6 @@ struct AftlionView: View {
 }
 
 #Preview {
-    AftlionView()
+    AftHindView()
 }
+

@@ -1,13 +1,14 @@
 //
-//  BeforehindView.swift
+//  BeforelioninfoView.swift
 //  HerculesApp
 //
-//  Created by T Krobot on 14/11/25.
+//  Created by T Krobot on 10/11/25.
 //
+
 import SwiftUI
 
-struct BeforehindView: View   {
-    let textToType = "Your third labour: to capture the Ceryneian Hind and deliver it to the King alive. It can outpace even the best arrows and is only visible by a glint of moonlight on its antlers."
+struct BeforeLionView: View {
+    let textToType = "Your first labour: to kill the Nemean lion. If you kill the lion in 30 days, it will be sacrificed to your father, Zeus. If not, a boy will be sacrificed to Zeus."
     
     @State private var animatedText: String = ""
     
@@ -37,7 +38,6 @@ struct BeforehindView: View   {
             }
             
             Button("Continue") {
-                
             }
             .padding()
             .background(Color.white)
@@ -45,7 +45,6 @@ struct BeforehindView: View   {
             .offset(x:0, y: 300)
             .padding()
             .foregroundColor(.black)
-            
         }
         
         .padding()
@@ -63,6 +62,5 @@ struct BeforehindView: View   {
 }
 
 #Preview {
-    BeforehindView()
+    BeforeLionView()
 }
-

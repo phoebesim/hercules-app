@@ -1,13 +1,13 @@
 //
-//  StableView.swift
+//  AftcattleView.swift
 //  HerculesApp
 //
 //  Created by T Krobot on 14/11/25.
 //
 import SwiftUI
 
-struct StableView: View   {
-    let textToType = "Your fifth labour: to clean the stables of King Augeas. The divine livestock in it are immortal, and it has not been cleaned in over 30 years, leading to a huge pileup of dung!"
+struct AftCattleView: View   {
+    let textToType = "On your way back home after stealing the cattle, Hera sent a gadfly to bite the cattle and scatter them! You finally retrieved them after a year. Then, Hera sent a flood that raised the level of the river so high that you could not cross over it. Using your Athena-gifted wits, you pile stones in the river to make it shallower. When you finally reach the court of Eurystheus, the cattle are sacrificed to Hera."
     
     @State private var animatedText: String = ""
     
@@ -63,6 +63,6 @@ struct StableView: View   {
 }
 
 #Preview {
-    StableView()
+    AftCattleView()
 }
 
