@@ -62,5 +62,5 @@ struct BeforeLionView: View {
 }
 
 #Preview {
-    BeforelioninfoView()
+    BeforeLionView()
 }

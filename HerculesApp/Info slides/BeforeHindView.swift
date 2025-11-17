@@ -63,6 +63,6 @@ struct BeforeHindView: View   {
 }
 
 #Preview {
-    BeforehindView()
+    BeforeHindView()
 }
 

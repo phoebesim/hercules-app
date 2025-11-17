@@ -63,5 +63,5 @@ struct AftLionView: View {
 }
 
 #Preview {
-    AftlionView()
+    AftLionView()
 }

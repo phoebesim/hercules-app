@@ -63,6 +63,6 @@ struct AftCattleView: View   {
 }
 
 #Preview {
-    AftcattleView()
+    AftCattleView()
 }
 

@@ -60,6 +60,6 @@ struct AftHindView: View   {
 }
 
 #Preview {
-    AfthindView()
+    AftHindView()
 }
 

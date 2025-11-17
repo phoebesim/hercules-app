@@ -63,6 +63,6 @@ struct BeforeStableView: View   {
 }
 
 #Preview {
-    StableView()
+    AftStableView()
 }
 
