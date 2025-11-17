@@ -49,6 +49,10 @@ struct DeerView: View {
                 
                 Spacer()
                 
+                Image(.net)
+                    .resizable()
+                
+                
                 Image(systemName: "arrowshape.up.fill")
                     .resizable()
                     .frame(width: 80, height: 80)
@@ -78,11 +82,6 @@ struct DeerView: View {
                 
                 Spacer()
             }
-            
-            
-            
-            
-            
             .onAppear{
                 Timer.scheduledTimer(withTimeInterval:0.9, repeats: true) {_ in
                     withAnimation(.easeInOut(duration: 0.8) ) {

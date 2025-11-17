@@ -48,16 +48,17 @@ struct StymphalianView: View {
                     .frame(width: 300, height: 300)
                     .rotationEffect(.degrees(130))
                     .offset(y: 290)
+            if allBirdsAreFlying {
+                WinView()
+            }
             
             HStack {
                 Image(systemName: "iphone.gen3.radiowaves.left.and.right")
                     .foregroundStyle(.white)
-                Text("Flick your phone diagonally slowly!")
+                Text("Hold your phone sideways\nand flick it like a handbell!")
                     .foregroundStyle(.white)
                 
-                if allBirdsAreFlying {
-                    WinView()
-                }
+               
             }
             .offset(y:120)
             
@@ -65,7 +66,6 @@ struct StymphalianView: View {
                 .onShake {
                     playSound()
                     vibrate.toggle()
-                    count += 1
                     flyRandomBird()
                 }
                 
@@ -89,7 +89,7 @@ struct StymphalianView: View {
     
     
     func flyRandomBird() {
-        let randomBird = Int.random(in: 1...8)
+        let randomBird = Int.random(in: 1...7)
         
         if randomBird == 1 {
             sitting1 = "StymphalianBirdFlying"

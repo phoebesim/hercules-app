@@ -18,7 +18,7 @@ struct LionView: View {
        
         ZStack{
             Image("Grass")
-                .brightness(-0.2)
+
             
             VStack {
                 Text("Shoot the Nemean Lion!")
@@ -30,28 +30,29 @@ struct LionView: View {
                         .resizable()
                         .frame(width: 300, height:300)
                     
-                    if success == true {
-                        Image("Pencil")
+                    if success {
+                        Image(.arrowCutout)
                             .resizable()
                             .frame(width: 120, height: 120)
                             .offset(x:0, y:100)
+                            .zIndex(1)
                     }
                 }
                 ZStack {
-                    
-                    if success == false {
-                        Image("Pencil")
-                            .resizable()
-                            .frame(width: 200, height: 150)
-                        
-                    }
-                        
-                    
                     Image("Bow")
                         .resizable()
                         .frame(width: 250, height: 150)
                         .padding()
-                }
+
+                    
+                    if !success {
+                        Image(.arrowCutout)
+                            .resizable()
+                            .frame(width: 120, height: 220)
+                            .zIndex(1)
+                        
+                    }
+                                    }
                 
     
                 HStack {
@@ -60,8 +61,9 @@ struct LionView: View {
                         .frame(width: 60, height: 120)
                         .offset(y: -50)
                     
-                    Image("arrow")
+                    Image(systemName: "arrowshape.left.fill")
                         .offset(y: yOffset)
+                        .foregroundStyle(.white)
                         .onAppear {
                             withAnimation(.easeInOut(duration: 0.3).repeatForever(autoreverses: true)) {
                                 yOffset = -100

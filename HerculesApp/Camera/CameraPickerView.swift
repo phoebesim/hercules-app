@@ -10,6 +10,7 @@ struct CameraPicker: UIViewControllerRepresentable {
         // Use the camera if available, otherwise use the photo library for the simulator
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             picker.sourceType = .camera
+            
         } else {
             picker.sourceType = .photoLibrary
         }
