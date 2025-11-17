@@ -18,6 +18,7 @@ struct BackgroundRemovalView: View {
                     .resizable()
                     .scaledToFit()
                     .padding()
+                    .rotationEffect(Angle(degrees: 90))
             } else {
                 Text("Tap the button to take a photo.")
                     .font(.headline)

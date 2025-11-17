@@ -49,8 +49,15 @@ struct DeerView: View {
                 
                 Spacer()
                 
-                Image(.net)
-                    .resizable()
+                ZStack {
+                    
+                    Image(.net)
+                        .resizable()
+                        .frame(width:115, height:170)
+                    Button("Get your weapon!"){
+                        BackgroundRemovalView()
+                    }
+                }
                 
                 
                 Image(systemName: "arrowshape.up.fill")
