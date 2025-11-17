@@ -15,7 +15,6 @@ private struct FramePreferenceKey: PreferenceKey {
     }
 }
 
-
 struct AmazonView: View {
     
     @State private var xOffset: CGFloat = 0.0
@@ -37,6 +36,8 @@ struct AmazonView: View {
             
             VStack {
                 ZStack {
+                    
+                    
                     HStack {
                         
                         Image("Amazon")
@@ -98,7 +99,6 @@ struct AmazonView: View {
                                 
                             )
                     }
-                    
                     Image("Stickmanbelt")
                         .resizable()
                         .brightness(0.2)
@@ -113,9 +113,32 @@ struct AmazonView: View {
                         )
                     
                     if isGameOver == true {
-                        Text("Game over")
-                            .font(.largeTitle)
-                            .foregroundColor(.red)
+                        ZStack {
+                            
+                            Color.white.opacity(0.85)
+                                .ignoresSafeArea()
+                                .transition(.opacity)
+                                .zIndex(1)
+                            
+                            Text("Game over")
+                                .font(.system(size: 48, weight: .bold))
+                                .foregroundColor(.red)
+                                .transition(.scale)
+                                .zIndex(2)
+                            
+                            Button("Restart"){
+                             restartGame()
+                            }
+                            .padding()
+                            .foregroundColor(.black)
+                            .background(Color.blue)
+                            .cornerRadius(10)
+                            .bold()
+                            .font(.title3)
+                            .offset(x:0, y:300)
+                            .zIndex(2)
+                            
+                        }
                         
                     }
                     
@@ -132,8 +155,10 @@ struct AmazonView: View {
                 
                 HStack{
                     Spacer()
-                    Button("Left"){
+                    Button {
                         xOffset -= 130
+                    } label: {
+                        Image(systemName: "arrowshape.left.fill")
                     }
                     .padding()
                     .foregroundColor(.black)
@@ -142,8 +167,10 @@ struct AmazonView: View {
                     
                     Spacer()
                         
-                        Button("Right") {
+                        Button {
                             xOffset += 130
+                        } label: {
+                            Image(systemName: "arrowshape.right.fill")
                         }
                         .padding()
                         .foregroundColor(.black)
@@ -166,21 +193,35 @@ struct AmazonView: View {
         }
     }
     
+    func restartGame() {
+        isGameOver = false
+        timeRemaining = 20
+        
+        Offsety = -1000
+        OffsetY = -1000
+        offsety = -1000
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            withAnimation(.linear(duration: 2 ).repeatForever(autoreverses: false)) {
+                OffsetY = 600
+            }
+            withAnimation(.linear(duration: 3).repeatForever(autoreverses: false)) {
+                        offsety = 600
+                    }
+                    withAnimation(.linear(duration: 6).repeatForever(autoreverses: false)) {
+                        Offsety = 600
+                    }
+
+        }
+    }
+    
     func checkCollision() {
+        
+        guard !isGameOver else {return}
         if enemy1Frame.intersects(StickmanFrame) ||
         enemy2Frame.intersects(StickmanFrame) ||
             enemy3Frame.intersects(StickmanFrame) {
-            
-            if !isGameOver {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                    if enemy1Frame.intersects(self.StickmanFrame) ||
-                        enemy2Frame.intersects(self.StickmanFrame) ||
-                        enemy3Frame.intersects(self.StickmanFrame) {
-                        
-                        isGameOver = true
-                    }
-                }
-            }
+            isGameOver = true
         }
     }
 }
