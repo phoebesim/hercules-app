@@ -55,7 +55,7 @@ struct StymphalianView: View {
             HStack {
                 Image(systemName: "iphone.gen3.radiowaves.left.and.right")
                     .foregroundStyle(.white)
-                Text("Hold your phone sideways and flick it like a handbell!")
+                Text("Hold your phone sideways\nand flick it like a handbell!")
                     .foregroundStyle(.white)
                 
                

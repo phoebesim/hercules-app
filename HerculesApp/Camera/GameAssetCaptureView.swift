@@ -20,6 +20,7 @@ struct GameAssetCaptureView: View {
                     .scaledToFit()
                     .frame(width: 150, height: 150)
                     .ignoresSafeArea()
+                    .rotationEffect(Angle(degrees: 90))
                 
                 Text("Asset Captured!")
                     .padding(.top)
