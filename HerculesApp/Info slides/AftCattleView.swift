@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-struct AftcattleView: View   {
+struct AftCattleView: View   {
     let textToType = "On your way back home after stealing the cattle, Hera sent a gadfly to bite the cattle and scatter them! You finally retrieved them after a year. Then, Hera sent a flood that raised the level of the river so high that you could not cross over it. Using your Athena-gifted wits, you pile stones in the river to make it shallower. When you finally reach the court of Eurystheus, the cattle are sacrificed to Hera."
     
     @State private var animatedText: String = ""
