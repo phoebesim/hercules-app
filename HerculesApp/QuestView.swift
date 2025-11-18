@@ -32,7 +32,7 @@ struct QuestView: View {
         .cornerRadius(10)
         .offset(x: -120, y: -370)
         .popover(isPresented: $showingPopover) {
-            Text("Instructions: Scan different items based on the requirements! Press ? for more information about the game. Complete all 12 labours to win!")
+            Text("Instructions: Scan different items based on the requirements! Complete all 12 labours to win!")
                 .font(.headline)
                 .padding()
         }

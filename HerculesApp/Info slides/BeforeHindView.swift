@@ -37,7 +37,7 @@ struct BeforeHindView: View   {
             }
             
             Button("Continue") {
-                
+                DeerView()
             }
             .padding()
             .background(Color.white)

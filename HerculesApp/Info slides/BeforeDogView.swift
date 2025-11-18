@@ -1,14 +1,13 @@
 //
-//  BeforelioninfoView.swift
+//  DogView.swift
 //  HerculesApp
 //
-//  Created by T Krobot on 10/11/25.
+//  Created by T Krobot on 17/11/25.
 //
-
 import SwiftUI
 
-struct BeforeLionView: View {
-    let textToType = "Your first labour: to kill the Nemean lion. If you kill the lion in 30 days, it will be sacrificed to your father, Zeus. If not, a boy will be sacrificed to Zeus."
+struct BeforeDogView: View   {
+    let textToType = "Your fifth labour: to clean the stables of King Augeas. The divine livestock in it are immortal, and it has not been cleaned in over 30 years, leading to a huge pileup of dung!"
     
     @State private var animatedText: String = ""
     
@@ -38,7 +37,7 @@ struct BeforeLionView: View {
             }
             
             Button("Continue") {
-                LionView()
+               CerberusView()
             }
             .padding()
             .background(Color.white)
@@ -46,6 +45,7 @@ struct BeforeLionView: View {
             .offset(x:0, y: 300)
             .padding()
             .foregroundColor(.black)
+            
         }
         
         .padding()
@@ -63,5 +63,7 @@ struct BeforeLionView: View {
 }
 
 #Preview {
-    BeforeLionView()
+    BeforeDogView()
 }
+
+

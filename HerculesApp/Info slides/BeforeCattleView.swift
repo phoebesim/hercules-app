@@ -37,7 +37,7 @@ struct CattleView: View   {
             }
             
             Button("Continue") {
-                
+               GeryonView()
             }
             .padding()
             .background(Color.white)
