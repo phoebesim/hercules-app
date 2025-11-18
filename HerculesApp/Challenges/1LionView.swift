@@ -5,6 +5,7 @@ struct LionView: View {
     @State private var yOffset: CGFloat = 0
     @State private var success: Bool = false
     @State private var hasWon: Bool = false
+    @State private var buttonPressed: Bool = false
 
     var body: some View {
         ZStack {
@@ -43,10 +44,13 @@ struct LionView: View {
                             .offset(y: yOffset)
                             .padding(.leading, 100)
                     }
+                    
                     .onAppear {
                         withAnimation(.easeInOut(duration: 0.5).repeatForever(autoreverses: true)) {yOffset = 300
                         }
                     }
+                    
+      
 
                     // ------- RIGHT SIDE: BOW + SHOOT BUTTON -------
                     VStack(spacing: 20) {
@@ -63,7 +67,9 @@ struct LionView: View {
                         }
 
                         Button {
-                            if yOffset > -109 && yOffset < -301 {
+                            buttonPressed = true
+                            
+                            if yOffset > -109 && yOffset < 301 {
                                 success = true
                             } else {
                                 success = false

@@ -12,6 +12,7 @@ struct QuestView: View {
     @State private var showingPopover = false
     @State private var showingPopover1 = false
     
+    
     var body: some View {
         ZStack {
             Image("Grass") // The image at the bottom
