@@ -11,7 +11,7 @@ import SwiftUI
 struct HerculesAppApp: App {
     var body: some Scene {
         WindowGroup {
-            DeerView()
+            CerberusView()
         }
     }
 }
