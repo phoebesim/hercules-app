@@ -15,6 +15,9 @@ struct CerberusView: View {
     var body: some View {
         ZStack {
             Image("Grass")
+            if progress == 100 {
+                WinView()
+            }
             VStack (spacing: 50) {
                 HStack {
                     Image(systemName: "figure.walk")
@@ -32,9 +35,9 @@ struct CerberusView: View {
                 Image("Cerberus")
                     .resizable()
                     .frame(width: 250, height: 250)
-                if progress == 100 {
-                    WinView()
-                }
+            
+               
+                
                 
             }
             
