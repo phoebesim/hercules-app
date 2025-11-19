@@ -25,10 +25,9 @@ struct WinView: View {
                     } label: {
                         Text("Continue")
                     }
+                    .buttonStyle(.borderedProminent)
                     .foregroundStyle(.black)
-                    .tint(.gray)
-                    .cornerRadius(2)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+                    .background(.white)
                 }
             }
         }
