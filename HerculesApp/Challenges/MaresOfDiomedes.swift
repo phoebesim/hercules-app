@@ -310,8 +310,9 @@ struct GameOverView: View {
     var body: some View {
         ZStack {
             Color(UIColor.systemBackground)
-                .opacity(0.9)
-                .ignoresSafeArea()
+            .opacity(0.9)
+            .ignoresSafeArea()
+            }
 
             VStack(spacing: 20) {
                 Text(title)
@@ -333,7 +334,7 @@ struct GameOverView: View {
             .padding(40)
         }
     }
-}
+
 
 // Game states
 enum GameState {

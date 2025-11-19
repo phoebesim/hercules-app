@@ -11,7 +11,14 @@ import SwiftUI
 struct HerculesAppApp: App {
     var body: some Scene {
         WindowGroup {
-            BackgroundRemovalView()        }
+            //<<<<<<< HEAD
+            //BackgroundRemovalView()        }
+            //=======
+            CerberusView()
+        }
+        //>>>>>>> main
     }
+    
+    
+    
 }
-

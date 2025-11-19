@@ -32,7 +32,7 @@ struct HomeView: View   {
             .background(Color.white)
             .foregroundColor(.black)
             .cornerRadius(15)
-            .shadow(color: .black, radius: 5, x: 0, y: 5)
+          
             
             
             
