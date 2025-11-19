@@ -11,8 +11,7 @@ import SwiftUI
 struct HerculesAppApp: App {
     var body: some Scene {
         WindowGroup {
-            BackgroundRemovalView()
-        }
+            BackgroundRemovalView()        }
     }
 }
 
