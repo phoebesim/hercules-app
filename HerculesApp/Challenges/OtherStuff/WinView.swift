@@ -28,7 +28,7 @@ struct WinView: View {
                     .foregroundStyle(.black)
                     .background(.gray)
                     .padding()
-                    .buttonSizing(<#T##sizing: ButtonSizing##ButtonSizing#>)
+               //     .buttonSizing(<#T##sizing: ButtonSizing##ButtonSizing#>)
                 }
             }
         }
