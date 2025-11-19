@@ -25,9 +25,10 @@ struct WinView: View {
                     } label: {
                         Text("Continue")
                     }
-                    .buttonStyle(.borderedProminent)
                     .foregroundStyle(.black)
-                    .tint(.gray)
+                    .background(.gray)
+                    .padding()
+                    .buttonSizing(<#T##sizing: ButtonSizing##ButtonSizing#>)
                 }
             }
         }
