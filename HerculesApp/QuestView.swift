@@ -9,6 +9,8 @@ struct QuestView: View {
         VStack {
             Image("hera")
         }
+        
+        
     }
 }
 
