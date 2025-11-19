@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WinView: View {
-    @Binding var nextInfoView: any View
+    @Binding var nextInfoView: AnyView
     var body: some View {
         NavigationStack {
             ZStack {
@@ -20,13 +20,14 @@ struct WinView: View {
                         .font(.system(size: 48, weight: .bold))
                         .foregroundColor(.black)
                         .transition(.scale)
-           /*         NavigationLink {
-                        AnyView(nextInfoView)
+                    NavigationLink {
+                        nextInfoView
                     } label: {
                         Text("Continue")
                     }
                     .buttonStyle(.borderedProminent)
-                    .background*/
+                    .foregroundStyle(.black)
+                    .tint(.gray)
                 }
             }
         }
