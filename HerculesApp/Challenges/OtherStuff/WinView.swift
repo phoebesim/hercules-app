@@ -26,9 +26,9 @@ struct WinView: View {
                         Text("Continue")
                     }
                     .foregroundStyle(.black)
-                    .background(.gray)
-                    .padding()
-               //     .buttonSizing(<#T##sizing: ButtonSizing##ButtonSizing#>)
+                    .tint(.gray)
+                    .cornerRadius(2)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
                 }
             }
         }
