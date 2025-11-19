@@ -20,6 +20,8 @@ struct WinView: View {
                         .font(.system(size: 48, weight: .bold))
                         .foregroundColor(.black)
                         .transition(.scale)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                    
                     NavigationLink {
                         nextInfoView
                     } label: {
@@ -30,6 +32,7 @@ struct WinView: View {
                     .tint(.gray)
                     .clipShape(RoundedRectangle(cornerRadius: 2.0))
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+                    .controlSize(.large)
                     
                 }
             }
