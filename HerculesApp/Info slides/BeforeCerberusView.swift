@@ -35,11 +35,11 @@ struct BeforeCerberusView: View   {
                 }
             
             Button("Continue") {
-<<<<<<< HEAD:HerculesApp/Info slides/BeforeCerberusView.swift
+
                 CerberusView()
-=======
+
                goNext = true
->>>>>>> main:HerculesApp/Info slides/BeforeStableView.swift
+
             }
             .padding()
             .background(Color.white)

@@ -38,11 +38,10 @@ struct BeforeAugeanView: View   {
             }
             
             Button("Continue") {
-<<<<<<< HEAD:HerculesApp/Info slides/BeforeAugeanView.swift
+
                AugeanView()
-=======
                 goNext = true
->>>>>>> main:HerculesApp/Info slides/BeforeDogView.swift
+
             }
             .padding()
             .background(Color.white)
