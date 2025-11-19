@@ -10,6 +10,7 @@ struct CattleView: View   {
     let textToType = "Your tenth labour: to steal the prized cattle of the giant Geryon, who has three bodies. On the way, you received a golden cup from the sun god Helios as he was impressed with your audacity to shoot at the Sun. You killed Orthus the two-headed dog and Eurytion the herdsman as well."
     
     @State private var animatedText: String = ""
+    @State private var goNext = false
     
     var body: some View {
         
@@ -37,7 +38,7 @@ struct CattleView: View   {
             }
             
             Button("Continue") {
-               GeryonView()
+               goNext = true
             }
             .padding()
             .background(Color.white)
@@ -49,6 +50,10 @@ struct CattleView: View   {
         }
         
         .padding()
+        .navigationDestination(isPresented: $goNext) {
+            GeryonView()
+        }
+        
     }
     
     func animateText() {

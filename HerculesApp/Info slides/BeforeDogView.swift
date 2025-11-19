@@ -10,6 +10,7 @@ struct BeforeDogView: View   {
     let textToType = "Your fifth labour: to clean the stables of King Augeas. The divine livestock in it are immortal, and it has not been cleaned in over 30 years, leading to a huge pileup of dung!"
     
     @State private var animatedText: String = ""
+    @State private var goNext = false
     
     var body: some View {
         
@@ -37,18 +38,20 @@ struct BeforeDogView: View   {
             }
             
             Button("Continue") {
-               CerberusView()
+                goNext = true
             }
             .padding()
             .background(Color.white)
             .cornerRadius(15)
-            .offset(x:0, y: 300)
-            .padding()
+            .offset(x: 0, y: 300)
             .foregroundColor(.black)
             
         }
         
         .padding()
+        .navigationDestination(isPresented: $goNext) {
+            CerberusView()
+        }
     }
     
     func animateText() {
