@@ -1,14 +1,13 @@
 //
-//  AftlionView.swift
+//  AftBirdView.swift
 //  HerculesApp
 //
-//  Created by T Krobot on 14/11/25.
+//  Created by T Krobot on 17/11/25.
 //
-
 import SwiftUI
 
-struct AftLionView: View {
-    let textToType = "The Nemean lion’s fur could not be penetrated by arrows, but thanks to your quick thinking, you used a club to stun it, then strangled it!"
+struct AftStymphalianView: View   {
+    let textToType = "As soon as you scared the birds into the air, you shot the birds down with arrows and completed the labour."
     
     @State private var animatedText: String = ""
     
@@ -31,10 +30,11 @@ struct AftLionView: View {
                 .padding(50)
                 .onAppear {
                     animateText()
+                    
                 }
             
             Button("Continue") {
-                DeerView()
+                CerberusView()
             }
             .padding()
             .background(Color.white)
@@ -60,5 +60,5 @@ struct AftLionView: View {
 }
 
 #Preview {
-    AftLionView()
+    AftStymphalianView()
 }

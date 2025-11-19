@@ -49,7 +49,7 @@ struct StymphalianView: View {
                     .rotationEffect(.degrees(130))
                     .offset(y: 290)
             if allBirdsAreFlying {
-                WinView()
+                WinView(nextInfoView: .constant(AnyView(AftStymphalianView())))
             }
             
             HStack {

@@ -75,7 +75,7 @@ struct GeryonView: View {
                     step = 300
                 }
                 if step == 10 {
-                    //you win!! add this later
+                    WinView(nextInfoView: .constant(AnyView(AftGeryonView())))
                 }
             }
             .buttonStyle(.borderedProminent)

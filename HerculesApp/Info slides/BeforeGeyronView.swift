@@ -1,19 +1,20 @@
 //
-//  BeforehindView.swift
+//  CattleView.swift
 //  HerculesApp
 //
 //  Created by T Krobot on 14/11/25.
 //
 import SwiftUI
 
-struct BeforeHindView: View   {
-    let textToType = "Your third labour: to capture the Ceryneian Hind and deliver it to the King alive. It can outpace even the best arrows and is only visible by a glint of moonlight on its antlers."
+struct BeforeGeryonView: View   {
+    let textToType = "Your tenth labour: to steal the prized cattle of the giant Geryon, who has three bodies. On the way, you received a golden cup from the sun god Helios as he was impressed with your audacity to shoot at the Sun. You killed Orthus the two-headed dog and Eurytion the herdsman as well."
     
     @State private var animatedText: String = ""
-    @State private var goNext = false   // controls navigation
-    
+    @State private var goNext = false
     
     var body: some View {
+        
+        
         ZStack {
             Image("Hercules")
                 .resizable()
@@ -34,25 +35,25 @@ struct BeforeHindView: View   {
             .onAppear {
                 animateText()
                 
-            
-                
             }
             
             Button("Continue") {
-                goNext = true
+               goNext = true
             }
             .padding()
             .background(Color.white)
             .cornerRadius(15)
-            .offset(x: 0, y: 300)
+            .offset(x:0, y: 300)
+            .padding()
             .foregroundColor(.black)
+            
         }
         
         .padding()
-        
         .navigationDestination(isPresented: $goNext) {
-            DeerView()
+            GeryonView()
         }
+        
     }
     
     func animateText() {
@@ -67,6 +68,5 @@ struct BeforeHindView: View   {
 }
 
 #Preview {
-    BeforeHindView()
+    BeforeGeryonView()
 }
-

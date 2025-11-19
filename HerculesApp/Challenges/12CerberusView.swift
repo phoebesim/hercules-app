@@ -16,7 +16,7 @@ struct CerberusView: View {
         ZStack {
             Image("Grass")
             if progress == 100 {
-                WinView()
+                WinView(nextInfoView: .constant(AnyView(AftCerberusView())))
             }
             VStack (spacing: 50) {
                 HStack {

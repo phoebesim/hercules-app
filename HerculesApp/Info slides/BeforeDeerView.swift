@@ -1,20 +1,19 @@
 //
-//  DogView.swift
+//  BeforehindView.swift
 //  HerculesApp
 //
-//  Created by T Krobot on 17/11/25.
+//  Created by T Krobot on 14/11/25.
 //
 import SwiftUI
 
-struct BeforeDogView: View   {
-    let textToType = "Your fifth labour: to clean the stables of King Augeas. The divine livestock in it are immortal, and it has not been cleaned in over 30 years, leading to a huge pileup of dung!"
+struct BeforeDeerView: View   {
+    let textToType = "Your third labour: to capture the Ceryneian Hind and deliver it to the King alive. It can outpace even the best arrows and is only visible by a glint of moonlight on its antlers."
     
     @State private var animatedText: String = ""
-    @State private var goNext = false
+    @State private var goNext = false   // controls navigation
+    
     
     var body: some View {
-        
-        
         ZStack {
             Image("Hercules")
                 .resizable()
@@ -35,6 +34,8 @@ struct BeforeDogView: View   {
             .onAppear {
                 animateText()
                 
+            
+                
             }
             
             Button("Continue") {
@@ -45,12 +46,12 @@ struct BeforeDogView: View   {
             .cornerRadius(15)
             .offset(x: 0, y: 300)
             .foregroundColor(.black)
-            
         }
         
         .padding()
+        
         .navigationDestination(isPresented: $goNext) {
-            CerberusView()
+            DeerView()
         }
     }
     
@@ -66,7 +67,5 @@ struct BeforeDogView: View   {
 }
 
 #Preview {
-    BeforeDogView()
+    BeforeDeerView()
 }
-
-

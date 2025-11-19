@@ -342,7 +342,7 @@ enum GameState {
 }
 
 @MainActor
-struct MaresOfDiomedesView: View {
+struct DiomedesView: View {
 
     @State private var driftOpacity: Double = 0.0
     @State private var isDrifting = true
@@ -473,5 +473,5 @@ struct MaresOfDiomedesView: View {
 }
 
 #Preview {
-    MaresOfDiomedesView()
+    DiomedesView()
 }

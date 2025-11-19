@@ -1,13 +1,13 @@
 //
-//  AftBirdView.swift
+//  AftDog.swift
 //  HerculesApp
 //
 //  Created by T Krobot on 17/11/25.
 //
 import SwiftUI
 
-struct AftBirdView: View   {
-    let textToType = "As soon as you scared the birds into the air, you shot the birds down with arrows and completed the labour."
+struct AftCerberusView: View   {
+    let textToType = "After showing Eurystheus Cerberus, he so frightened he fled to his storeroom. He begged for you to return Cerberus to the Underworld, in exchange for releasing you from any further labours."
     
     @State private var animatedText: String = ""
     
@@ -21,23 +21,20 @@ struct AftBirdView: View   {
                 .ignoresSafeArea()
                 .brightness(-0.4)
                 .aspectRatio(contentMode: .fill)
+            Text(animatedText)
+                .padding()
+                .foregroundStyle(.white)
+                .font(.title)
+                .multilineTextAlignment(.center)
+                .frame(maxWidth: .infinity)
+                .padding(50)
+                .onAppear {
+                    animateText()
+                    
+                }
             
-            VStack {
-                Text(animatedText)
-                    .padding()
-                    .foregroundStyle(.white)
-                    .font(.title)
-                    .multilineTextAlignment(.center)
-                    .frame(maxWidth: .infinity)
-                    .padding(50)
-            }
-            .onAppear {
-                animateText()
-                
-            }
-            
-            Button("Continue") {
-                
+            NavigationLink("Continue") {
+                EndView()
             }
             .padding()
             .background(Color.white)
@@ -63,8 +60,5 @@ struct AftBirdView: View   {
 }
 
 #Preview {
-    AftBirdView()
+    AftCerberusView()
 }
-
-
-

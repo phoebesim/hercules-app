@@ -1,16 +1,24 @@
 //
-//  BeforeBirdView.swift
+//  AftDeerView.swift
 //  HerculesApp
 //
-//  Created by T Krobot on 17/11/25.
+//  Created by T Krobot on 19/11/25.
 //
+
+//
+//  AftDeerView 2.swift
+//  HerculesApp
+//
+//  Created by Phoebe Sim on 18/11/25.
+//
+
+
 import SwiftUI
 
-struct BeforeBirdView: View   {
-    let textToType = "Your sixth labour: to slay the Stymphalian birds. They are man-eating birds with bronze beaks and sharp metallic feathers they can launch at you! And their dung is highly toxic. They are too far into the swamp for you to reach. Fortunately, Athena has noticed your plight and gifted you a rattle, called a krotala, made by Hephaestus that you can use to scare the birds into the air!"
+struct AftDeerView: View   {
+    let textToType = "After a year of searching, you finally captured the hind with a net while it was asleep. But you immediately realised you had messed up: the hind was a sacred animal to the fierce goddess Artemis! Luckily for you, you met her and on your way back to King Eurystheus. You begged her for forgiveness. After listening to your explanation, she forgave you on the condition you would return the hind to the wild. Just before the King could grab it from your hands, you let go of the hind and it dashed back to the wild!"
     
     @State private var animatedText: String = ""
-    @State private var goNext = false
     
     var body: some View {
         
@@ -22,8 +30,7 @@ struct BeforeBirdView: View   {
                 .ignoresSafeArea()
                 .brightness(-0.4)
                 .aspectRatio(contentMode: .fill)
-            
-            VStack {
+            ScrollView{
                 Text(animatedText)
                     .padding()
                     .foregroundStyle(.white)
@@ -31,14 +38,13 @@ struct BeforeBirdView: View   {
                     .multilineTextAlignment(.center)
                     .frame(maxWidth: .infinity)
                     .padding(50)
-            }
-            .onAppear {
-                animateText()
-                
+                    .onAppear {
+                        animateText()
+                    }
             }
             
-            Button("Continue") {
-              goNext = true
+            NavigationLink("Continue") {
+                AugeanView()
             }
             .padding()
             .background(Color.white)
@@ -50,9 +56,6 @@ struct BeforeBirdView: View   {
         }
         
         .padding()
-        .navigationDestination(isPresented: $goNext) {
-            StymphalianView()
-        }
     }
     
     func animateText() {
@@ -67,7 +70,5 @@ struct BeforeBirdView: View   {
 }
 
 #Preview {
-    BeforeBirdView()
+    AftDeerView()
 }
-
-

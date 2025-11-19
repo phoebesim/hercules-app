@@ -1,15 +1,16 @@
 //
-//  AftDog.swift
+//  DogView.swift
 //  HerculesApp
 //
 //  Created by T Krobot on 17/11/25.
 //
 import SwiftUI
 
-struct AftDogView: View   {
-    let textToType = "After showing Eurystheus, he so frightened he fled to his storeroom. He begged for you to return Cerberus to the Underworld, in exchange for releasing you from any further labours."
+struct BeforeAugeanView: View   {
+    let textToType = "Your fifth labour: to clean the stables of King Augeas. The divine livestock in it are immortal, and it has not been cleaned in over 30 years, leading to a huge pileup of dung!"
     
     @State private var animatedText: String = ""
+    @State private var goNext = false
     
     var body: some View {
         
@@ -30,8 +31,6 @@ struct AftDogView: View   {
                     .multilineTextAlignment(.center)
                     .frame(maxWidth: .infinity)
                     .padding(50)
-                
-                Spacer()
             }
             .onAppear {
                 animateText()
@@ -39,18 +38,24 @@ struct AftDogView: View   {
             }
             
             Button("Continue") {
-                
+<<<<<<< HEAD:HerculesApp/Info slides/BeforeAugeanView.swift
+               AugeanView()
+=======
+                goNext = true
+>>>>>>> main:HerculesApp/Info slides/BeforeDogView.swift
             }
             .padding()
             .background(Color.white)
             .cornerRadius(15)
-            .offset(x:0, y: 300)
-            .padding()
+            .offset(x: 0, y: 300)
             .foregroundColor(.black)
             
         }
         
         .padding()
+        .navigationDestination(isPresented: $goNext) {
+            CerberusView()
+        }
     }
     
     func animateText() {
@@ -65,7 +70,5 @@ struct AftDogView: View   {
 }
 
 #Preview {
-    AftDogView()
+    BeforeAugeanView()
 }
-
-

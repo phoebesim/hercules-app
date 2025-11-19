@@ -1,13 +1,13 @@
 //
-//  StableView.swift
+//  BeforeBirdView.swift
 //  HerculesApp
 //
-//  Created by T Krobot on 14/11/25.
+//  Created by T Krobot on 17/11/25.
 //
 import SwiftUI
 
-struct BeforeStableView: View   {
-    let textToType = "Your fifth labour: to clean the stables of King Augeas. The divine livestock in it are immortal, and it has not been cleaned in over 30 years, leading to a huge pileup of dung!"
+struct BeforeStymphalianView: View   {
+    let textToType = "Your sixth labour: to slay the Stymphalian birds. They are man-eating birds with bronze beaks and sharp metallic feathers they can launch at you! And their dung is highly toxic. They are too far into the swamp for you to reach. Fortunately, Athena has noticed your plight and gifted you a rattle, called a krotala, made by Hephaestus that you can use to scare the birds into the air!"
     
     @State private var animatedText: String = ""
     @State private var goNext = false
@@ -38,7 +38,7 @@ struct BeforeStableView: View   {
             }
             
             Button("Continue") {
-               goNext = true
+              goNext = true
             }
             .padding()
             .background(Color.white)
@@ -51,7 +51,7 @@ struct BeforeStableView: View   {
         
         .padding()
         .navigationDestination(isPresented: $goNext) {
-            AugeanView()
+            StymphalianView()
         }
     }
     
@@ -67,6 +67,5 @@ struct BeforeStableView: View   {
 }
 
 #Preview {
-    AftStableView()
+    BeforeStymphalianView()
 }
-

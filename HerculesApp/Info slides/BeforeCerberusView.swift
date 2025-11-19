@@ -1,13 +1,13 @@
 //
-//  CattleView.swift
+//  AftBirdView.swift
 //  HerculesApp
 //
-//  Created by T Krobot on 14/11/25.
+//  Created by T Krobot on 17/11/25.
 //
 import SwiftUI
 
-struct CattleView: View   {
-    let textToType = "Your tenth labour: to steal the prized cattle of the giant Geryon, who has three bodies. On the way, you received a golden cup from the sun god Helios as he was impressed with your audacity to shoot at the Sun. You killed Orthus the two-headed dog and Eurytion the herdsman as well."
+struct BeforeCerberusView: View   {
+    let textToType = "Your twelfth labour: capturing and bringing back Cerberus, the three-headed dog belonging to Hades, from the Underworld. You asked for permission from Hades, god of the Underworld, to fight Cerberus unassisted by weapons. After overpowering it with your hands, you must now walk back to Eurystheus... for the last time."
     
     @State private var animatedText: String = ""
     @State private var goNext = false
@@ -22,23 +22,24 @@ struct CattleView: View   {
                 .ignoresSafeArea()
                 .brightness(-0.4)
                 .aspectRatio(contentMode: .fill)
-            
-            VStack {
-                Text(animatedText)
-                    .padding()
-                    .foregroundStyle(.white)
-                    .font(.title)
-                    .multilineTextAlignment(.center)
-                    .frame(maxWidth: .infinity)
-                    .padding(50)
-            }
-            .onAppear {
-                animateText()
-                
-            }
+            Text(animatedText)
+                .padding()
+                .foregroundStyle(.white)
+                .font(.title)
+                .multilineTextAlignment(.center)
+                .frame(maxWidth: .infinity)
+                .padding(50)
+                .onAppear {
+                    animateText()
+                    
+                }
             
             Button("Continue") {
+<<<<<<< HEAD:HerculesApp/Info slides/BeforeCerberusView.swift
+                CerberusView()
+=======
                goNext = true
+>>>>>>> main:HerculesApp/Info slides/BeforeStableView.swift
             }
             .padding()
             .background(Color.white)
@@ -51,9 +52,8 @@ struct CattleView: View   {
         
         .padding()
         .navigationDestination(isPresented: $goNext) {
-            GeryonView()
+            AugeanView()
         }
-        
     }
     
     func animateText() {
@@ -68,6 +68,5 @@ struct CattleView: View   {
 }
 
 #Preview {
-    CattleView()
+    BeforeCerberusView()
 }
-

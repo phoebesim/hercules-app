@@ -1,3 +1,9 @@
+//
+//  AugeanView.swift
+//  HerculesApp
+//
+//  Created by T Krobot on 19/11/25.
+//
 
 //
 //  AugeanView.swift
@@ -118,7 +124,7 @@ struct AugeanView: View {
             .cornerRadius(10)
             
             if isComplete {
-                WinView()
+                WinView(nextInfoView: .constant(AnyView(AftAugeanView())))
             }
             
         }

@@ -1,13 +1,13 @@
 //
-//  AftStable.swift
+//  AftDog.swift
 //  HerculesApp
 //
-//  Created by T Krobot on 14/11/25.
+//  Created by T Krobot on 17/11/25.
 //
 import SwiftUI
 
-struct AftStableView: View   {
-    let textToType = "Your fifth labour: to clean the stables of King Augeas. The divine livestock in it are immortal, and it has not been cleaned in over 30 years, leading to a huge pileup of dung!"
+struct AftAugeanView: View   {
+    let textToType = "You rerouted the rivers  Alpheus and Peneus to wash out the filth. You even got Augeas to give you a tenth of the cattle if you finished in a day, which you did! However, when you returned to Eurystheus, he said the labour did not count as you accepted payment and the river had done the work."
     
     @State private var animatedText: String = ""
     
@@ -21,23 +21,20 @@ struct AftStableView: View   {
                 .ignoresSafeArea()
                 .brightness(-0.4)
                 .aspectRatio(contentMode: .fill)
+            Text(animatedText)
+                .padding()
+                .foregroundStyle(.white)
+                .font(.title)
+                .multilineTextAlignment(.center)
+                .frame(maxWidth: .infinity)
+                .padding(50)
+                .onAppear {
+                    animateText()
+                    
+                }
             
-            VStack {
-                Text(animatedText)
-                    .padding()
-                    .foregroundStyle(.white)
-                    .font(.title)
-                    .multilineTextAlignment(.center)
-                    .frame(maxWidth: .infinity)
-                    .padding(50)
-            }
-            .onAppear {
-                animateText()
-                
-            }
-            
-            Button("Continue") {
-                
+            NavigationLink("Continue") {
+                EndView()
             }
             .padding()
             .background(Color.white)
@@ -63,6 +60,5 @@ struct AftStableView: View   {
 }
 
 #Preview {
-    AftStableView()
+    AftAugeanView()
 }
-

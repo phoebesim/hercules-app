@@ -8,20 +8,23 @@
 import SwiftUI
 
 struct WinView: View {
+    @Binding var nextInfoView: any View
     var body: some View {
-        Color.white.opacity(0.85)
-            .ignoresSafeArea()
-            .transition(.opacity)
-            .zIndex(1)
+            Text("You won!!!")
+                .font(.system(size: 48, weight: .bold))
+                .foregroundColor(.black)
+                .transition(.scale)
+                .zIndex(1)
+            Color.white.opacity(0.85)
+                .ignoresSafeArea()
+                .transition(.opacity)
+                .zIndex(3)
             
-        Text("You won!!!")
-            .font(.system(size: 48, weight: .bold))
-            .foregroundColor(.black)
-            .transition(.scale)
-            .zIndex(2)
+        
     }
 }
 
+
 #Preview {
-    WinView()
+    WinView(nextInfoView: .constant(AnyView(EndView())))
 }

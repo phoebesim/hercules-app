@@ -137,7 +137,7 @@ struct DeerView: View {
                 
             }
             if gameOver {
-                WinView()
+                WinView(nextInfoView: .constant(AnyView(AftDeerView())))
             }
             
         }

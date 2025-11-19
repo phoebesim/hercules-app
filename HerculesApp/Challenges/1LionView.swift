@@ -94,7 +94,7 @@ struct LionView: View {
             }
 
             if hasWon {
-                WinView()
+                WinView(nextInfoView: .constant(AnyView(AftLionView())))
             }
         }
     }
