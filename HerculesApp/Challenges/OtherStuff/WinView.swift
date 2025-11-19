@@ -28,8 +28,9 @@ struct WinView: View {
                     .buttonStyle(.borderedProminent)
                     .foregroundStyle(.black)
                     .tint(.gray)
-                    .cornerRadius(2)
+                    .clipShape(RoundedRectangle(cornerRadius: 2.0))
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+                    
                 }
             }
         }
