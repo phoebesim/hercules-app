@@ -34,7 +34,7 @@ struct AftLionView: View {
                 }
             
             Button("Continue") {
-                DeerView()
+                BeforeDeerView()
             }
             .padding()
             .background(Color.white)

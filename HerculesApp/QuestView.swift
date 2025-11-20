@@ -14,6 +14,8 @@ struct QuestView: View {
     }
 }
 
+
+
 #Preview {
     QuestView()
 }

@@ -36,20 +36,24 @@ struct FirstinfoView: View   {
                 animateText()
                 
             }
-            
-            Button("Continue") {
+            NavigationLink {
+                // 3. Specify the Destination View
+                BeforeLionView()
+            } label: {
+                Button("Continue") {
+                    
+                }
+                .padding()
+                .background(Color.white)
+                .cornerRadius(15)
+                .offset(x:0, y: 300)
+                .padding()
+                .foregroundColor(.black)
                 
             }
-            .padding()
-            .background(Color.white)
-            .cornerRadius(15)
-            .offset(x:0, y: 300)
-            .padding()
-            .foregroundColor(.black)
             
+            .padding()
         }
-        
-        .padding()
     }
     
     func animateText() {
@@ -61,8 +65,9 @@ struct FirstinfoView: View   {
             }
         }
     }
+    
+    
 }
-
 #Preview {
     FirstinfoView()
 }

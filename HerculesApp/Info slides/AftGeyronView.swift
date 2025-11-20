@@ -1,16 +1,3 @@
-//
-//  Untitled.swift
-//  HerculesApp
-//
-//  Created by T Krobot on 19/11/25.
-//
-
-//
-//  AftStable.swift
-//  HerculesApp
-//
-//  Created by T Krobot on 14/11/25.
-//
 import SwiftUI
 
 struct AftGeryonView: View   {
@@ -35,6 +22,7 @@ struct AftGeryonView: View   {
                 .multilineTextAlignment(.center)
                 .frame(maxWidth: .infinity)
                 .padding(50)
+            
                 .onAppear {
                     animateText()
                     
@@ -69,3 +57,4 @@ struct AftGeryonView: View   {
 #Preview {
     AftGeryonView()
 }
+

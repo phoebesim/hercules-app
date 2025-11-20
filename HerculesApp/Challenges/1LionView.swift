@@ -2,11 +2,14 @@ import SwiftUI
 import Combine
 
 struct LionView: View {
+    /*hi*/    @Environment(\.dismiss) var dismiss
+
     @State private var yOffset: CGFloat = 0
     @State private var success: Bool = false
     @State private var hasWon: Bool = false
     @State private var hasLost: Bool = false
     @State private var buttonPressed: Bool = false
+    @State private var goNext: Bool = false
 
     @State var weaponImage: UIImage?
     @State var showButton = true
@@ -92,12 +95,11 @@ struct LionView: View {
                         Button {
                             buttonPressed = true
                             
-                            
-                            
                             if yOffset >= 0 && yOffset <= 100 {
                                 success = true
                                 hasWon = true
                                 hasLost = false
+                                goNext = true
                             } else {
                                 success = false
                                 hasWon = false
@@ -123,17 +125,6 @@ struct LionView: View {
                 .padding(.bottom, 50)
             }
 
-            .sheet(isPresented: $weaponSheet) {
-                BackgroundRemovalView(onDone: { image in
-                    weaponImage = image
-                    weaponSheet = false
-                })
-            }
-
-            if hasWon {
-                WinView(nextInfoView: .constant(AnyView(AftLionView())))
-            }
-            
             if hasLost {
                 ZStack {
                     Color.black.opacity(0.8)
@@ -161,6 +152,15 @@ struct LionView: View {
                     .padding(40)
                 }
             }
+        }
+        .sheet(isPresented: $weaponSheet) {
+            BackgroundRemovalView(onDone: { image in
+                weaponImage = image
+                weaponSheet = false
+            })
+        }
+        .navigationDestination(isPresented: $goNext) {
+            AftLionView()
         }
     }
 
