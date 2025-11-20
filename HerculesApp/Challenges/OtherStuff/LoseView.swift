@@ -9,30 +9,27 @@ import SwiftUI
 
 struct LoseView: View {
     var body: some View {
-        Color.white.opacity(0.85)
-            .ignoresSafeArea()
-            .transition(.opacity)
-            .zIndex(1)
-        VStack {
-           
-            Text("You lost..")
-                .font(.system(size: 48, weight: .bold))
-                .foregroundColor(.black)
-                .transition(.scale)
-                .zIndex(2)
+        ZStack {
+            Color.black.opacity(0.8)
+                .ignoresSafeArea()
             
-            Button {
-              DeerView()
-            } label: {
-                Text("Restart")
+            VStack(spacing: 20) {
+                Text("You Missed!")
+                    .font(.largeTitle)
                     .bold()
-                    .padding()
-                    .foregroundColor(.white)
-                    .background(Color.blue)
-                    .cornerRadius(10)
+                    .foregroundColor(.red)
                 
+                Text("The lion got away...")
+                    .font(.title2)
+                    .foregroundColor(.white)
+                
+                Button("Try Again") {
+                    
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(.red)
             }
-            Spacer()
+            .padding(40)
         }
     }
 }

@@ -126,31 +126,13 @@ struct LionView: View {
             }
 
             if hasLost {
-                ZStack {
-                    Color.black.opacity(0.8)
-                        .ignoresSafeArea()
-                    
-                    VStack(spacing: 20) {
-                        Text("You Missed!")
-                            .font(.largeTitle)
-                            .bold()
-                            .foregroundColor(.red)
-                        
-                        Text("The lion got away...")
-                            .font(.title2)
-                            .foregroundColor(.white)
-                        
-                        Button("Try Again") {
-                            hasLost = false
-                            buttonPressed = false
-                            weaponImage = nil
-                            showButton = true
-                        }
-                        .buttonStyle(.borderedProminent)
-                        .tint(.red)
+                LoseView()
+                    .onAppear {
+                        hasLost = false
+                        buttonPressed = false
+                        weaponImage = nil
+                        showButton = true
                     }
-                    .padding(40)
-                }
             }
         }
         .sheet(isPresented: $weaponSheet) {
