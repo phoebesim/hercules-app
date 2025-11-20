@@ -36,7 +36,6 @@ struct BeforeLionView: View {
             .foregroundColor(.black)
         }
         .padding()
-        
         .navigationDestination(isPresented: $goNext) {
             LionView()
         }
