@@ -10,7 +10,7 @@ struct BeforeAugeanView: View   {
     let textToType = "Your fifth labour: to clean the stables of King Augeas. The divine livestock in it are immortal, and it has not been cleaned in over 30 years, leading to a huge pileup of dung!"
     
     @State private var animatedText: String = ""
-    @State private var goNext = false
+
     
     var body: some View {
         
@@ -37,11 +37,13 @@ struct BeforeAugeanView: View   {
                 
             }
             
-            Button("Continue") {
+            NavigationLink{
 
                AugeanView()
-                goNext = true
+                   
 
+            } label: {
+                Text("Continue")
             }
             .padding()
             .background(Color.white)
@@ -52,9 +54,7 @@ struct BeforeAugeanView: View   {
         }
         
         .padding()
-        .navigationDestination(isPresented: $goNext) {
-            CerberusView()
-        }
+        
     }
     
     func animateText() {

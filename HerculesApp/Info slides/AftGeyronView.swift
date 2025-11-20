@@ -40,8 +40,8 @@ struct AftGeryonView: View   {
                     
                 }
             
-            Button("Continue") {
-                CerberusView()
+            NavigationLink("Continue") {
+                BeforeCerberusView()
             }
             .padding()
             .background(Color.white)

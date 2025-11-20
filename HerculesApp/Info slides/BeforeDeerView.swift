@@ -10,7 +10,7 @@ struct BeforeDeerView: View   {
     let textToType = "Your third labour: to capture the Ceryneian Hind and deliver it to the King alive. It can outpace even the best arrows and is only visible by a glint of moonlight on its antlers."
     
     @State private var animatedText: String = ""
-    @State private var goNext = false   // controls navigation
+    
     
     
     var body: some View {
@@ -33,27 +33,25 @@ struct BeforeDeerView: View   {
             }
             .onAppear {
                 animateText()
-                
-            
-                
             }
             
-            Button("Continue") {
-                goNext = true
+            NavigationLink{
+                DeerView()
+            } label: {
+                Text("Continue")
             }
             .padding()
             .background(Color.white)
             .cornerRadius(15)
             .offset(x: 0, y: 300)
             .foregroundColor(.black)
+            
         }
         
         .padding()
         
-        .navigationDestination(isPresented: $goNext) {
-            DeerView()
-        }
     }
+    
     
     func animateText() {
         for (index, character) in textToType.enumerated() {

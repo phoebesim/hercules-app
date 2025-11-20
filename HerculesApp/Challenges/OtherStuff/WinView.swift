@@ -9,38 +9,41 @@ import SwiftUI
 
 struct WinView: View {
     @Binding var nextInfoView: AnyView
+
     var body: some View {
-        NavigationStack {
-            ZStack {
-                Color.white.opacity(0.85)
-                    .ignoresSafeArea()
-                    .transition(.opacity)
-                VStack {
+        ZStack {
+            Rectangle()
+                .fill(.ultraThinMaterial)
+                .ignoresSafeArea()
+            
+                VStack(spacing: 24) {
+                    Spacer()
+
                     Text("You won!!!")
                         .font(.system(size: 48, weight: .bold))
                         .foregroundColor(.black)
-                        .transition(.scale)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                        .multilineTextAlignment(.center)
+
+                    Spacer()
+
                     
-                    NavigationLink {
-                        nextInfoView
-                    } label: {
-                        Text("Continue")
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .foregroundStyle(.black)
-                    .tint(.gray)
-                    .clipShape(RoundedRectangle(cornerRadius: 2.0))
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-                    .controlSize(.large)
+                        NavigationLink(destination: nextInfoView) {
+                            Text("Continue")
+                                .font(.title2.weight(.semibold))
+                                .foregroundColor(.white)
+                                .frame(maxWidth: .infinity, minHeight: 56)
+                        }
                     
+                    .background(Color.gray)
+                    .cornerRadius(12)
+                    .padding(.horizontal, 24)
+                    .padding(.bottom, 40)
                 }
-            }
+            
         }
-        
+        .ignoresSafeArea()
     }
 }
-
 
 #Preview {
     WinView(nextInfoView: .constant(AnyView(EndView())))

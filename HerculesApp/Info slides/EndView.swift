@@ -38,7 +38,7 @@ struct EndView: View   {
                 }
             }
                 
-                Button("Play again") {
+                NavigationLink("Play again") {
                     QuestView()
                 }
                 .padding()

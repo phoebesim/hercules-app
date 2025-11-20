@@ -34,7 +34,7 @@ struct AftAugeanView: View   {
                 }
             
             NavigationLink("Continue") {
-                EndView()
+                BeforeStymphalianView()
             }
             .padding()
             .background(Color.white)

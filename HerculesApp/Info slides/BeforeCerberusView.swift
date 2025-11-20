@@ -10,7 +10,7 @@ struct BeforeCerberusView: View   {
     let textToType = "Your twelfth labour: capturing and bringing back Cerberus, the three-headed dog belonging to Hades, from the Underworld. You asked for permission from Hades, god of the Underworld, to fight Cerberus unassisted by weapons. After overpowering it with your hands, you must now walk back to Eurystheus... for the last time."
     
     @State private var animatedText: String = ""
-    @State private var goNext = false
+    
     
     var body: some View {
         
@@ -34,26 +34,23 @@ struct BeforeCerberusView: View   {
                     
                 }
             
-            Button("Continue") {
+            NavigationLink{
 
-                CerberusView()
+               CerberusView()
+                    
 
-               goNext = true
-
+            } label: {
+                Text("Continue")
             }
             .padding()
             .background(Color.white)
             .cornerRadius(15)
-            .offset(x:0, y: 300)
-            .padding()
+            .offset(x: 0, y: 300)
             .foregroundColor(.black)
             
         }
         
         .padding()
-        .navigationDestination(isPresented: $goNext) {
-            AugeanView()
-        }
     }
     
     func animateText() {

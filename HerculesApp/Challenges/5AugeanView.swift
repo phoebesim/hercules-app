@@ -103,26 +103,38 @@ struct AugeanView: View {
                 .resizable()
                 .frame(width:450, height: 450)
                 .offset(x:85, y: -60)
-            VStack(spacing: 4) {
-                ForEach(0..<4) { row in
-                    HStack(spacing: 4) {
-                        ForEach(0..<4) { col in
-                            PipeView(
-                                pipe: grid[row][col],
-                                isConnected: connectedPipes.contains(where: { $0.row == row && $0.col == col }),
-                                backgroundColor: (row == 2 && col == 2) ? lightRed : .white
-                            )
-                            .onTapGesture {
-                                rotatePipe(row: row, col: col)
+            VStack {
+                Text("Tap the squares in the grid of river to rotate them and fill all the river!")
+                    .font(.title)
+                    .padding()
+                    .background(.white.opacity(0.6))
+                    .cornerRadius(10)
+                    .bold()
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal,70)
+                
+                VStack(spacing: 4) {
+                    
+                    ForEach(0..<4) { row in
+                        HStack(spacing: 4) {
+                            ForEach(0..<4) { col in
+                                PipeView(
+                                    pipe: grid[row][col],
+                                    isConnected: connectedPipes.contains(where: { $0.row == row && $0.col == col }),
+                                    backgroundColor: (row == 2 && col == 2) ? lightRed : .white
+                                )
+                                .onTapGesture {
+                                    rotatePipe(row: row, col: col)
+                                }
                             }
                         }
                     }
                 }
+                .padding()
+                .background(Color.gray.opacity(0.2))
+                .cornerRadius(10)
+                
             }
-            .padding()
-            .background(Color.gray.opacity(0.2))
-            .cornerRadius(10)
-            
             if isComplete {
                 WinView(nextInfoView: .constant(AnyView(AftAugeanView())))
             }
@@ -206,7 +218,7 @@ struct PipeView: View {
                 .stroke(isConnected ? Color.blue: Color.gray, lineWidth: 8)
                 .frame(width: 60, height: 60)
                 .rotationEffect(.degrees(pipe.rotation))
-
+            
             
         }
     }

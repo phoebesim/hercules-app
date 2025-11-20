@@ -21,7 +21,7 @@ struct DeerView: View {
     @State private var weaponYOffset = 0
     
     
-    private let tolerance: CGFloat = 20
+    private let tolerance: CGFloat = 100
     
     //ADD: SLIDER TO CONTROL DIFFICULTY
     

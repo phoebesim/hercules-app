@@ -44,7 +44,7 @@ struct AftDeerView: View   {
             }
             
             NavigationLink("Continue") {
-                AugeanView()
+                BeforeAugeanView()
             }
             .padding()
             .background(Color.white)

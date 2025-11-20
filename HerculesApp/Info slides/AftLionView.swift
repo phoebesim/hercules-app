@@ -33,8 +33,8 @@ struct AftLionView: View {
                     animateText()
                 }
             
-            Button("Continue") {
-                DeerView()
+            NavigationLink("Continue") {
+                BeforeDeerView()
             }
             .padding()
             .background(Color.white)
