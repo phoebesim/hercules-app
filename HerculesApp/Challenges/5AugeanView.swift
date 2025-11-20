@@ -106,6 +106,7 @@ struct AugeanView: View {
             VStack {
                 Text("Tap the squares in the grid of river to rotate them and fill all the river!")
                     .font(.title)
+                    .foregroundStyle(.black)
                     .padding()
                     .background(.white.opacity(0.6))
                     .cornerRadius(10)

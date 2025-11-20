@@ -14,29 +14,29 @@ struct EndView: View   {
     
     var body: some View {
         
-        
-        ZStack {
-            Image("Hercules")
-                .resizable()
-                .frame(width: 500, height: 900)
-                .ignoresSafeArea()
-                .brightness(-0.4)
-                .aspectRatio(contentMode: .fill)
-            ScrollView{
-                VStack {
-                    Text(animatedText)
-                        .padding()
-                        .foregroundStyle(.white)
-                        .font(.title)
-                        .multilineTextAlignment(.center)
-                        .frame(maxWidth: .infinity)
-                        .padding(50)
+        NavigationStack {
+            ZStack {
+                Image("Hercules")
+                    .resizable()
+                    .frame(width: 500, height: 900)
+                    .ignoresSafeArea()
+                    .brightness(-0.4)
+                    .aspectRatio(contentMode: .fill)
+                ScrollView{
+                    VStack {
+                        Text(animatedText)
+                            .padding()
+                            .foregroundStyle(.white)
+                            .font(.title)
+                            .multilineTextAlignment(.center)
+                            .frame(maxWidth: .infinity)
+                            .padding(50)
+                    }
+                    .onAppear {
+                        animateText()
+                        
+                    }
                 }
-                .onAppear {
-                    animateText()
-                    
-                }
-            }
                 
                 NavigationLink("Play again") {
                     QuestView()
@@ -48,12 +48,13 @@ struct EndView: View   {
                 .padding()
                 .foregroundColor(.black)
                 
-            
-        }
+                
+            }
             
             .padding()
         }
-    
+        .navigationBarBackButtonHidden()
+    }
     
     func animateText() {
         for (index, character) in textToType.enumerated() {

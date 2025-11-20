@@ -14,45 +14,44 @@ struct BeforeStymphalianView: View   {
     
     var body: some View {
         
-        
-        ZStack {
-            Image("Hercules")
-                .resizable()
-                .frame(width: 500, height: 900)
-                .ignoresSafeArea()
-                .brightness(-0.4)
-                .aspectRatio(contentMode: .fill)
-            
-            VStack {
-                Text(animatedText)
-                    .padding()
-                    .foregroundStyle(.white)
-                    .font(.title)
-                    .multilineTextAlignment(.center)
-                    .frame(maxWidth: .infinity)
-                    .padding(50)
-            }
-            .onAppear {
-                animateText()
+        NavigationStack {
+            ZStack {
+                Image("Hercules")
+                    .resizable()
+                    .frame(width: 500, height: 900)
+                    .ignoresSafeArea()
+                    .brightness(-0.4)
+                    .aspectRatio(contentMode: .fill)
                 
+                VStack {
+                    Text(animatedText)
+                        .padding()
+                        .foregroundStyle(.white)
+                        .font(.title)
+                        .multilineTextAlignment(.center)
+                        .frame(maxWidth: .infinity)
+                        .padding(50)
+                }
+                .onAppear {
+                    animateText()
+                    
+                }
+                
+                NavigationLink{
+                    StymphalianView()
+                } label: {
+                    Text("Continue")
+                }
+                .padding()
+                .background(Color.white)
+                .cornerRadius(15)
+                .offset(x: 0, y: 300)
+                .foregroundColor(.black)
             }
             
-            Button("Continue") {
-              goNext = true
-            }
             .padding()
-            .background(Color.white)
-            .cornerRadius(15)
-            .offset(x:0, y: 300)
-            .padding()
-            .foregroundColor(.black)
-            
         }
-        
-        .padding()
-        .navigationDestination(isPresented: $goNext) {
-            StymphalianView()
-        }
+        .navigationBarBackButtonHidden(true)
     }
     
     func animateText() {

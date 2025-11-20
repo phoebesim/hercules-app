@@ -14,43 +14,45 @@ struct BeforeCerberusView: View   {
     
     var body: some View {
         
-        
-        ZStack {
-            Image("Hercules")
-                .resizable()
-                .frame(width: 500, height: 900)
-                .ignoresSafeArea()
-                .brightness(-0.4)
-                .aspectRatio(contentMode: .fill)
-            Text(animatedText)
-                .padding()
-                .foregroundStyle(.white)
-                .font(.title)
-                .multilineTextAlignment(.center)
-                .frame(maxWidth: .infinity)
-                .padding(50)
-                .onAppear {
-                    animateText()
+        NavigationStack {
+            ZStack {
+                Image("Hercules")
+                    .resizable()
+                    .frame(width: 500, height: 900)
+                    .ignoresSafeArea()
+                    .brightness(-0.4)
+                    .aspectRatio(contentMode: .fill)
+                Text(animatedText)
+                    .padding()
+                    .foregroundStyle(.white)
+                    .font(.title)
+                    .multilineTextAlignment(.center)
+                    .frame(maxWidth: .infinity)
+                    .padding(50)
+                    .onAppear {
+                        animateText()
+                        
+                    }
+                
+                NavigationLink{
                     
+                    CerberusView()
+                    
+                    
+                } label: {
+                    Text("Continue")
                 }
-            
-            NavigationLink{
-
-               CerberusView()
-                    
-
-            } label: {
-                Text("Continue")
+                .padding()
+                .background(Color.white)
+                .cornerRadius(15)
+                .offset(x: 0, y: 300)
+                .foregroundColor(.black)
+                
             }
-            .padding()
-            .background(Color.white)
-            .cornerRadius(15)
-            .offset(x: 0, y: 300)
-            .foregroundColor(.black)
             
+            .padding()
         }
-        
-        .padding()
+        .navigationBarBackButtonHidden(true)
     }
     
     func animateText() {
