@@ -249,7 +249,10 @@ struct PreviewView: View {
         if changeView == 303 {
             AftDeerView()
         }
-        if changeView == 505 {
+        if changeView == 105 {
+            BeforeAugeanView()
+        }
+        if changeView == 305 {
             AftAugeanView()
         }
     }
