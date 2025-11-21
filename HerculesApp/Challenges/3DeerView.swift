@@ -148,6 +148,34 @@ struct DeerView: View {
                     
                 }
                 if gameOver {
+                    ZStack {
+                        Rectangle()
+                            .fill(.ultraThinMaterial)
+                            .ignoresSafeArea()
+                        VStack(spacing: 24) {
+                            Spacer()
+                            Text("You won!!!")
+                                .font(.system(size: 48, weight: .bold))
+                                .foregroundColor(.black)
+                                .multilineTextAlignment(.center)
+                            
+                            Spacer()
+                            
+                            NavigationLink(destination: AftDeerView()) {
+                                Text("Continue")
+                                    .padding()
+                                    .font(.title2.weight(.semibold))
+                                    .foregroundColor(.white)
+                                    .frame(maxWidth: .infinity, minHeight: 56, )
+                            }
+                            .background(Color.gray)
+                            .cornerRadius(12)
+                            .padding(.horizontal, 60)
+                            .padding(.bottom, 40)
+                            
+                        }
+                    }
+                    //WinView(nextInfoView: .constant(AnyView(AftDeerView())))
                     WinView(nextInfoView: .constant(AnyView(AftDeerView())))
                     dismiss()
                     changeView = 3
