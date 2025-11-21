@@ -13,6 +13,7 @@ struct LionView: View {
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()
+                .brightness(-0.2)
 
             VStack {
                 Text("Shoot the Nemean Lion!")
@@ -20,11 +21,21 @@ struct LionView: View {
                     .foregroundColor(.white)
                     .bold()
                     .padding(.top, 40)
-
-                Image("Lion")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 300, height: 300)
+                ZStack {
+                    
+                    Image("Lion")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 300, height: 300)
+                    
+                    if success == true {
+                        Image("Pencil")
+                            .resizable()
+                            .frame(width: 80, height: 200)
+                            .offset(x: 90, y:100 )
+                        
+                    }
+                }
 
                 Spacer()
 
@@ -58,8 +69,10 @@ struct LionView: View {
                             Image("Bow")
                                 .resizable()
                                 .frame(width: 250, height: 150)
+                            
+                           
 
-                            if !success {
+                            if success == false {
                                 Image("Pencil")
                                     .resizable()
                                     .frame(width: 80, height: 200)
