@@ -25,7 +25,7 @@ struct DeerView: View {
     
     
     @AppStorage("changeView") var changeView = 1
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         
@@ -161,7 +161,10 @@ struct DeerView: View {
                             
                             Spacer()
                             
-                            NavigationLink(destination: AftDeerView()) {
+                            Button {
+                                changeView = 303
+                              //  dismiss()
+                            } label:{
                                 Text("Continue")
                                     .padding()
                                     .font(.title2.weight(.semibold))
@@ -176,9 +179,9 @@ struct DeerView: View {
                         }
                     }
                     //WinView(nextInfoView: .constant(AnyView(AftDeerView())))
-                    WinView(nextInfoView: .constant(AnyView(AftDeerView())))
-                    dismiss()
-                    changeView = 3
+                   // WinView(nextInfoView: .constant(AnyView(AftDeerView())))
+                    //dismiss()
+                    //changeView = 3
                 }
                 
             }

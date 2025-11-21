@@ -5,8 +5,11 @@ struct QuestView: View {
     @State private var showingPopover = false
     @State private var showingPopover1 = false
     
-    @AppStorage("changeView") var changeView = 1
+    
+    
     @Environment(\.dismiss) var dismiss
+    @AppStorage("changeView") var changeView = 0
+
     
     init() {
         let appearance = UINavigationBarAppearance()
@@ -47,7 +50,9 @@ struct QuestView: View {
                                     .brightness(-0.2)
                             )
                     }
-                    NavigationLink(destination: BeforeDeerView()) {
+                    Button {
+                        changeView = 103
+                    } label: {
                         Text("Ceryneian Hind")
                             .font(.largeTitle)
                             .foregroundStyle(.white)
@@ -192,6 +197,7 @@ struct QuestView: View {
             }
             
             .scrollIndicators(.hidden)
+            .scrollClipDisabled()
             
             .background {
                 Image("Grass")
@@ -222,11 +228,13 @@ struct QuestView: View {
 
 
 struct PreviewView: View {
-    @AppStorage("changeView") var changeView = 1
+    @AppStorage("changeView") var changeView = 0
     
     var body: some View {
-        if changeView == 1 {
+        if changeView == 0 {
             QuestView()
+                .transition(.move(edge: .trailing))
+            
         }
         if changeView == 3 {
             DeerView()
@@ -234,9 +242,16 @@ struct PreviewView: View {
         if changeView == 5 {
             AugeanView()
         }
+        if changeView == 103 {
+            BeforeDeerView()
+        }
         
-        
-        
+        if changeView == 303 {
+            AftDeerView()
+        }
+        if changeView == 505 {
+            AftAugeanView()
+        }
     }
     
 }

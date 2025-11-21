@@ -156,7 +156,9 @@ struct AugeanView: View {
                             
                             Spacer()
                             
-                            NavigationLink(destination: AftAugeanView()) {
+                            Button {
+                                changeView = 505
+                            } label: {
                                 Text("Continue")
                                     .padding()
                                     .font(.title2.weight(.semibold))
@@ -171,8 +173,8 @@ struct AugeanView: View {
                         }
                     }
                     //WinView(nextInfoView: .constant(AnyView(AftAugeanView())))
-                    WinView(nextInfoView: .constant(AnyView(EmptyView())))
-                    changeView = 5
+//                    WinView(nextInfoView: .constant(AnyView(EmptyView())))
+//                    changeView = 5
                         
                 }
                    

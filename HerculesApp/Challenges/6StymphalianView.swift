@@ -40,9 +40,6 @@ struct StymphalianView: View {
     var body: some View {
         NavigationStack {
             ZStack{
-                
-                
-                
                 Image("GrassBranches")
                     .resizable()
                     .frame(width: 500, height: 1000)
@@ -84,7 +81,7 @@ struct StymphalianView: View {
                 Bird(imageID: sitting7, positionX: -160, positionY: -360)
                 
                 if allBirdsAreFlying {
-                    changeView = 6
+       //             changeView = 6
                     Rectangle()
                         .fill(.ultraThinMaterial)
                         .ignoresSafeArea()

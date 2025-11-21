@@ -77,6 +77,7 @@ struct GeryonView: View {
                     .offset(x: 130, y: -190)
                 
                 if step <= 45 {
+               //     changeView = 8
                     ZStack {
                         Rectangle()
                             .fill(.ultraThinMaterial)
@@ -110,7 +111,7 @@ struct GeryonView: View {
                     WinView(nextInfoView: .constant(AnyView(AftGeryonView())))
                         .ignoresSafeArea()
                         .zIndex(1)
-                    changeView = 10
+           //         changeView = 10
                         
                     
                     
