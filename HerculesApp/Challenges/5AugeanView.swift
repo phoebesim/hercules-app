@@ -87,60 +87,65 @@ struct AugeanView: View {
     
     
     var body: some View {
-        
-        ZStack {
+        NavigationStack {
             
-            Image(.grass)
-                .resizable()
-                .ignoresSafeArea()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 500, height: 500)
-            Image(.dirt)
-                .resizable()
-                .frame(width:450, height: 450)
-                .offset(x:-80, y: 70)
-            Image(.dirt)
-                .resizable()
-                .frame(width:450, height: 450)
-                .offset(x:85, y: -60)
-            VStack {
-                Text("Tap the squares in the grid of river to rotate them and fill all the river!")
-                    .font(.title)
-                    .foregroundStyle(.black)
-                    .padding()
-                    .background(.white.opacity(0.6))
-                    .cornerRadius(10)
-                    .bold()
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal,70)
+            ZStack {
                 
-                VStack(spacing: 4) {
+                Image(.grass)
+                    .resizable()
+                    .ignoresSafeArea()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 500, height: 500)
+                Image(.dirt)
+                    .resizable()
+                    .frame(width:450, height: 450)
+                    .offset(x:-80, y: 70)
+                Image(.dirt)
+                    .resizable()
+                    .frame(width:450, height: 450)
+                    .offset(x:85, y: -60)
+                VStack {
+                    Text("Tap the squares in the grid of river to rotate them and fill all the river!")
+                        .font(.title)
+                        .foregroundStyle(.black)
+                        .padding()
+                        .background(.white.opacity(0.6))
+                        .cornerRadius(10)
+                        .bold()
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal,70)
                     
-                    ForEach(0..<4) { row in
-                        HStack(spacing: 4) {
-                            ForEach(0..<4) { col in
-                                PipeView(
-                                    pipe: grid[row][col],
-                                    isConnected: connectedPipes.contains(where: { $0.row == row && $0.col == col }),
-                                    backgroundColor: (row == 2 && col == 2) ? lightRed : .white
-                                )
-                                .onTapGesture {
-                                    rotatePipe(row: row, col: col)
+                    VStack(spacing: 4) {
+                        
+                        ForEach(0..<4) { row in
+                            HStack(spacing: 4) {
+                                ForEach(0..<4) { col in
+                                    PipeView(
+                                        pipe: grid[row][col],
+                                        isConnected: connectedPipes.contains(where: { $0.row == row && $0.col == col }),
+                                        backgroundColor: (row == 2 && col == 2) ? lightRed : .white
+                                    )
+                                    .onTapGesture {
+                                        rotatePipe(row: row, col: col)
+                                    }
                                 }
                             }
                         }
                     }
+                    .padding()
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(10)
+                    
                 }
-                .padding()
-                .background(Color.gray.opacity(0.2))
-                .cornerRadius(10)
+                if isComplete {
+                    WinView(nextInfoView: .constant(AnyView(AftAugeanView())))
+                        
+                }
+                   
                 
             }
-            if isComplete {
-                WinView(nextInfoView: .constant(AnyView(AftAugeanView())))
-            }
-            
         }
+        .navigationBarBackButtonHidden()
     }
     
     

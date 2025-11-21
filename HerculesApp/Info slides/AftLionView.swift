@@ -55,7 +55,7 @@ struct AftLionView: View {
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(index) * 0.05) {
                 animatedText.append(character)
                 
-                UIImpactFeedbackGenerator(style: .light).impactOccurred()
+               
             }
         }
     }

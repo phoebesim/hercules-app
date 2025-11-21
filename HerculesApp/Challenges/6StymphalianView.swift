@@ -34,56 +34,59 @@ struct StymphalianView: View {
     @State private var sitting7 = "StymphalianBirdSitting"
     @State private var sitting8 = "StymphalianBirdSitting"
     
-
+    
     
     
     var body: some View {
-        ZStack{
-            Image("GrassBranches")
-                .resizable()
-                .frame(width: 500, height: 1000)
-            
+        NavigationStack {
+            ZStack{
+                Image("GrassBranches")
+                    .resizable()
+                    .frame(width: 500, height: 1000)
+                
                 Image("Krotala")
                     .resizable()
                     .frame(width: 300, height: 300)
                     .rotationEffect(.degrees(130))
                     .offset(y: 290)
-            if allBirdsAreFlying {
-                WinView(nextInfoView: .constant(AnyView(AftStymphalianView())))
-            }
-            
-            HStack {
-                Image(systemName: "iphone.gen3.radiowaves.left.and.right")
-                    .foregroundStyle(.white)
-                Text("Hold your phone sideways\nand flick it like a handbell!")
-                    .foregroundStyle(.white)
+                if allBirdsAreFlying {
+                    WinView(nextInfoView: .constant(AnyView(AftStymphalianView())))
+                }
                 
-               
-            }
-            .offset(y:120)
-            
-          
+                HStack {
+                    Image(systemName: "iphone.gen3.radiowaves.left.and.right")
+                        .foregroundStyle(.white)
+                    Text("Hold your phone sideways\nand flick it like a handbell!")
+                        .foregroundStyle(.white)
+                    
+                    
+                }
+                .offset(y:120)
+                
+                
                 .onShake {
                     playSound()
                     vibrate.toggle()
                     flyRandomBird()
                 }
                 
-            .buttonStyle(.borderedProminent)
-            .sensoryFeedback(.impact(flexibility: .rigid), trigger: vibrate)
-
-            
-            
-            Bird(imageID: sitting1, positionX: -160, positionY: -70)
-            Bird(imageID: sitting2, positionX: -90, positionY: -70)
-            Bird(imageID: sitting3, positionX: -10, positionY: -65)
-            Bird(imageID: sitting4, positionX: 160, positionY: -220)
-            Bird(imageID: sitting5, positionX: 95, positionY: -205)
-            Bird(imageID: sitting6, positionX: 30, positionY: -180)
-            Bird(imageID: sitting7, positionX: -160, positionY: -360)
+                .buttonStyle(.borderedProminent)
+                .sensoryFeedback(.impact(flexibility: .rigid), trigger: vibrate)
+                
+                
+                
+                Bird(imageID: sitting1, positionX: -160, positionY: -70)
+                Bird(imageID: sitting2, positionX: -90, positionY: -70)
+                Bird(imageID: sitting3, positionX: -10, positionY: -65)
+                Bird(imageID: sitting4, positionX: 160, positionY: -220)
+                Bird(imageID: sitting5, positionX: 95, positionY: -205)
+                Bird(imageID: sitting6, positionX: 30, positionY: -180)
+                Bird(imageID: sitting7, positionX: -160, positionY: -360)
+                
+            }
             
         }
-        
+        .navigationBarBackButtonHidden()
     }
     
     
@@ -93,7 +96,7 @@ struct StymphalianView: View {
         
         if randomBird == 1 {
             sitting1 = "StymphalianBirdFlying"
-
+            
         }
         if randomBird == 2 {
             sitting2 = "StymphalianBirdFlying"
@@ -115,6 +118,7 @@ struct StymphalianView: View {
         }
         
     }
+    
     
     
     func playSound() {
@@ -177,6 +181,7 @@ struct DeviceShakeViewModifier: ViewModifier {
 extension View {
     func onShake(perform action: @escaping () -> Void) -> some View {
         self.modifier(DeviceShakeViewModifier(action: action))
+        
     }
 }
 

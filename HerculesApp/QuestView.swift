@@ -5,6 +5,14 @@ struct QuestView: View {
     @State private var showingPopover = false
     @State private var showingPopover1 = false
     
+    init() {
+        let appearance = UINavigationBarAppearance()
+        
+        
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().standardAppearance = appearance
+    }
+    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -19,6 +27,7 @@ struct QuestView: View {
                                     .frame(width: 300, height: 70)
                                     .cornerRadius(8)
                                     .foregroundColor(.gray)
+                                    .brightness(-0.2)
                             )
                     }
                     NavigationLink(destination: ComingSoonView()) {
@@ -31,6 +40,7 @@ struct QuestView: View {
                                     .frame(width: 300, height: 70)
                                     .cornerRadius(8)
                                     .foregroundColor(.gray)
+                                    .brightness(-0.2)
                             )
                     }
                     NavigationLink(destination: BeforeDeerView()) {
@@ -45,11 +55,12 @@ struct QuestView: View {
                                     .frame(width: 300, height: 70)
                                     .clipped()
                                     .cornerRadius(8)
+                                    .brightness(-0.2)
                             )
                     }
                     NavigationLink(destination: ComingSoonView()) {
                         Text("Erymanthian Boar")
-                            .font(.largeTitle)
+                            .font(.title)
                             .foregroundStyle(.white)
                             .bold()
                             .background(
@@ -57,6 +68,7 @@ struct QuestView: View {
                                     .frame(width: 300, height: 70)
                                     .cornerRadius(8)
                                     .foregroundColor(.gray)
+                                    .brightness(-0.2)
                             )
                     }
                     NavigationLink(destination: BeforeAugeanView()) {
@@ -71,6 +83,7 @@ struct QuestView: View {
                                     .frame(width: 300, height: 70)
                                     .clipped()
                                     .cornerRadius(8)
+                                    .brightness(-0.2)
                             )
                     }
                     NavigationLink(destination: BeforeStymphalianView()) {
@@ -85,6 +98,7 @@ struct QuestView: View {
                                     .frame(width: 300, height: 70)
                                     .clipped()
                                     .cornerRadius(8)
+                                    .brightness(-0.2)
                             )
                     }
                     NavigationLink(destination: ComingSoonView()) {
@@ -97,6 +111,7 @@ struct QuestView: View {
                                     .frame(width: 300, height: 70)
                                     .cornerRadius(8)
                                     .foregroundColor(.gray)
+                                    .brightness(-0.2)
                             )
                     }
                     NavigationLink(destination: ComingSoonView()) {
@@ -109,6 +124,7 @@ struct QuestView: View {
                                     .frame(width: 300, height: 70)
                                     .cornerRadius(8)
                                     .foregroundColor(.gray)
+                                    .brightness(-0.2)
                             )
                     }
                     NavigationLink(destination: ComingSoonView()) {
@@ -121,6 +137,7 @@ struct QuestView: View {
                                     .frame(width: 300, height: 70)
                                     .cornerRadius(8)
                                     .foregroundColor(.gray)
+                                    .brightness(-0.2)
                             )
                     }
                     NavigationLink(destination: BeforeGeryonView()) {
@@ -135,6 +152,7 @@ struct QuestView: View {
                                     .frame(width: 300, height: 70)
                                     .clipped()
                                     .cornerRadius(8)
+                                    .brightness(-0.2)
                             )
                     }
                     NavigationLink(destination: ComingSoonView()) {
@@ -147,6 +165,7 @@ struct QuestView: View {
                                     .frame(width: 300, height: 70)
                                     .cornerRadius(8)
                                     .foregroundColor(.gray)
+                                    .brightness(-0.2)
                             )
                     }
                     NavigationLink(destination: BeforeCerberusView()) {
@@ -161,6 +180,7 @@ struct QuestView: View {
                                     .frame(width: 300, height: 70)
                                     .clipped()
                                     .cornerRadius(8)
+                                    .brightness(-0.2)
                             )
                     }
                 }
@@ -175,13 +195,23 @@ struct QuestView: View {
                     .scaledToFill()
                     .ignoresSafeArea()
                     .offset(x: -20)
+                    .brightness(-0.25)
                     
+            }
+           
+        
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink {
+                        BeforeDeerView()
+                    } label: {
+                        Image(systemName: "play.fill")
+                    }
+                }
             }
             .navigationTitle("Your Labours")
             .navigationBarTitleDisplayMode(.large)
             .navigationBarBackButtonHidden(true)
-        
-            
         }
     }
 }
