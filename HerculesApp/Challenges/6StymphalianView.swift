@@ -34,7 +34,7 @@ struct StymphalianView: View {
     @State private var sitting7 = "StymphalianBirdSitting"
     @State private var sitting8 = "StymphalianBirdSitting"
     
-    
+    @AppStorage("changeView") var changeView = 1
     
     
     var body: some View {
@@ -83,7 +83,8 @@ struct StymphalianView: View {
                 Bird(imageID: sitting6, positionX: 30, positionY: -180)
                 Bird(imageID: sitting7, positionX: -160, positionY: -360)
                 
-                if !allBirdsAreFlying {
+                if allBirdsAreFlying {
+                    changeView = 6
                     Rectangle()
                         .fill(.ultraThinMaterial)
                         .ignoresSafeArea()

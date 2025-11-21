@@ -5,6 +5,9 @@ struct QuestView: View {
     @State private var showingPopover = false
     @State private var showingPopover1 = false
     
+    @AppStorage("changeView") var changeView = 1
+    @Environment(\.dismiss) var dismiss
+    
     init() {
         let appearance = UINavigationBarAppearance()
         
@@ -88,7 +91,7 @@ struct QuestView: View {
                     }
                     NavigationLink(destination: BeforeStymphalianView()) {
                         Text("Stymphalian Birds")
-                            .font(.largeTitle)
+                            .font(.title)
                             .foregroundStyle(.white)
                             .bold()
                             .background(
@@ -216,6 +219,30 @@ struct QuestView: View {
     }
 }
 
+
+struct PreviewView: View {
+    @AppStorage("changeView") var changeView = 1
+    
+    var body: some View {
+        if changeView == 1 {
+            QuestView()
+        }
+        if changeView == 3 {
+            DeerView()
+        }
+        if changeView == 5 {
+            AugeanView()
+        }
+        
+        
+        
+    }
+    
+}
+
+
+
+
 #Preview {
-    QuestView()
+    PreviewView()
 }

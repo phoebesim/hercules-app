@@ -2,7 +2,7 @@ import SwiftUI
 import Combine
 
 struct LionView: View {
-    /*hi*/    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) var dismiss
 
     @State private var yOffset: CGFloat = 0
     @State private var success: Bool = false

@@ -13,6 +13,8 @@ struct GeryonView: View {
     @State private var isGreen: Bool = true
     @State private var loseSheetShown = false
     
+    @AppStorage("changeView") var changeView = 1
+    
     
     var body: some View {
         NavigationStack {
@@ -78,6 +80,7 @@ struct GeryonView: View {
                     WinView(nextInfoView: .constant(AnyView(AftGeryonView())))
                         .ignoresSafeArea()
                         .zIndex(1)
+                    changeView = 10
                         
                     
                     

@@ -21,11 +21,12 @@ struct DeerView: View {
     @State private var weaponYOffset = 0
     
     
-    private let tolerance: CGFloat = 15
-    
-    //ADD: SLIDER TO CONTROL DIFFICULTY
+    @State private var tolerance: CGFloat = 100
     
     
+    @AppStorage("changeView") var changeView = 1
+    @Environment(\.dismiss) var dismiss
+
     var body: some View {
         
         NavigationStack{
@@ -39,6 +40,10 @@ struct DeerView: View {
                 
                 
                 VStack{
+                  //  Text ("Difficulty")
+                       // .bold()
+                  /*  Slider(value: $tolerance, in: 5...50)
+                   .padding()*/
                     
                     Text("Trap the Hind!")
                         .font(.title)
@@ -126,7 +131,7 @@ struct DeerView: View {
                             .bold()
                         
                     }
-                    .disabled(weaponImage == nil)
+                  //  .disabled(weaponImage == nil)
                     .opacity(weaponImage == nil ? 0.5 : 1.0)
                     
                     Spacer()
@@ -144,6 +149,8 @@ struct DeerView: View {
                 }
                 if gameOver {
                     WinView(nextInfoView: .constant(AnyView(AftDeerView())))
+                    dismiss()
+                    changeView = 3
                 }
                 
             }
@@ -178,6 +185,7 @@ struct DeerView: View {
             
         } else {
             message = "Try again..."
+                
         }
     }
     
