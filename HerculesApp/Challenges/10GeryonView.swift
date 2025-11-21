@@ -74,7 +74,7 @@ struct GeryonView: View {
                 Image(isGreen ? "GreenLight":"RedLight")
                     .offset(x: 130, y: -190)
                 
-                if step <= 200 {
+                if step <= 45 {
                     WinView(nextInfoView: .constant(AnyView(AftGeryonView())))
                         .ignoresSafeArea()
                         .zIndex(1)
@@ -97,7 +97,7 @@ struct GeryonView: View {
     
     
     func randomDelay() -> Double {
-        return Double.random(in: 0.3...1.2)
+        return Double.random(in: 0.3...1.0)
     }
     
     func changeLight(){
