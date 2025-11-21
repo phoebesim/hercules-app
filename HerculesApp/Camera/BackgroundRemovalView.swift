@@ -7,6 +7,7 @@ import AVFoundation
 struct BackgroundRemovalView: View {
     @State private var processedImage: UIImage?
     @State private var showingCamera = false
+    @Binding var weapon: String
     
     var onDone: (UIImage?) -> Void
     
@@ -23,12 +24,13 @@ struct BackgroundRemovalView: View {
                     .padding()
                //     .rotationEffect(Angle(degrees: 90))
             } else {
-                Text("Tap the button to take a photo.")
+                Text("Take a photo of something you have that resembles \(weapon). It will be your weapon!")
                     .font(.headline)
                     .padding()
+                    .multilineTextAlignment(.center)
             }
             
-            Button("􀌞") {
+            Button("📷") {
                 // Check if camera is available before presenting
                 if UIImagePickerController.isSourceTypeAvailable(.camera) {
                     showingCamera = true
@@ -110,7 +112,7 @@ struct BackgroundRemovalView: View {
 }
 
 #Preview {
-    BackgroundRemovalView { finalImage in
+    BackgroundRemovalView(weapon: .constant("an arrow (e.g. a pencil)")) { finalImage in
         print("done", finalImage != nil)
     }
 }

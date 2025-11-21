@@ -2,7 +2,7 @@ import SwiftUI
 import Combine
 
 struct LionView: View {
-    /*hi*/    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) var dismiss
 
     @State private var yOffset: CGFloat = 0
     @State private var success: Bool = false
@@ -136,7 +136,7 @@ struct LionView: View {
             }
         }
         .sheet(isPresented: $weaponSheet) {
-            BackgroundRemovalView(onDone: { image in
+            BackgroundRemovalView(weapon: .constant ("an arrow (e.g. a pencil)"), onDone: { image in
                 weaponImage = image
                 weaponSheet = false
             })

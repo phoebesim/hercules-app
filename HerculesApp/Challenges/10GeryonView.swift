@@ -74,10 +74,37 @@ struct GeryonView: View {
                 Image(isGreen ? "GreenLight":"RedLight")
                     .offset(x: 130, y: -190)
                 
-                if step <= 200 {
-                    WinView(nextInfoView: .constant(AnyView(AftGeryonView())))
-                        .ignoresSafeArea()
-                        .zIndex(1)
+                if step <= 45 {
+                    ZStack {
+                        Rectangle()
+                            .fill(.ultraThinMaterial)
+                            .ignoresSafeArea()
+                        VStack(spacing: 24) {
+                            Spacer()
+                            Text("You won!!!")
+                                .font(.system(size: 48, weight: .bold))
+                                .foregroundColor(.black)
+                                .multilineTextAlignment(.center)
+                            
+                            Spacer()
+                            
+                            NavigationLink(destination: AftGeryonView()) {
+                                Text("Continue")
+                                    .padding()
+                                    .font(.title2.weight(.semibold))
+                                    .foregroundColor(.white)
+                                    .frame(maxWidth: .infinity, minHeight: 56, )
+                            }
+                            .background(Color.gray)
+                            .cornerRadius(12)
+                            .padding(.horizontal, 60)
+                            .padding(.bottom, 40)
+                            
+                        }
+                    }
+                    //WinView(nextInfoView: .constant(AnyView(AftGeryonView())))
+                        //.ignoresSafeArea()
+                        //.zIndex(1)
                         
                     
                     
@@ -97,7 +124,7 @@ struct GeryonView: View {
     
     
     func randomDelay() -> Double {
-        return Double.random(in: 0.3...1.2)
+        return Double.random(in: 0.3...1.0)
     }
     
     func changeLight(){

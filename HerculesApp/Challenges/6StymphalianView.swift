@@ -40,6 +40,9 @@ struct StymphalianView: View {
     var body: some View {
         NavigationStack {
             ZStack{
+                
+                
+                
                 Image("GrassBranches")
                     .resizable()
                     .frame(width: 500, height: 1000)
@@ -49,9 +52,6 @@ struct StymphalianView: View {
                     .frame(width: 300, height: 300)
                     .rotationEffect(.degrees(130))
                     .offset(y: 290)
-                if allBirdsAreFlying {
-                    WinView(nextInfoView: .constant(AnyView(AftStymphalianView())))
-                }
                 
                 HStack {
                     Image(systemName: "iphone.gen3.radiowaves.left.and.right")
@@ -83,10 +83,50 @@ struct StymphalianView: View {
                 Bird(imageID: sitting6, positionX: 30, positionY: -180)
                 Bird(imageID: sitting7, positionX: -160, positionY: -360)
                 
+                if !allBirdsAreFlying {
+                    Rectangle()
+                        .fill(.ultraThinMaterial)
+                        .ignoresSafeArea()
+                    
+                    VStack(spacing: 24) {
+                       Spacer()
+                        Text("You won!!!")
+                            .font(.system(size: 48, weight: .bold))
+                            .foregroundColor(.black)
+                            .multilineTextAlignment(.center)
+                        
+                        
+                       Spacer()
+                        
+                        NavigationLink(destination: AftStymphalianView()) {
+                            Text("Continue")
+                                .padding()
+                                .font(.title2.weight(.semibold))
+                                .foregroundColor(.white)
+                                .frame(maxWidth: .infinity, minHeight: 56)
+                        }
+                        .background(Color.gray)
+                        .cornerRadius(12)
+                        .padding(.horizontal, 60)
+                        .padding(.bottom, 150)
+                        
+                    }
+                    
+                    
+                }
             }
             
         }
         .navigationBarBackButtonHidden()
+        .toolbar{
+            ToolbarItem (placement: .topBarLeading){
+                NavigationLink {
+                    QuestView()
+                } label: {
+                    Image(systemName: "house" )
+                }
+            }
+        }
     }
     
     
