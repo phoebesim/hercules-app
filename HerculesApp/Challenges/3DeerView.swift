@@ -21,7 +21,7 @@ struct DeerView: View {
     @State private var weaponYOffset = 0
     
     
-    private let tolerance: CGFloat = 20
+    private let tolerance: CGFloat = 15
     
     //ADD: SLIDER TO CONTROL DIFFICULTY
     
@@ -91,7 +91,7 @@ struct DeerView: View {
                     
                     .sheet(isPresented: $weaponSheet) {
                         
-                        BackgroundRemovalView(onDone: { image in weaponImage = image; weaponSheet = false })
+                        BackgroundRemovalView(weapon: .constant("a net (e.g. a towel"), onDone: { image in weaponImage = image; weaponSheet = false })
                         
                         
                     }
@@ -106,10 +106,13 @@ struct DeerView: View {
                     
                     Button{
                         checkIfAtCenter()
-                        if gameOver {
+                        
                             withAnimation(.easeInOut) {
                                 weaponYOffset = -200
-                            }
+                                
+                                withAnimation(.easeInOut) {
+                                    weaponYOffset = 0
+                                }
                         }
                     } label: {
                         
@@ -123,6 +126,8 @@ struct DeerView: View {
                             .bold()
                         
                     }
+                    .disabled(weaponImage == nil)
+                    .opacity(weaponImage == nil ? 0.5 : 1.0)
                     
                     Spacer()
                     
