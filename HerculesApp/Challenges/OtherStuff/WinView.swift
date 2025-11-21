@@ -8,20 +8,57 @@
 import SwiftUI
 
 struct WinView: View {
+    @Binding var nextInfoView: AnyView
+
     var body: some View {
-        Color.white.opacity(0.85)
-            .ignoresSafeArea()
-            .transition(.opacity)
-            .zIndex(1)
+        NavigationStack {
+
+        ZStack {
+            Rectangle()
+                .fill(.ultraThinMaterial)
+                .ignoresSafeArea()
+                
             
-        Text("You won!!!")
-            .font(.system(size: 48, weight: .bold))
-            .foregroundColor(.black)
-            .transition(.scale)
-            .zIndex(2)
+                VStack(spacing: 24) {
+                    Spacer()
+                    
+                    
+                    Text("You won!!!")
+                        .font(.system(size: 48, weight: .bold))
+                        .foregroundColor(.black)
+                        .multilineTextAlignment(.center)
+                    
+                Spacer()
+            
+                    NavigationLink(destination: nextInfoView) {
+                        Text("Continue")
+                            .padding()
+                            .font(.title2.weight(.semibold))
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity, minHeight: 56)
+                    }
+                    
+                    .background(Color.gray)
+                    .cornerRadius(12)
+                    .padding(.horizontal, 60)
+                    .padding(.bottom, 40)
+        //            Spacer()
+                }
+            }
+            .navigationBarBackButtonHidden()
+            .toolbar{
+                ToolbarItem (placement: .topBarLeading){
+                    NavigationLink {
+                        QuestView()
+                    } label: {
+                        Image(systemName: "house" )
+                    }
+        }
+            }
+        }
     }
 }
 
 #Preview {
-    WinView()
+    WinView(nextInfoView: .constant(AnyView(EndView())))
 }

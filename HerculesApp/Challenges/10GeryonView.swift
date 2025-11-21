@@ -15,85 +15,84 @@ struct GeryonView: View {
     
     
     var body: some View {
-        ZStack {
-            if step < 45 {
-                Color.white.opacity(0.85)
+        NavigationStack {
+            ZStack {
+                Image(.grass)
+                    .resizable()
                     .ignoresSafeArea()
-                    .transition(.opacity)
-                    .zIndex(1)
-                    .ignoresSafeArea()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 500, height: 500)
+                Image(.geryon)
+                    .resizable()
+                    .frame(width: 250, height: 300)
+                    .offset(y:-170)
+                Image(.cow)
+                    .resizable()
+                    .frame(width: 180, height: 120)
+                    .offset(x:-80, y:-80)
+                Image(.cow)
+                    .resizable()
+                    .frame(width: 180, height: 120)
+                    .offset(y:-80)
+                Image(.cow)
+                    .resizable()
+                    .frame(width: 180, height: 120)
+                    .offset(x:80, y:-50)
+                Image(.cow)
+                    .resizable()
+                    .frame(width: 180, height: 120)
+                    .offset(x:-100, y:-25)
+                Image(.cow)
+                    .resizable()
+                    .frame(width: 180, height: 120)
+                    .offset(x:-10, y:-10)
+                Image(.cow)
+                    .resizable()
+                    .frame(width: 180, height: 120)
+                    .offset(x:50, y:10)
+                Image(.stickman)
+                    .resizable()
+                    .frame(width: 50, height: 100)
+                    .offset(y: step)
+                Button("Walk") {
+                    step -= 10
+                    changeLight()
+                    if isGreen == false {
+                        loseSheetShown = true
+                        step = 300
+                    }
+                    
+                }
+                .buttonStyle(.borderedProminent)
+                .offset(y:380)
+                .tint(.white)
+                .padding(50)
+                .foregroundStyle(.black)
+                .controlSize(.extraLarge)
+                .buttonBorderShape(.circle)
+                .fontWeight(.bold)
+                Image(isGreen ? "GreenLight":"RedLight")
+                    .offset(x: 130, y: -190)
                 
-                Text("You won!!!")
-                    .font(.system(size: 48, weight: .bold))
-                    .foregroundColor(.black)
-                    .transition(.scale)
-                    .zIndex(2)
-                    .ignoresSafeArea()
-            }
-            Image(.grass)
-                .resizable()
-                .ignoresSafeArea()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 500, height: 500)
-            Image(.geryon)
-                .resizable()
-                .frame(width: 250, height: 300)
-                .offset(y:-170)
-            Image(.cow)
-                .resizable()
-                .frame(width: 180, height: 120)
-                .offset(x:-80, y:-80)
-            Image(.cow)
-                .resizable()
-                .frame(width: 180, height: 120)
-                .offset(y:-80)
-            Image(.cow)
-                .resizable()
-                .frame(width: 180, height: 120)
-                .offset(x:80, y:-50)
-            Image(.cow)
-                .resizable()
-                .frame(width: 180, height: 120)
-                .offset(x:-100, y:-25)
-            Image(.cow)
-                .resizable()
-                .frame(width: 180, height: 120)
-                .offset(x:-10, y:-10)
-            Image(.cow)
-                .resizable()
-                .frame(width: 180, height: 120)
-                .offset(x:50, y:10)
-            Image(.stickman)
-                .resizable()
-                .frame(width: 50, height: 100)
-                .offset(y: step)
-            Button("Walk") {
-                step -= 10
-                changeLight()
-                if isGreen == false {
-                    loseSheetShown = true
-                    step = 300
-                }
-                if step == 10 {
-                    //you win!! add this later
+                if step <= 200 {
+                    WinView(nextInfoView: .constant(AnyView(AftGeryonView())))
+                        .ignoresSafeArea()
+                        .zIndex(1)
+                        
+                    
+                    
                 }
             }
-            .buttonStyle(.borderedProminent)
-            .offset(y:380)
-            .tint(.white)
-            .padding(50)
-            .foregroundStyle(.black)
-            .controlSize(.extraLarge)
-            .buttonBorderShape(.circle)
-            .fontWeight(.bold)
-            Image(isGreen ? "GreenLight":"RedLight")
-                .offset(x: 130, y: -190)
+            .sheet(isPresented: $loseSheetShown) {
+                Text("You need to steal Geryon's cattle while he is sleeping! Only move when the light is green!")
+                    .presentationDetents([.medium, .large, .fraction(0.2)])
+            }
+            
         }
-        .sheet(isPresented: $loseSheetShown) {
-            Text("You need to steal Geryon's cattle while he is sleeping! Only move when the light is green!")
-                .presentationDetents([.medium, .large, .fraction(0.2)])
-        }
-        .padding()
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
+        .ignoresSafeArea(.all)
+
     }
     
     
@@ -112,6 +111,7 @@ struct GeryonView: View {
         }
     }
 }
+
 
 
 #Preview {

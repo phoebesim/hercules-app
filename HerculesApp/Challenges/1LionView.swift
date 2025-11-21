@@ -2,10 +2,18 @@ import SwiftUI
 import Combine
 
 struct LionView: View {
+    /*hi*/    @Environment(\.dismiss) var dismiss
+
     @State private var yOffset: CGFloat = 0
     @State private var success: Bool = false
     @State private var hasWon: Bool = false
+    @State private var hasLost: Bool = false
     @State private var buttonPressed: Bool = false
+    @State private var goNext: Bool = false
+
+    @State var weaponImage: UIImage?
+    @State var showButton = true
+    @State private var weaponSheet = false
 
     var body: some View {
         ZStack {
@@ -41,7 +49,6 @@ struct LionView: View {
 
                 HStack(alignment: .center, spacing: 40) {
 
-                    // ------- LEFT SIDE: ZONES + MOVING ARROW -------
                     ZStack(alignment: .top) {
                         VStack(spacing: 0) {
                             zone(color: .green, label: "GREEN")
@@ -52,67 +59,113 @@ struct LionView: View {
 
                         Image(systemName: "arrowshape.left.fill")
                             .foregroundColor(.white)
+                            .font(.system(size: 40))
                             .offset(y: yOffset)
                             .padding(.leading, 100)
                     }
-                    
                     .onAppear {
-                        withAnimation(.easeInOut(duration: 0.5).repeatForever(autoreverses: true)) {yOffset = 300
+                        withAnimation(.easeInOut(duration: 0.5).repeatForever(autoreverses: true)) {
+                            yOffset = 300
                         }
                     }
-                    
-      
 
-                    // ------- RIGHT SIDE: BOW + SHOOT BUTTON -------
-                    VStack(spacing: 20) {
+                    VStack(spacing: 10) {
+                        
                         ZStack {
                             Image("Bow")
                                 .resizable()
+<<<<<<< HEAD
                                 .frame(width: 250, height: 150)
                             
                            
 
                             if success == false {
                                 Image("Pencil")
+=======
+                                .scaledToFit()
+                                .frame(width: 220, height: 150)
+
+                            if showButton {
+                                Image("ArrowCutout")
+>>>>>>> main
                                     .resizable()
+                                    .scaledToFit()
                                     .frame(width: 80, height: 200)
                             }
+                            
+                            if let img = weaponImage {
+                                Image(uiImage: img)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 100, height: 100)
+                                    .rotationEffect(.degrees(90))
+                            }
+                        }
+                        
+                        if showButton {
+                            Button("Get your weapon!") {
+                                weaponSheet = true
+                                showButton = false
+                            }
+                            .buttonStyle(.bordered)
+                            .background(.white)
+                            .cornerRadius(8)
                         }
 
                         Button {
                             buttonPressed = true
                             
-                            if yOffset > -109 && yOffset < 301 {
+                            if yOffset >= 0 && yOffset <= 100 {
                                 success = true
+                                hasWon = true
+                                hasLost = false
+                                goNext = true
                             } else {
                                 success = false
+                                hasWon = false
+                                hasLost = true
                             }
                         } label: {
                             ZStack {
                                 Circle()
                                     .foregroundStyle(.white)
-                                    Text("Shoot!")
+                                Text("Shoot!")
                                     .font(.title2)
                                     .bold()
                                     .padding()
                                     .background(.white)
                                     .foregroundColor(.black)
-        
                                     .frame(width: 150, height: 150)
                             }
                         }
+                        .disabled(weaponImage == nil)
+                        .opacity(weaponImage == nil ? 0.5 : 1.0)
                     }
                 }
                 .padding(.bottom, 50)
             }
 
-            if hasWon {
-                WinView()
+            if hasLost {
+                LoseView()
+                    .onAppear {
+                        hasLost = false
+                        buttonPressed = false
+                        weaponImage = nil
+                        showButton = true
+                    }
             }
+        }
+        .sheet(isPresented: $weaponSheet) {
+            BackgroundRemovalView(onDone: { image in
+                weaponImage = image
+                weaponSheet = false
+            })
+        }
+        .navigationDestination(isPresented: $goNext) {
+            AftLionView()
         }
     }
 
-    // MARK: - Zone helper
     func zone(color: Color, label: String) -> some View {
         ZStack {
             Rectangle()
@@ -122,6 +175,7 @@ struct LionView: View {
                 .fontWeight(.bold)
                 .foregroundColor(color == .yellow ? .black : .white)
         }
+        .frame(height: 100)
     }
 }
 

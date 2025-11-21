@@ -1,10 +1,3 @@
-//
-//  PathView.swift
-//  HerculesApp
-//
-//  Created by Phoebe Sim on 11/11/25.
-//
-
 import SwiftUI
 
 struct QuestView: View {
@@ -12,172 +5,213 @@ struct QuestView: View {
     @State private var showingPopover = false
     @State private var showingPopover1 = false
     
+    init() {
+        let appearance = UINavigationBarAppearance()
+        
+        
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().standardAppearance = appearance
+    }
     
     var body: some View {
-        ZStack {
-            Image("Grass") // The image at the bottom
-                .resizable()
-                .scaledToFill()
-                .ignoresSafeArea()
-                .brightness(0.1)
-                
-        
-        Button("Instructions") {
-            showingPopover = true
-        }
-            
-        .zIndex(2)
-        .foregroundColor(.black)
-        .padding()
-        .background(Color.white)
-        .cornerRadius(10)
-        .offset(x: -120, y: -370)
-        .popover(isPresented: $showingPopover) {
-            Text("Instructions: Scan different items based on the requirements! Complete all 12 labours to win!")
-                .font(.headline)
+        NavigationStack {
+            ScrollView {
+                VStack (spacing: 50) {
+                    NavigationLink(destination: ComingSoonView()) {
+                        Text("Nemean Lion")
+                            .font(.largeTitle)
+                            .foregroundStyle(.white)
+                            .bold()
+                            .background(
+                                Rectangle()
+                                    .frame(width: 300, height: 70)
+                                    .cornerRadius(8)
+                                    .foregroundColor(.gray)
+                                    .brightness(-0.2)
+                            )
+                    }
+                    NavigationLink(destination: ComingSoonView()) {
+                        Text("Lernean Hydra")
+                            .font(.largeTitle)
+                            .foregroundStyle(.white)
+                            .bold()
+                            .background(
+                                Rectangle()
+                                    .frame(width: 300, height: 70)
+                                    .cornerRadius(8)
+                                    .foregroundColor(.gray)
+                                    .brightness(-0.2)
+                            )
+                    }
+                    NavigationLink(destination: BeforeDeerView()) {
+                        Text("Ceryneian Hind")
+                            .font(.largeTitle)
+                            .foregroundStyle(.white)
+                            .bold()
+                            .background(
+                                Image("DeerPainting")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 300, height: 70)
+                                    .clipped()
+                                    .cornerRadius(8)
+                                    .brightness(-0.2)
+                            )
+                    }
+                    NavigationLink(destination: ComingSoonView()) {
+                        Text("Erymanthian Boar")
+                            .font(.title)
+                            .foregroundStyle(.white)
+                            .bold()
+                            .background(
+                                Rectangle()
+                                    .frame(width: 300, height: 70)
+                                    .cornerRadius(8)
+                                    .foregroundColor(.gray)
+                                    .brightness(-0.2)
+                            )
+                    }
+                    NavigationLink(destination: BeforeAugeanView()) {
+                        Text("Augean Stables")
+                            .font(.largeTitle)
+                            .foregroundStyle(.white)
+                            .bold()
+                            .background(
+                                Image("AugeanPainting")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 300, height: 70)
+                                    .clipped()
+                                    .cornerRadius(8)
+                                    .brightness(-0.2)
+                            )
+                    }
+                    NavigationLink(destination: BeforeStymphalianView()) {
+                        Text("Stymphalian Birds")
+                            .font(.largeTitle)
+                            .foregroundStyle(.white)
+                            .bold()
+                            .background(
+                                Image("StymphalianPainting")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 300, height: 70)
+                                    .clipped()
+                                    .cornerRadius(8)
+                                    .brightness(-0.2)
+                            )
+                    }
+                    NavigationLink(destination: ComingSoonView()) {
+                        Text("Cretan Bull")
+                            .font(.largeTitle)
+                            .foregroundStyle(.white)
+                            .bold()
+                            .background(
+                                Rectangle()
+                                    .frame(width: 300, height: 70)
+                                    .cornerRadius(8)
+                                    .foregroundColor(.gray)
+                                    .brightness(-0.2)
+                            )
+                    }
+                    NavigationLink(destination: ComingSoonView()) {
+                        Text("Mares of Diomedes")
+                            .font(.title)
+                            .foregroundStyle(.white)
+                            .bold()
+                            .background(
+                                Rectangle()
+                                    .frame(width: 300, height: 70)
+                                    .cornerRadius(8)
+                                    .foregroundColor(.gray)
+                                    .brightness(-0.2)
+                            )
+                    }
+                    NavigationLink(destination: ComingSoonView()) {
+                        Text("Belt of Hippolyta")
+                            .font(.largeTitle)
+                            .foregroundStyle(.white)
+                            .bold()
+                            .background(
+                                Rectangle()
+                                    .frame(width: 300, height: 70)
+                                    .cornerRadius(8)
+                                    .foregroundColor(.gray)
+                                    .brightness(-0.2)
+                            )
+                    }
+                    NavigationLink(destination: BeforeGeryonView()) {
+                        Text("Cattle of Geryon")
+                            .font(.largeTitle)
+                            .foregroundStyle(.white)
+                            .bold()
+                            .background(
+                                Image("GeryonPainting")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 300, height: 70)
+                                    .clipped()
+                                    .cornerRadius(8)
+                                    .brightness(-0.2)
+                            )
+                    }
+                    NavigationLink(destination: ComingSoonView()) {
+                        Text("Golden Apples of\nHerperides")
+                            .font(.title)
+                            .foregroundStyle(.white)
+                            .bold()
+                            .background(
+                                Rectangle()
+                                    .frame(width: 300, height: 70)
+                                    .cornerRadius(8)
+                                    .foregroundColor(.gray)
+                                    .brightness(-0.2)
+                            )
+                    }
+                    NavigationLink(destination: BeforeCerberusView()) {
+                        Text("Cerberus")
+                            .font(.largeTitle)
+                            .foregroundStyle(.white)
+                            .bold()
+                            .background(
+                                Image("CerberusPainting")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 300, height: 70)
+                                    .clipped()
+                                    .cornerRadius(8)
+                                    .brightness(-0.2)
+                            )
+                    }
+                }
                 .padding()
-        }
-            VStack {
-                Button{
-                  BeforeLionView()
-                }label: {
-                    Image("Lion")
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                        .offset(x: -150)
-                    
-                }
-                Button{
-                    
-                }label: {
-                    Image("x")
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                        .offset(x: -150)
-                    
-                }
-                Button{
-                 BeforeHindView()
-                }label: {
-                    Image("Deer")
-                        .resizable()
-                        .frame(width: 60, height: 60)
-                        .offset(x: -150)
-                    
-                }
-                Button{
-                    
-                }label: {
-                    Image("x")
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                        .offset(x: -150)
-                    
-                }
-                Button{
-                 BeforeStableView()
-                }label: {
-                    Image("Stable")
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                        .offset(x: -150)
-                    
-                }
-                Button{
-                    
-                }label: {
-                    Image("StymphalianBirdFlying")
-                        .resizable()
-                        .frame(width: 100, height: 200)
-                        .offset(x: -150)
-                    
-                }
-            }
-                VStack {
-               
-                Button{
-                    
-                }label: {
-                    Image("x")
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                        .offset(x: 150)
-                        
-                }
-                Button{
-                    
-                }label: {
-                    Image("x")
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                        .offset(x: 150)
-                        
-                }
-                Button{
-                    
-                }label: {
-                    Image("Amazon")
-                        .resizable()
-                        .frame(width: 50, height: 100)
-                        .offset(x: 150)
-                        
-                }
-                Button{
-                    
-                }label: {
-                    Image("Geryon")
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                        .offset(x: 150)
-                        
-                }
-                Button{
-                    
-                }label: {
-                    Image("x")
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                        .offset(x: 150)
-                        
-                }
-                Button{
-                    
-                }label: {
-                    Image("Cerberus")
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                        .offset(x: 150)
-                        
-                }
-
             }
             
-        
-        
-                
+            .scrollIndicators(.hidden)
             
-            
-            Button{
-                
-                showingPopover1 = true
-            }label: {
-                Image(.hera)
+            .background {
+                Image("Grass")
                     .resizable()
-                    .scaledToFit()
-                    .frame(width: 200, height: 200)
-                
+                    .scaledToFill()
+                    .ignoresSafeArea()
+                    .offset(x: -20)
+                    .brightness(-0.25)
+                    
             }
-            .popover(isPresented: $showingPopover1) {
-                VStack {
-                    Text("Goddess: Marriage, childbirth and women.\nMain lover: Zeus\nAppearance: Elegant,jealous, protective and arrogant.\nWorship: Greece temples.\nKnown for: Punishing Zeus's mistresses and his other sons")
-                        .font(.headline)
-                        .padding()
+           
+        
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink {
+                        BeforeDeerView()
+                    } label: {
+                        Image(systemName: "play.fill")
+                    }
                 }
-                
-                
             }
-            
-            
+            .navigationTitle("Your Labours")
+            .navigationBarTitleDisplayMode(.large)
+            .navigationBarBackButtonHidden(true)
         }
     }
 }
