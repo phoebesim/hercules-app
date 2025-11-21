@@ -28,7 +28,7 @@ struct BeforeDeerView: View   {
                         .padding()
                         .foregroundStyle(.white)
                         .font(.title)
-                        .multilineTextAlignment(.center)
+                        .multilineTextAlignment(.leading)
                         .frame(maxWidth: .infinity)
                         .padding(50)
                 }
