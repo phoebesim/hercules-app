@@ -75,9 +75,36 @@ struct GeryonView: View {
                     .offset(x: 130, y: -190)
                 
                 if step <= 45 {
-                    WinView(nextInfoView: .constant(AnyView(AftGeryonView())))
-                        .ignoresSafeArea()
-                        .zIndex(1)
+                    ZStack {
+                        Rectangle()
+                            .fill(.ultraThinMaterial)
+                            .ignoresSafeArea()
+                        VStack(spacing: 24) {
+                            Spacer()
+                            Text("You won!!!")
+                                .font(.system(size: 48, weight: .bold))
+                                .foregroundColor(.black)
+                                .multilineTextAlignment(.center)
+                            
+                            Spacer()
+                            
+                            NavigationLink(destination: AftGeryonView()) {
+                                Text("Continue")
+                                    .padding()
+                                    .font(.title2.weight(.semibold))
+                                    .foregroundColor(.white)
+                                    .frame(maxWidth: .infinity, minHeight: 56, )
+                            }
+                            .background(Color.gray)
+                            .cornerRadius(12)
+                            .padding(.horizontal, 60)
+                            .padding(.bottom, 40)
+                            
+                        }
+                    }
+                    //WinView(nextInfoView: .constant(AnyView(AftGeryonView())))
+                        //.ignoresSafeArea()
+                        //.zIndex(1)
                         
                     
                     

@@ -98,7 +98,7 @@ struct StymphalianView: View {
                         
                        Spacer()
                         
-                        NavigationLink(destination: AftCerberusView()) {
+                        NavigationLink(destination: AftStymphalianView()) {
                             Text("Continue")
                                 .padding()
                                 .font(.title2.weight(.semibold))

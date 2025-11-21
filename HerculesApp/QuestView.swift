@@ -15,6 +15,7 @@ struct QuestView: View {
     
     var body: some View {
         NavigationStack {
+            
             ScrollView {
                 VStack (spacing: 50) {
                     NavigationLink(destination: ComingSoonView()) {
@@ -196,10 +197,10 @@ struct QuestView: View {
                     .ignoresSafeArea()
                     .offset(x: -20)
                     .brightness(-0.25)
-                    
+                
             }
-           
-        
+            
+            
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     NavigationLink {
@@ -219,3 +220,4 @@ struct QuestView: View {
 #Preview {
     QuestView()
 }
+
