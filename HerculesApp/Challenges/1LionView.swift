@@ -2,7 +2,7 @@ import SwiftUI
 import Combine
 
 struct LionView: View {
-    /*hi*/    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) var dismiss
 
     @State private var yOffset: CGFloat = 0
     @State private var success: Bool = false
@@ -21,7 +21,6 @@ struct LionView: View {
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()
-                .brightness(-0.2)
 
             VStack {
                 Text("Shoot the Nemean Lion!")
@@ -29,21 +28,11 @@ struct LionView: View {
                     .foregroundColor(.white)
                     .bold()
                     .padding(.top, 40)
-                ZStack {
-                    
-                    Image("Lion")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 300, height: 300)
-                    
-                    if success == true {
-                        Image("Pencil")
-                            .resizable()
-                            .frame(width: 80, height: 200)
-                            .offset(x: 90, y:100 )
-                        
-                    }
-                }
+
+                Image("Lion")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 300, height: 300)
 
                 Spacer()
 
@@ -74,20 +63,11 @@ struct LionView: View {
                         ZStack {
                             Image("Bow")
                                 .resizable()
-<<<<<<< HEAD
-                                .frame(width: 250, height: 150)
-                            
-                           
-
-                            if success == false {
-                                Image("Pencil")
-=======
                                 .scaledToFit()
                                 .frame(width: 220, height: 150)
 
                             if showButton {
                                 Image("ArrowCutout")
->>>>>>> main
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 80, height: 200)
