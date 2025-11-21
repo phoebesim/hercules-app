@@ -14,34 +14,30 @@ struct FirstinfoView: View   {
     
     var body: some View {
         
-        
-        ZStack {
-            Image("Hercules")
-                .resizable()
-                .frame(width: 500, height: 900)
-                .ignoresSafeArea()
-                .brightness(-0.4)
-                .aspectRatio(contentMode: .fill)
-            
-            VStack {
-                Text(animatedText)
-                    .padding()
-                    .foregroundStyle(.white)
-                    .font(.title)
-                    .multilineTextAlignment(.center)
-                    .frame(maxWidth: .infinity)
-                    .padding(50)
-            }
-            .onAppear {
-                animateText()
+        NavigationStack {
+            ZStack {
+                Image("Hercules")
+                    .resizable()
+                    .frame(width: 500, height: 900)
+                    .ignoresSafeArea()
+                    .brightness(-0.4)
+                    .aspectRatio(contentMode: .fill)
                 
-            }
-            NavigationLink {
-                // 3. Specify the Destination View
-                BeforeLionView()
-            } label: {
-                Button("Continue") {
+                VStack {
+                    Text(animatedText)
+                        .padding()
+                        .foregroundStyle(.white)
+                        .font(.title)
+                        .multilineTextAlignment(.center)
+                        .frame(maxWidth: .infinity)
+                        .padding(50)
+                }
+                .onAppear {
+                    animateText()
                     
+                }
+                NavigationLink("Continue") {
+                    QuestView()
                 }
                 .padding()
                 .background(Color.white)
@@ -50,10 +46,11 @@ struct FirstinfoView: View   {
                 .padding()
                 .foregroundColor(.black)
                 
+                
+                .padding()
             }
-            
-            .padding()
         }
+        .navigationBarBackButtonHidden(true)
     }
     
     func animateText() {
@@ -61,7 +58,7 @@ struct FirstinfoView: View   {
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(index) * 0.05) {
                 animatedText.append(character)
                 
-                UIImpactFeedbackGenerator(style: .light).impactOccurred()
+               
             }
         }
     }

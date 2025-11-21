@@ -13,47 +13,46 @@ struct AftCerberusView: View   {
     
     var body: some View {
         
-        
-        ZStack {
-            Image("Hercules")
-                .resizable()
-                .frame(width: 500, height: 900)
-                .ignoresSafeArea()
-                .brightness(-0.4)
-                .aspectRatio(contentMode: .fill)
-            Text(animatedText)
-                .padding()
-                .foregroundStyle(.white)
-                .font(.title)
-                .multilineTextAlignment(.center)
-                .frame(maxWidth: .infinity)
-                .padding(50)
-                .onAppear {
-                    animateText()
-                    
+        NavigationStack {
+            ZStack {
+                Image("Hercules")
+                    .resizable()
+                    .frame(width: 500, height: 900)
+                    .ignoresSafeArea()
+                    .brightness(-0.4)
+                    .aspectRatio(contentMode: .fill)
+                Text(animatedText)
+                    .padding()
+                    .foregroundStyle(.white)
+                    .font(.title)
+                    .multilineTextAlignment(.center)
+                    .frame(maxWidth: .infinity)
+                    .padding(50)
+                    .onAppear {
+                        animateText()
+                        
+                    }
+                
+                NavigationLink("Continue") {
+                    EndView()
                 }
-            
-            NavigationLink("Continue") {
-                EndView()
+                .padding()
+                .background(Color.white)
+                .cornerRadius(15)
+                .offset(x:0, y: 300)
+                .padding()
+                .foregroundColor(.black)
+                
             }
             .padding()
-            .background(Color.white)
-            .cornerRadius(15)
-            .offset(x:0, y: 300)
-            .padding()
-            .foregroundColor(.black)
-            
         }
-        
-        .padding()
+        .navigationBarBackButtonHidden(true)
     }
     
     func animateText() {
         for (index, character) in textToType.enumerated() {
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(index) * 0.05) {
                 animatedText.append(character)
-                
-                UIImpactFeedbackGenerator(style: .light).impactOccurred()
             }
         }
     }
