@@ -28,7 +28,7 @@ struct BackgroundRemovalView: View {
                     .padding()
             }
             
-            Button("Take Photo & Remove Background") {
+            Button("􀌞") {
                 // Check if camera is available before presenting
                 if UIImagePickerController.isSourceTypeAvailable(.camera) {
                     showingCamera = true
