@@ -12,6 +12,9 @@ struct CerberusView: View {
     @State private var progress: CGFloat = 0
     @StateObject private var motion = MotionDetector()
     @State private var lastStep = Date()
+    @AppStorage("changeView") var changeView = 1
+    
+    
  //   @State private var difficulty: Double =
     var body: some View {
         NavigationStack {

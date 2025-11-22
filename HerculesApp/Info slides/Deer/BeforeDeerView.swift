@@ -10,11 +10,13 @@ struct BeforeDeerView: View   {
     let textToType = "Your third labour: to capture the Ceryneian Hind and deliver it to the King alive. It can outpace even the best arrows and is only visible by a glint of moonlight on its antlers."
     
     @State private var animatedText: String = ""
+    @Environment(\.dismiss) var dismiss
+    @AppStorage("changeView") var changeView = 0
     
     
     
     var body: some View {
-        NavigationStack {
+        
             ZStack {
                 Image("Hercules")
                     .resizable()
@@ -36,8 +38,10 @@ struct BeforeDeerView: View   {
                     animateText()
                 }
                 
-                NavigationLink{
-                    DeerView()
+                Button {
+                  //  dismiss()
+                    changeView = 3
+                    
                 } label: {
                     Text("Continue")
                 }
@@ -50,7 +54,7 @@ struct BeforeDeerView: View   {
             }
             
             .padding()
-        }
+        
         .navigationBarBackButtonHidden(true)
     }
     
@@ -60,7 +64,7 @@ struct BeforeDeerView: View   {
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(index) * 0.05) {
                 animatedText.append(character)
                 
-               
+                
             }
         }
     }

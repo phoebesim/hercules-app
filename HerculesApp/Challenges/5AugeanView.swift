@@ -60,7 +60,13 @@ enum Direction: CaseIterable {
 }
 
 
+
 struct AugeanView: View {
+    
+    @AppStorage("changeView") var changeView = 1
+    @Environment(\.dismiss) var dismiss
+    
+    
     let lightRed = Color(red: 0.969, green: 0.667, blue: 0.584)
     @State private var grid: [[Pipe]] = [[
         Pipe(type: .end, rotation: 0),
@@ -90,7 +96,6 @@ struct AugeanView: View {
         NavigationStack {
             
             ZStack {
-                
                 Image(.grass)
                     .resizable()
                     .ignoresSafeArea()
@@ -151,7 +156,9 @@ struct AugeanView: View {
                             
                             Spacer()
                             
-                            NavigationLink(destination: AftAugeanView()) {
+                            Button {
+                                changeView = 505
+                            } label: {
                                 Text("Continue")
                                     .padding()
                                     .font(.title2.weight(.semibold))
@@ -166,6 +173,8 @@ struct AugeanView: View {
                         }
                     }
                     //WinView(nextInfoView: .constant(AnyView(AftAugeanView())))
+//                    WinView(nextInfoView: .constant(AnyView(EmptyView())))
+//                    changeView = 5
                         
                 }
                    

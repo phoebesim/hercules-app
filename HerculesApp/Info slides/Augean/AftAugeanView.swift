@@ -34,6 +34,8 @@ struct AftAugeanView: View   {
                     }
                 
                 NavigationLink("Continue") {
+                    QuestView()
+    
                     BeforeStymphalianView()
                 }
                 .padding()
