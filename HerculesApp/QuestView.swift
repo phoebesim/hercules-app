@@ -237,6 +237,7 @@ struct QuestView: View {
             
             
         }
+        
     }
 }
 

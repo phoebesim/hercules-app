@@ -30,13 +30,16 @@ struct BackgroundRemovalView: View {
                     .multilineTextAlignment(.center)
             }
             
-            Button("📷") {
+            Button{
                 // Check if camera is available before presenting
                 if UIImagePickerController.isSourceTypeAvailable(.camera) {
                     showingCamera = true
                 } else {
                     print("Camera not available on this device/simulator.")
                 }
+            } label: {
+                Text("Take a photo!")
+                Image(systemName: "camera.fill")
             }
         }
         .sheet(isPresented: $showingCamera) {
