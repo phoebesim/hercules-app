@@ -11,7 +11,7 @@ struct FirstinfoView: View   {
     let textToType = "You have incurred Hera’s wrath...Because you exist. You are a result of Zeus’ infidelity. Hera tried to stop your birth. Hera tried to kill you as a baby. Hera turned you into a murderer. Hera made you a slave for your cousin and king Eurystheus. Now, you must perform 10 labours for him. You are Hercules."
     
     @State private var animatedText: String = ""
-     var changeView = 0
+    @Binding var changeView: Int
 
     var body: some View {
         
@@ -37,8 +37,8 @@ struct FirstinfoView: View   {
                     animateText()
                     
                 }
-                NavigationLink {
-                    PreviewView()
+                Button {
+                    changeView = 0
                 } label: {
                     Text("Continue")
                 }
@@ -69,5 +69,5 @@ struct FirstinfoView: View   {
     
 }
 #Preview {
-    FirstinfoView()
+    FirstinfoView(changeView: .constant(500))
 }

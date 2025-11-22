@@ -24,7 +24,7 @@ struct DeerView: View {
     @State private var tolerance: CGFloat = 100
     
     
-    @AppStorage("changeView") var changeView = 1
+    @Binding var changeView: Int
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
@@ -193,6 +193,7 @@ struct DeerView: View {
         timer = Timer.scheduledTimer(withTimeInterval: 0.9, repeats: true) { _ in
             withAnimation(.easeInOut(duration: 0.8)) {
                 xOffset = CGFloat.random(in: -200...200)
+     
             }
             if gameOver {
                 stopTimer()
@@ -223,5 +224,5 @@ struct DeerView: View {
 }
 
 #Preview {
-    DeerView()
+    DeerView(changeView: .constant(3))
 }
