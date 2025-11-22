@@ -214,6 +214,7 @@ struct QuestView: View {
             .navigationBarTitleDisplayMode(.large)
             .navigationBarBackButtonHidden(true)
         }
+        
     }
 }
 
