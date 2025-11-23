@@ -24,8 +24,8 @@ struct DeerView: View {
     @State private var tolerance: CGFloat = 100
     
     
-    @Binding var changeView: Int
-    @Environment(\.dismiss) private var dismiss
+    @Binding var continueDeer: Bool
+    @Binding var endDeer: Bool
 
     var body: some View {
         
@@ -162,8 +162,8 @@ struct DeerView: View {
                             Spacer()
                             
                             Button {
-                                changeView = 303
-                              //  dismiss()
+                                continueDeer = false
+                                endDeer = true
                             } label:{
                                 Text("Continue")
                                     .padding()
@@ -224,5 +224,5 @@ struct DeerView: View {
 }
 
 #Preview {
-    DeerView(changeView: .constant(3))
+    DeerView(continueDeer: .constant(true), endDeer: .constant(true))
 }

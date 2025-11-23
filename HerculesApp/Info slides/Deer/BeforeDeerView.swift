@@ -11,7 +11,9 @@ struct BeforeDeerView: View   {
     
     @State private var animatedText: String = ""
     @Environment(\.dismiss) var dismiss
-    @Binding var changeView: Bool
+    
+    @Binding var startDeer: Bool
+    @Binding var continueDeer: Bool
     
     
     
@@ -39,8 +41,8 @@ struct BeforeDeerView: View   {
                 }
                 
                 Button {
-                  //  dismiss()
-//                    changeView = 3
+                    startDeer = false
+                    continueDeer = true
                     
                 } label: {
                     Text("Continue")
@@ -69,7 +71,4 @@ struct BeforeDeerView: View   {
         }
     }
 }
-//
-//#Preview {
-//    BeforeDeerView(changeView: .constant(103))
-//}
+

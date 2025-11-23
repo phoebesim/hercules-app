@@ -10,6 +10,8 @@ struct BeforeAugeanView: View   {
     let textToType = "Your fifth labour: to clean the stables of King Augeas. The divine livestock in it are immortal, and it has not been cleaned in over 30 years, leading to a huge pileup of dung!"
     
     @State private var animatedText: String = ""
+//    @Binding var startDeer: Bool
+//    @Binding var continueDeer: Bool
 
     
     var body: some View {
@@ -37,10 +39,7 @@ struct BeforeAugeanView: View   {
                     
                 }
                 
-                NavigationLink{
-                    
-                    AugeanView()
-                    
+                Button {
                     
                 } label: {
                     Text("Continue")
