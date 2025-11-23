@@ -12,10 +12,10 @@ struct CerberusView: View {
     @State private var progress: CGFloat = 0
     @StateObject private var motion = MotionDetector()
     @State private var lastStep = Date()
-    @AppStorage("changeView") var changeView = 1
     
+    @Binding var continueCerberus: Bool
+    @Binding var endCerberus: Bool
     
- //   @State private var difficulty: Double =
     var body: some View {
         NavigationStack {
             ZStack {
@@ -38,7 +38,10 @@ struct CerberusView: View {
                             
                             Spacer()
                             
-                            NavigationLink(destination: AftCerberusView()) {
+                            Button {
+                                continueCerberus = false
+                                endCerberus = true
+                            } label: {
                                 Text("Continue")
                                     .padding()
                                     .font(.title2.weight(.semibold))
@@ -69,7 +72,7 @@ struct CerberusView: View {
                             Image(systemName: "figure.walk")
                                 .foregroundStyle(.white)
                                 .font(.title)
-                            Text("Walk to bring Cerberus\nup from the Underworld!")
+                            Text("Walk around to bring Cerberus\nup from the Underworld!")
                                 .foregroundStyle(.white)
                         }
                         .padding(.horizontal)
@@ -112,5 +115,5 @@ struct CerberusView: View {
 
 
 #Preview {
-    CerberusView()
+    CerberusView(continueCerberus: .constant(false), endCerberus: .constant(true))
 }

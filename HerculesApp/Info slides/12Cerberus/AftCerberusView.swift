@@ -1,18 +1,18 @@
 //
-//  DogView.swift
+//  AftDog.swift
 //  HerculesApp
 //
 //  Created by T Krobot on 17/11/25.
 //
 import SwiftUI
 
-struct BeforeAugeanView: View   {
-    let textToType = "Your fifth labour: to clean the stables of King Augeas. The divine livestock in it are immortal, and it has not been cleaned in over 30 years, leading to a huge pileup of dung!"
+struct AftCerberusView: View   {
+    let textToType = "After showing Eurystheus Cerberus, he so frightened he fled to his storeroom. He begged for you to return Cerberus to the Underworld, in exchange for releasing you from any further labours."
     
     @State private var animatedText: String = ""
-//    @Binding var startDeer: Bool
-//    @Binding var continueDeer: Bool
-
+    
+    @Binding var endCerberus: Bool
+    @Binding var endStory: Bool
     
     var body: some View {
         
@@ -24,34 +24,29 @@ struct BeforeAugeanView: View   {
                     .ignoresSafeArea()
                     .brightness(-0.4)
                     .aspectRatio(contentMode: .fill)
+                Text(animatedText)
+                    .padding()
+                    .foregroundStyle(.white)
+                    .font(.title)
+                    .multilineTextAlignment(.leading)
+                    .frame(maxWidth: .infinity)
+                    .padding(50)
+                    .onAppear {
+                        animateText()
+                        
+                    }
                 
-                VStack {
-                    Text(animatedText)
-                        .padding()
-                        .foregroundStyle(.white)
-                        .font(.title)
-                        .multilineTextAlignment(.leading)
-                        .frame(maxWidth: .infinity)
-                        .padding(50)
-                }
-                .onAppear {
-                    animateText()
-                    
-                }
-                
-                Button {
-                    
-                } label: {
-                    Text("Continue")
+                NavigationLink("Continue") {
+                    EndView()
                 }
                 .padding()
                 .background(Color.white)
                 .cornerRadius(15)
-                .offset(x: 0, y: 300)
+                .offset(x:0, y: 300)
+                .padding()
                 .foregroundColor(.black)
                 
             }
-            
             .padding()
         }
         .navigationBarBackButtonHidden(true)
@@ -61,12 +56,11 @@ struct BeforeAugeanView: View   {
         for (index, character) in textToType.enumerated() {
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(index) * 0.05) {
                 animatedText.append(character)
-                
             }
         }
     }
 }
 
 #Preview {
-    BeforeAugeanView()
+    AftCerberusView(endCerberus: .constant(true), endStory: .constant(true))
 }

@@ -34,7 +34,8 @@ struct StymphalianView: View {
     @State private var sitting7 = "StymphalianBirdSitting"
     @State private var sitting8 = "StymphalianBirdSitting"
     
-    @AppStorage("changeView") var changeView = 1
+    @Binding var continueStymphlian: Bool
+    @Binding var endStymphalian: Bool
     
     
     var body: some View {
@@ -81,7 +82,7 @@ struct StymphalianView: View {
                 Bird(imageID: sitting7, positionX: -160, positionY: -360)
                 
                 if allBirdsAreFlying {
-       //             changeView = 6
+                    
                     Rectangle()
                         .fill(.ultraThinMaterial)
                         .ignoresSafeArea()
@@ -96,7 +97,10 @@ struct StymphalianView: View {
                         
                        Spacer()
                         
-                        NavigationLink(destination: AftStymphalianView()) {
+                        Button {
+                            continueStymphlian = false
+                            endStymphalian = true
+                        } label: {
                             Text("Continue")
                                 .padding()
                                 .font(.title2.weight(.semibold))
@@ -227,5 +231,5 @@ extension View {
 
 
 #Preview {
-    StymphalianView()
+    StymphalianView(continueStymphlian: .constant(true), endStymphalian: .constant(false))
 }

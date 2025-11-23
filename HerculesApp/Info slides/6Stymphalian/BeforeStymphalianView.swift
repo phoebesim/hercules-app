@@ -1,20 +1,19 @@
 //
-//  FirstinfoView.swift
+//  BeforeBirdView.swift
 //  HerculesApp
 //
-//  Created by T Krobot on 10/11/25.
+//  Created by T Krobot on 17/11/25.
 //
-
 import SwiftUI
 
-struct FirstinfoView: View   {
-    let textToType = "You have incurred Hera’s wrath...Because you exist. You are a result of Zeus’ infidelity. Hera tried to stop your birth. Hera tried to kill you as a baby. Hera turned you into a murderer. Hera made you a slave for your cousin and king Eurystheus. Now, you must perform 10 labours for him. You are Hercules."
+struct BeforeStymphalianView: View   {
+    let textToType = "Your sixth labour: to slay the Stymphalian birds. They are man-eating birds with bronze beaks and sharp metallic feathers they can launch at you! And their dung is highly toxic. They are too far into the swamp for you to reach. Fortunately, Athena has noticed your plight and gifted you a rattle, called a krotala, made by Hephaestus that you can use to scare the birds into the air!"
     
     @State private var animatedText: String = ""
-    @Binding var homePage: Bool
-    @Binding var startStory: Bool
     
-
+    @Binding var startStymphalian: Bool
+    @Binding var continueStymphalian: Bool
+    
     var body: some View {
         
         NavigationStack {
@@ -39,22 +38,21 @@ struct FirstinfoView: View   {
                     animateText()
                     
                 }
+                
                 Button {
-                    startStory = false
-                    homePage = true
+                    startStymphalian = false
+                    continueStymphalian = true
                 } label: {
                     Text("Continue")
                 }
                 .padding()
                 .background(Color.white)
                 .cornerRadius(15)
-                .offset(x:0, y: 300)
-                .padding()
+                .offset(x: 0, y: 300)
                 .foregroundColor(.black)
-                
-                
-                .padding()
             }
+            
+            .padding()
         }
         .navigationBarBackButtonHidden(true)
     }
@@ -68,9 +66,8 @@ struct FirstinfoView: View   {
             }
         }
     }
-    
-    
 }
+
 #Preview {
-    FirstinfoView(homePage: .constant(false), startyStory: .constant(true))
+    BeforeStymphalianView(startStymphalian: .constant(true), continueStymphalian: .constant(false))
 }

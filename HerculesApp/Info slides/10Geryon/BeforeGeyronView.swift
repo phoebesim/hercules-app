@@ -1,20 +1,23 @@
 //
-//  BeforeBirdView.swift
+//  CattleView.swift
 //  HerculesApp
 //
-//  Created by T Krobot on 17/11/25.
+//  Created by T Krobot on 14/11/25.
 //
 import SwiftUI
 
-struct BeforeStymphalianView: View   {
-    let textToType = "Your sixth labour: to slay the Stymphalian birds. They are man-eating birds with bronze beaks and sharp metallic feathers they can launch at you! And their dung is highly toxic. They are too far into the swamp for you to reach. Fortunately, Athena has noticed your plight and gifted you a rattle, called a krotala, made by Hephaestus that you can use to scare the birds into the air!"
+struct BeforeGeryonView: View   {
+    let textToType = "Your tenth labour: to steal the prized cattle of the giant Geryon, who has three bodies. On the way, you received a golden cup from the sun god Helios as he was impressed with your audacity to shoot at the Sun. You killed Orthus the two-headed dog and Eurytion the herdsman as well."
     
     @State private var animatedText: String = ""
-    @State private var goNext = false
+    
+    @Binding var startGeryon: Bool
+    @Binding var continueGeryon: Bool
+    
     
     var body: some View {
         
-        NavigationStack {
+        NavigationStack{
             ZStack {
                 Image("Hercules")
                     .resizable()
@@ -37,8 +40,9 @@ struct BeforeStymphalianView: View   {
                     
                 }
                 
-                NavigationLink{
-                    StymphalianView()
+                Button {
+                    startGeryon = false
+                    continueGeryon = true
                 } label: {
                     Text("Continue")
                 }
@@ -52,6 +56,8 @@ struct BeforeStymphalianView: View   {
             .padding()
         }
         .navigationBarBackButtonHidden(true)
+        
+        
     }
     
     func animateText() {
@@ -66,5 +72,5 @@ struct BeforeStymphalianView: View   {
 }
 
 #Preview {
-    BeforeStymphalianView()
+    BeforeGeryonView(startGeryon: .constant(true), continueGeryon: .constant(false))
 }

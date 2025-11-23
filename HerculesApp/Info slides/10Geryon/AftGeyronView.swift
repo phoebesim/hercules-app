@@ -1,15 +1,12 @@
-//
-//  AftDog.swift
-//  HerculesApp
-//
-//  Created by T Krobot on 17/11/25.
-//
 import SwiftUI
 
-struct AftCerberusView: View   {
-    let textToType = "After showing Eurystheus Cerberus, he so frightened he fled to his storeroom. He begged for you to return Cerberus to the Underworld, in exchange for releasing you from any further labours."
+struct AftGeryonView: View   {
+    let textToType = "On your way back home after stealing the cattle, Hera sent a gadfly to bite the cattle and scatter them! You finally retrieved them after a year. Then, Hera sent a flood that raised the level of the river so high that you could not cross over it. Using your Athena-gifted wits, you pile stones in the river to make it shallower. When you finally reach the court of Eurystheus, the cattle are sacrificed to Hera."
     
     @State private var animatedText: String = ""
+    
+    @Binding var endGeryon: Bool
+    @Binding var startCerberus: Bool
     
     var body: some View {
         
@@ -28,22 +25,27 @@ struct AftCerberusView: View   {
                     .multilineTextAlignment(.leading)
                     .frame(maxWidth: .infinity)
                     .padding(50)
+                
                     .onAppear {
                         animateText()
                         
                     }
                 
-                NavigationLink("Continue") {
-                    EndView()
+                Button {
+                    endGeryon = false
+                    startCerberus = true
+                } label: {
+                    Text ("Continue")
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(15)
+                        .offset(x:0, y: 300)
+                        .padding()
+                        .foregroundColor(.black)
+                    
                 }
-                .padding()
-                .background(Color.white)
-                .cornerRadius(15)
-                .offset(x:0, y: 300)
-                .padding()
-                .foregroundColor(.black)
-                
             }
+            
             .padding()
         }
         .navigationBarBackButtonHidden(true)
@@ -53,11 +55,14 @@ struct AftCerberusView: View   {
         for (index, character) in textToType.enumerated() {
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(index) * 0.05) {
                 animatedText.append(character)
+                
+               
             }
         }
     }
 }
 
 #Preview {
-    AftCerberusView()
+    AftGeryonView(endGeryon: .constant(false), startCerberus: .constant(true))
 }
+

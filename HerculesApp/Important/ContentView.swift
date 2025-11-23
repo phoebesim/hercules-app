@@ -18,22 +18,26 @@ struct ContentView: View {
     @State private var endGeryon = false
     @State private var endCerberus = false
     
+    @State private var startStory = true
+    @State private var endStory = false
+    
+    @State private var homePage = false
     
     var body: some View {
         if startDeer {
             BeforeDeerView(startDeer: $startDeer, continueDeer: $continueDeer)
         }
         else if startAugean {
-            BeforeAugeanView()
+            BeforeAugeanView(startAugean: $startAugean, continueAugean: $continueAugean)
         }
         else if startStymphalian {
-            BeforeStymphalianView()
+            BeforeStymphalianView(startStymphalian: $startStymphalian, continueStymphalian: $continueStymphalian)
         }
         else if startGeryon {
-            BeforeGeryonView()
+            BeforeGeryonView(startGeryon: $startGeryon, continueGeryon: $continueGeryon)
         }
         else if startCerberus {
-            BeforeCerberusView()
+            BeforeCerberusView(startCerberus: $startCerberus, continueCerberus: $continueCerberus)
         }
         
         
@@ -41,32 +45,40 @@ struct ContentView: View {
             DeerView(continueDeer: $continueDeer, endDeer: $endDeer)
         }
         else if continueAugean {
-            AugeanView()
+            AugeanView(continueAugean: $continueAugean, endAugean: $endAugean)
         }
         else if continueStymphalian {
-            StymphalianView()
+            StymphalianView(continueStymphlian: $continueStymphalian, endStymphalian: $endStymphalian)
         }
         else if continueGeryon {
-            GeryonView()
+            GeryonView(continueGeryon: $continueGeryon, endGeryon: $endGeryon)
         }
         else if continueCerberus {
-            CerberusView()
+            CerberusView(continueCerberus: $continueCerberus, endCerberus: $endCerberus)
         }
         
         else if endDeer {
             AftDeerView(endDeer: $endDeer, startAugean: $startAugean)
         }
         else if endAugean {
-            AftAugeanView()
+            AftAugeanView(endAugean: $endAugean, startStymphalian: $startStymphalian)
         }
         else if endStymphalian {
-            AftStymphalianView()
+            AftStymphalianView(endStymphalian: $endStymphalian, startGeryon: $startGeryon)
         }
         else if endGeryon {
-            AftGeryonView()
+            AftGeryonView(endGeryon: $endGeryon, startCerberus: $startCerberus)
         }
         else if endCerberus {
-            AftCerberusView()
+            AftCerberusView(endCerberus: $endCerberus, endStory: $endStory)
+        }
+        
+        else if startStory {
+            FirstinfoView(homePage: $homePage, startView: $startStory)
+        }
+        
+        else if endStory {
+            endStory
         }
         
         else {
@@ -148,7 +160,9 @@ struct ContentView: View {
                                             .brightness(-0.2)
                                     )
                             }
-                            NavigationLink(destination: BeforeStymphalianView()) {
+                            Button {
+                                startStymphalian = true
+                            } label: {
                                 Text("Stymphalian Birds")
                                     .font(.title)
                                     .foregroundStyle(.white)
@@ -202,7 +216,9 @@ struct ContentView: View {
                                             .brightness(-0.2)
                                     )
                             }
-                            NavigationLink(destination: BeforeGeryonView()) {
+                            Button {
+                                startGeryon = true
+                            } label:  {
                                 Text("Cattle of Geryon")
                                     .font(.largeTitle)
                                     .foregroundStyle(.white)
@@ -230,7 +246,9 @@ struct ContentView: View {
                                             .brightness(-0.2)
                                     )
                             }
-                            NavigationLink(destination: BeforeCerberusView()) {
+                            Button {
+                                 
+                            } label: {
                                 Text("Cerberus")
                                     .font(.largeTitle)
                                     .foregroundStyle(.white)

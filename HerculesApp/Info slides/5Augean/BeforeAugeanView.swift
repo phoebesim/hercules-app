@@ -1,20 +1,22 @@
 //
-//  CattleView.swift
+//  DogView.swift
 //  HerculesApp
 //
-//  Created by T Krobot on 14/11/25.
+//  Created by T Krobot on 17/11/25.
 //
 import SwiftUI
 
-struct BeforeGeryonView: View   {
-    let textToType = "Your tenth labour: to steal the prized cattle of the giant Geryon, who has three bodies. On the way, you received a golden cup from the sun god Helios as he was impressed with your audacity to shoot at the Sun. You killed Orthus the two-headed dog and Eurytion the herdsman as well."
+struct BeforeAugeanView: View   {
+    let textToType = "Your fifth labour: to clean the stables of King Augeas. The divine livestock in it are immortal, and it has not been cleaned in over 30 years, leading to a huge pileup of dung!"
     
     @State private var animatedText: String = ""
-    @State private var goNext = false
+    @Binding var startAugean: Bool
+    @Binding var continueAugean: Bool
+
     
     var body: some View {
         
-        NavigationStack{
+        NavigationStack {
             ZStack {
                 Image("Hercules")
                     .resizable()
@@ -37,8 +39,9 @@ struct BeforeGeryonView: View   {
                     
                 }
                 
-                NavigationLink{
-                    GeryonView()
+                Button {
+                    startAugean = false
+                    continueAugean = true
                 } label: {
                     Text("Continue")
                 }
@@ -47,13 +50,12 @@ struct BeforeGeryonView: View   {
                 .cornerRadius(15)
                 .offset(x: 0, y: 300)
                 .foregroundColor(.black)
+                
             }
             
             .padding()
         }
         .navigationBarBackButtonHidden(true)
-        
-        
     }
     
     func animateText() {
@@ -61,12 +63,11 @@ struct BeforeGeryonView: View   {
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(index) * 0.05) {
                 animatedText.append(character)
                 
-               
             }
         }
     }
 }
 
 #Preview {
-    BeforeGeryonView()
+    BeforeAugeanView(startAugean: .constant(false), continueAugean: .constant(true))
 }

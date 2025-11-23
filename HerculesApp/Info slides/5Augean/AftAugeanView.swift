@@ -1,15 +1,18 @@
 //
-//  AftBirdView.swift
+//  AftDog.swift
 //  HerculesApp
 //
 //  Created by T Krobot on 17/11/25.
 //
 import SwiftUI
 
-struct AftStymphalianView: View   {
-    let textToType = "As soon as you scared the birds into the air, you shot the birds down with arrows and completed the labour."
+struct AftAugeanView: View   {
+    let textToType = "You rerouted the rivers  Alpheus and Peneus to wash out the filth. You even got Augeas to give you a tenth of the cattle if you finished in a day, which you did! However, when you returned to Eurystheus, he said the labour did not count as you accepted payment and the river had done the work."
     
     @State private var animatedText: String = ""
+    @Binding var endAugean: Bool
+    @Binding var startStymphalian: Bool
+    
     
     var body: some View {
         
@@ -33,8 +36,9 @@ struct AftStymphalianView: View   {
                         
                     }
                 
-                NavigationLink("Continue") {
-                    BeforeCerberusView()
+                Button ("Continue") {
+                    endAugean = false
+                    startStymphalian = true
                 }
                 .padding()
                 .background(Color.white)
@@ -45,7 +49,7 @@ struct AftStymphalianView: View   {
                 
             }
             
-            .padding()
+            
         }
         .navigationBarBackButtonHidden(true)
     }
@@ -55,12 +59,12 @@ struct AftStymphalianView: View   {
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(index) * 0.05) {
                 animatedText.append(character)
                 
-               
+                
             }
         }
     }
 }
 
-#Preview {
-    AftStymphalianView()
-}
+//#Preview {
+//    AftAugeanView()
+//}

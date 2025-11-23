@@ -13,8 +13,8 @@ struct GeryonView: View {
     @State private var isGreen: Bool = true
     @State private var loseSheetShown = false
     
-    @AppStorage("changeView") var changeView = 1
-    
+    @Binding var continueGeryon: Bool
+    @Binding var endGeryon: Bool
     
     var body: some View {
         NavigationStack {
@@ -77,7 +77,7 @@ struct GeryonView: View {
                     .offset(x: 130, y: -190)
                 
                 if step <= 45 {
-               //     changeView = 8
+               
                     ZStack {
                         Rectangle()
                             .fill(.ultraThinMaterial)
@@ -91,7 +91,10 @@ struct GeryonView: View {
                             
                             Spacer()
                             
-                            NavigationLink(destination: AftGeryonView()) {
+                            Button {
+                                continueGeryon = false
+                                endGeryon = true
+                            } label: {
                                 Text("Continue")
                                     .padding()
                                     .font(.title2.weight(.semibold))
@@ -105,13 +108,8 @@ struct GeryonView: View {
                             
                         }
                     }
-                    //WinView(nextInfoView: .constant(AnyView(AftGeryonView())))
-                        //.ignoresSafeArea()
-                        //.zIndex(1)
-                    WinView(nextInfoView: .constant(AnyView(AftGeryonView())))
-                        .ignoresSafeArea()
-                        .zIndex(1)
-           //         changeView = 10
+            
+    
                         
                     
                     
@@ -149,5 +147,5 @@ struct GeryonView: View {
 
 
 #Preview {
-    GeryonView()
+    GeryonView(continueGeryon: .constant(false), endGeryon: .constant(true))
 }

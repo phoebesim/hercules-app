@@ -63,8 +63,6 @@ enum Direction: CaseIterable {
 
 struct AugeanView: View {
     
-    @AppStorage("changeView") var changeView = 1
-    @Environment(\.dismiss) var dismiss
     
     
     let lightRed = Color(red: 0.969, green: 0.667, blue: 0.584)
@@ -91,9 +89,11 @@ struct AugeanView: View {
     ]
     ]
     
+    @Binding var continueAugean: Bool
+    @Binding var endAugean: Bool
     
     var body: some View {
-        NavigationStack {
+       
             
             ZStack {
                 Image(.grass)
@@ -157,7 +157,8 @@ struct AugeanView: View {
                             Spacer()
                             
                             Button {
-                                changeView = 505
+                                continueAugean = false
+                                endAugean = true
                             } label: {
                                 Text("Continue")
                                     .padding()
@@ -179,7 +180,7 @@ struct AugeanView: View {
                 }
                    
                 
-            }
+            
         }
         .navigationBarBackButtonHidden()
     }
@@ -325,6 +326,6 @@ struct AnyShape: Shape { //so the other pipes can return as the same type
 }
 
 #Preview {
-    AugeanView()
+    AugeanView(continueAugean: .constant(true), endAugean: .constant(false))
 }
 

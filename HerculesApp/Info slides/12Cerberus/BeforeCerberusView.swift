@@ -11,6 +11,8 @@ struct BeforeCerberusView: View   {
     
     @State private var animatedText: String = ""
     
+    @Binding var startCerberus: Bool
+    @Binding var continueCerberus: Bool
     
     var body: some View {
         
@@ -34,10 +36,10 @@ struct BeforeCerberusView: View   {
                         
                     }
                 
-                NavigationLink{
+                Button{
                     
-                    CerberusView()
-                    
+                    startCerberus = false
+                    continueCerberus = true
                     
                 } label: {
                     Text("Continue")
@@ -66,5 +68,5 @@ struct BeforeCerberusView: View   {
 }
 
 #Preview {
-    BeforeCerberusView()
+    BeforeCerberusView(startCerberus: .constant(true), continueCerberus: .constant(false))
 }

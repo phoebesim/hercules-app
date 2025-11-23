@@ -60,5 +60,5 @@ struct WinView: View {
 }
 
 #Preview {
-    WinView(nextInfoView: .constant(AnyView(EndView())))
+    WinView(nextInfoView: .constant(AnyView(EndView(endStory: <#Binding<Bool>#>, homePage: <#Binding<Bool>#>))))
 }
