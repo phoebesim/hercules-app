@@ -85,20 +85,18 @@ struct DeerView: View {
                             Button("Get your weapon!"){
                                 weaponSheet = true
                                 showButton = false
-                                
-                                
+
                             }
                             .buttonStyle(.bordered)
                             .background()
-                            .cornerRadius(8)
+                            .cornerRadius(10)
                         }
                     }
                     
                     .sheet(isPresented: $weaponSheet) {
                         
                         BackgroundRemovalView(weapon: .constant("a net (e.g. a towel"), onDone: { image in weaponImage = image; weaponSheet = false })
-                        
-                        
+
                     }
                     
                     
@@ -131,7 +129,7 @@ struct DeerView: View {
                             .bold()
                         
                     }
-                  //  .disabled(weaponImage == nil)
+                    .disabled(weaponImage == nil)
                     .opacity(weaponImage == nil ? 0.5 : 1.0)
                     
                     Spacer()
@@ -170,6 +168,7 @@ struct DeerView: View {
                                     .font(.title2.weight(.semibold))
                                     .foregroundColor(.white)
                                     .frame(maxWidth: .infinity, minHeight: 56, )
+                                    .padding()
                             }
                             .background(Color.gray)
                             .cornerRadius(12)
@@ -178,10 +177,7 @@ struct DeerView: View {
                             
                         }
                     }
-                    //WinView(nextInfoView: .constant(AnyView(AftDeerView())))
-                   // WinView(nextInfoView: .constant(AnyView(AftDeerView())))
-                    //dismiss()
-                    //changeView = 3
+                   
                 }
                 
             }

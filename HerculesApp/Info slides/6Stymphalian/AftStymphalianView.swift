@@ -67,6 +67,6 @@ struct AftStymphalianView: View   {
     }
 }
 
-#Preview {
-    AftStymphalianView(endStymphalian: .constant(true), startGeryon: .constant(false))
-}
+//#Preview {
+//    AftStymphalianView(endStymphalian: .constant(true), startGeryon: .constant(false))
+//}

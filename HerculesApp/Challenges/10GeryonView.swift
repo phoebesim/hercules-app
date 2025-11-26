@@ -100,6 +100,7 @@ struct GeryonView: View {
                                     .font(.title2.weight(.semibold))
                                     .foregroundColor(.white)
                                     .frame(maxWidth: .infinity, minHeight: 56, )
+                                    .padding()
                             }
                             .background(Color.gray)
                             .cornerRadius(12)

@@ -21,9 +21,10 @@ struct ContentView: View {
     @State private var startStory = true
     @State private var endStory = false
     
-    @State private var homePage = false
+    
     
     var body: some View {
+        
         if startDeer {
             BeforeDeerView(startDeer: $startDeer, continueDeer: $continueDeer)
         }
@@ -74,15 +75,17 @@ struct ContentView: View {
         }
         
         else if startStory {
-            FirstinfoView(homePage: $homePage, startView: $startStory)
+            FirstinfoView(startStory: $startStory)
         }
         
         else if endStory {
-            endStory
+            EndView(endStory: $endStory)
         }
+        
         
         else {
             NavigationStack {
+                
                 VStack(alignment: .leading){
                     ScrollView {
                         VStack (spacing: 50) {
@@ -115,6 +118,7 @@ struct ContentView: View {
                             
                             Button {
                                 startDeer = true
+                                
                             } label: {
                                 Text("Ceryneian Hind")
                                     .font(.largeTitle)
@@ -142,7 +146,7 @@ struct ContentView: View {
                                             .foregroundColor(.gray)
                                             .brightness(-0.2)
                                     )
-                             }
+                            }
                             Button() {
                                 startAugean = true
                             } label: {
@@ -247,7 +251,7 @@ struct ContentView: View {
                                     )
                             }
                             Button {
-                                 
+                                startCerberus = true
                             } label: {
                                 Text("Cerberus")
                                     .font(.largeTitle)
@@ -281,14 +285,13 @@ struct ContentView: View {
                     }
                     
                     .navigationTitle("Your Labours")
-                    //            .navigationBarTitleDisplayMode(.inline)
-                    //.navigationBarTitleDisplayMode(.large)
+                    
                     .toolbarTitleDisplayMode(.inlineLarge)
                     .toolbar {
                         ToolbarItem(placement: .topBarTrailing) {
                             
-                            NavigationLink {
-                                //              BeforeDeerView()
+                            Button {
+                                startDeer = true
                             } label: {
                                 Image(systemName: "play.fill")
                             }

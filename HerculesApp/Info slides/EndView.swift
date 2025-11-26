@@ -12,7 +12,7 @@ struct EndView: View   {
     
     @State private var animatedText: String = ""
     @Binding var endStory: Bool
-    @Binding var homePage: Bool
+//    @Binding var homePage: Bool
     
     var body: some View {
         
@@ -42,7 +42,7 @@ struct EndView: View   {
                 
                 Button {
                     endStory = false
-                    homePage = true
+                    
                 } label: {
                     Text("Play again")
                         .padding()
@@ -72,5 +72,5 @@ struct EndView: View   {
 }
 
 #Preview {
-    EndView()
+    EndView(endStory: .constant(true))
 }

@@ -36,16 +36,18 @@ struct AftCerberusView: View   {
                         
                     }
                 
-                NavigationLink("Continue") {
-                    EndView()
+                Button {
+                    endCerberus = false
+                    endStory = true
+                } label: {
+                    Text("Continue")
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(15)
+                        .offset(x:0, y: 300)
+                        .padding()
+                        .foregroundColor(.black)
                 }
-                .padding()
-                .background(Color.white)
-                .cornerRadius(15)
-                .offset(x:0, y: 300)
-                .padding()
-                .foregroundColor(.black)
-                
             }
             .padding()
         }
