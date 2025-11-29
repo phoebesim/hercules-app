@@ -11,8 +11,8 @@ struct BeforeStymphalianView: View   {
     
     @State private var animatedText: String = ""
     
-    @Binding var startStymphalian: Bool
-    @Binding var continueStymphalian: Bool
+    @Binding var scene: AppScene
+    
     
     var body: some View {
         
@@ -40,8 +40,7 @@ struct BeforeStymphalianView: View   {
                 }
                 
                 Button {
-                    startStymphalian = false
-                    continueStymphalian = true
+                    scene = .continueStymphalian
                 } label: {
                     Text("Continue")
                 }
@@ -67,7 +66,7 @@ struct BeforeStymphalianView: View   {
         }
     }
 }
-
-#Preview {
-    BeforeStymphalianView(startStymphalian: .constant(true), continueStymphalian: .constant(false))
-}
+//
+//#Preview {
+//    BeforeStymphalianView(startStymphalian: .constant(true), continueStymphalian: .constant(false))
+//}

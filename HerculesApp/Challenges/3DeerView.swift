@@ -23,9 +23,7 @@ struct DeerView: View {
     
     @State private var tolerance: CGFloat = 100
     
-    
-    @Binding var continueDeer: Bool
-    @Binding var endDeer: Bool
+    @Binding var scene: AppScene
 
     var body: some View {
         
@@ -95,7 +93,7 @@ struct DeerView: View {
                     
                     .sheet(isPresented: $weaponSheet) {
                         
-                        BackgroundRemovalView(weapon: .constant("a net (e.g. a towel"), onDone: { image in weaponImage = image; weaponSheet = false })
+                        BackgroundRemovalView(weapon: .constant("a net (e.g. a towel)"), onDone: { image in weaponImage = image; weaponSheet = false })
 
                     }
                     
@@ -129,7 +127,7 @@ struct DeerView: View {
                             .bold()
                         
                     }
-                    .disabled(weaponImage == nil)
+//                    .disabled(weaponImage == nil)
                     .opacity(weaponImage == nil ? 0.5 : 1.0)
                     
                     Spacer()
@@ -160,8 +158,7 @@ struct DeerView: View {
                             Spacer()
                             
                             Button {
-                                continueDeer = false
-                                endDeer = true
+                                scene = .endDeer
                             } label:{
                                 Text("Continue")
                                     .padding()
@@ -182,6 +179,18 @@ struct DeerView: View {
                 
             }
             
+            .toolbar{
+                ToolbarItem {
+                    Button{
+                        scene = .quest
+                    } label: {
+                        Image(systemName: "house")
+                            .foregroundStyle(.black)
+                            .frame(width: 50, height: 50)
+                        
+                    }
+                }
+            }
         }
         .navigationBarBackButtonHidden()
     }
@@ -220,5 +229,5 @@ struct DeerView: View {
 }
 
 #Preview {
-    DeerView(continueDeer: .constant(true), endDeer: .constant(true))
+    DeerView(scene: .constant(.continueDeer))
 }

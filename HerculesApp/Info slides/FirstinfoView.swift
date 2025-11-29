@@ -11,8 +11,8 @@ struct FirstinfoView: View   {
     let textToType = "You have incurred Hera’s wrath...Because you exist. You are a result of Zeus’ infidelity. Hera tried to stop your birth. Hera tried to kill you as a baby. Hera turned you into a murderer. Hera made you a slave for your cousin and king Eurystheus. Now, you must perform 10 labours for him. You are Hercules."
     
     @State private var animatedText: String = ""
-//    @Binding var homePage: Bool
-    @Binding var startStory: Bool
+
+    @Binding var scene: AppScene
     
 
     var body: some View {
@@ -40,7 +40,7 @@ struct FirstinfoView: View   {
                     
                 }
                 Button {
-                    startStory = false
+                    scene = .quest
                  
                 } label: {
                     Text("Continue")
@@ -72,5 +72,5 @@ struct FirstinfoView: View   {
     
 }
 #Preview {
-    FirstinfoView(startStory: .constant(true))
+    FirstinfoView(scene: .constant(.firstInfo))
 }

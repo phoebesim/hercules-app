@@ -89,12 +89,13 @@ struct AugeanView: View {
     ]
     ]
     
-    @Binding var continueAugean: Bool
-    @Binding var endAugean: Bool
+    
+    
+    @Binding var scene: AppScene
     
     var body: some View {
        
-            
+        NavigationStack {
             ZStack {
                 Image(.grass)
                     .resizable()
@@ -157,8 +158,7 @@ struct AugeanView: View {
                             Spacer()
                             
                             Button {
-                                continueAugean = false
-                                endAugean = true
+                                scene = .endAugean
                             } label: {
                                 Text("Continue")
                                     .padding()
@@ -175,13 +175,26 @@ struct AugeanView: View {
                         }
                     }
                     //WinView(nextInfoView: .constant(AnyView(AftAugeanView())))
-//                    WinView(nextInfoView: .constant(AnyView(EmptyView())))
-//                    changeView = 5
-                        
+                    //                    WinView(nextInfoView: .constant(AnyView(EmptyView())))
+                    //                    changeView = 5
+                    
                 }
-                   
                 
-            
+                
+            }
+            .toolbar{
+                ToolbarItem {
+                    Button{
+                        scene = .quest
+                    } label: {
+                        Image(systemName: "house")
+                            .foregroundStyle(.black)
+                            .frame(width: 50, height: 50)
+                        
+                    }
+                }
+            }
+        
         }
         .navigationBarBackButtonHidden()
     }
@@ -327,6 +340,6 @@ struct AnyShape: Shape { //so the other pipes can return as the same type
 }
 
 #Preview {
-    AugeanView(continueAugean: .constant(true), endAugean: .constant(false))
+    AugeanView(scene: .constant(.continueAugean))
 }
 

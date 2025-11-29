@@ -11,9 +11,7 @@ struct BeforeGeryonView: View   {
     
     @State private var animatedText: String = ""
     
-    @Binding var startGeryon: Bool
-    @Binding var continueGeryon: Bool
-    
+    @Binding var scene: AppScene
     
     var body: some View {
         
@@ -41,8 +39,7 @@ struct BeforeGeryonView: View   {
                 }
                 
                 Button {
-                    startGeryon = false
-                    continueGeryon = true
+                    scene = .continueGeryon
                 } label: {
                     Text("Continue")
                 }
@@ -71,6 +68,6 @@ struct BeforeGeryonView: View   {
     }
 }
 
-#Preview {
-    BeforeGeryonView(startGeryon: .constant(true), continueGeryon: .constant(false))
-}
+//#Preview {
+//    BeforeGeryonView(startGeryon: .constant(true), continueGeryon: .constant(false))
+//}

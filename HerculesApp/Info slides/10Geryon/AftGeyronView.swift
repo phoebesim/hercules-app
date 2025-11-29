@@ -5,8 +5,7 @@ struct AftGeryonView: View   {
     
     @State private var animatedText: String = ""
     
-    @Binding var endGeryon: Bool
-    @Binding var startCerberus: Bool
+    @Binding var scene: AppScene
     
     var body: some View {
         
@@ -32,18 +31,19 @@ struct AftGeryonView: View   {
                     }
                 
                 Button {
-                    endGeryon = false
-                    startCerberus = true
-                } label: {
-                    Text ("Continue")
-                        .padding()
-                        .background(Color.white)
-                        .cornerRadius(15)
-                        .offset(x:0, y: 300)
-                        .padding()
-                        .foregroundColor(.black)
+                    scene = .startCerberus
                     
+                } label: {
+                    Text("Continue")
                 }
+                .padding()
+                .background(Color.white)
+                .cornerRadius(15)
+                .offset(x: 0, y: 300)
+                .foregroundColor(.black)
+                
+                
+                
             }
             
             .padding()
@@ -56,13 +56,13 @@ struct AftGeryonView: View   {
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(index) * 0.05) {
                 animatedText.append(character)
                 
-               
+                
             }
         }
     }
 }
 
-#Preview {
-    AftGeryonView(endGeryon: .constant(false), startCerberus: .constant(true))
-}
+//#Preview {
+//    AftGeryonView(endGeryon: .constant(false), startCerberus: .constant(true))
+//}
 

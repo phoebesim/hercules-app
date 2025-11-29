@@ -10,8 +10,9 @@ struct BeforeAugeanView: View   {
     let textToType = "Your fifth labour: to clean the stables of King Augeas. The divine livestock in it are immortal, and it has not been cleaned in over 30 years, leading to a huge pileup of dung!"
     
     @State private var animatedText: String = ""
-    @Binding var startAugean: Bool
-    @Binding var continueAugean: Bool
+    
+    @Binding var scene: AppScene
+    
 
     
     var body: some View {
@@ -40,8 +41,7 @@ struct BeforeAugeanView: View   {
                 }
                 
                 Button {
-                    startAugean = false
-                    continueAugean = true
+                    scene = .continueAugean
                 } label: {
                     Text("Continue")
                 }
@@ -67,7 +67,7 @@ struct BeforeAugeanView: View   {
         }
     }
 }
-
-#Preview {
-    BeforeAugeanView(startAugean: .constant(false), continueAugean: .constant(true))
-}
+//
+//#Preview {
+//    BeforeAugeanView(startAugean: .constant(false), continueAugean: .constant(true))
+//}

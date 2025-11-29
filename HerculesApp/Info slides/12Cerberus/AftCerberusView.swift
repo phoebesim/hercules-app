@@ -11,8 +11,7 @@ struct AftCerberusView: View   {
     
     @State private var animatedText: String = ""
     
-    @Binding var endCerberus: Bool
-    @Binding var endStory: Bool
+    @Binding var scene: AppScene
     
     var body: some View {
         
@@ -37,17 +36,16 @@ struct AftCerberusView: View   {
                     }
                 
                 Button {
-                    endCerberus = false
-                    endStory = true
+                    scene = .continueDeer
+                    
                 } label: {
                     Text("Continue")
-                        .padding()
-                        .background(Color.white)
-                        .cornerRadius(15)
-                        .offset(x:0, y: 300)
-                        .padding()
-                        .foregroundColor(.black)
                 }
+                .padding()
+                .background(Color.white)
+                .cornerRadius(15)
+                .offset(x: 0, y: 300)
+                .foregroundColor(.black)
             }
             .padding()
         }
@@ -63,6 +61,6 @@ struct AftCerberusView: View   {
     }
 }
 
-#Preview {
-    AftCerberusView(endCerberus: .constant(true), endStory: .constant(true))
-}
+//#Preview {
+//    AftCerberusView(endCerberus: .constant(true), endStory: .constant(true))
+//}

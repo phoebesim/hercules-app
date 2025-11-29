@@ -20,8 +20,7 @@ struct AftDeerView: View   {
     
     @State private var animatedText: String = ""
     
-    @Binding var endDeer: Bool
-    @Binding var startAugean: Bool
+    @Binding var scene: AppScene
     
     var body: some View {
         
@@ -47,8 +46,7 @@ struct AftDeerView: View   {
                 }
                 
                 Button("Continue") {
-                    endDeer = false
-                    startAugean = true
+                    scene = .startAugean
                 }
                 .padding()
                 .background(Color.white)
@@ -74,6 +72,6 @@ struct AftDeerView: View   {
     }
 }
 
-#Preview {
-    AftDeerView(endDeer: .constant(true), startAugean: .constant(false))
-}
+//#Preview {
+//    AftDeerView(endDeer: .constant(true), startAugean: .constant(false))
+//}

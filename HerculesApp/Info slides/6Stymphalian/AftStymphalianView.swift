@@ -11,8 +11,7 @@ struct AftStymphalianView: View   {
     
     @State private var animatedText: String = ""
     
-    @Binding var endStymphalian: Bool
-    @Binding var startGeryon: Bool
+    @Binding var scene: AppScene
     
     var body: some View {
         
@@ -36,19 +35,18 @@ struct AftStymphalianView: View   {
                     
                 }
             
-            Button() {
-                endStymphalian = false
-                startGeryon = true
-            } label: {
-                Text ("Continue")
-                    .padding()
-                    .background(Color.white)
-                    .cornerRadius(15)
-                    .offset(x:0, y: 300)
-                    .padding()
-                    .foregroundColor(.black)
+            Button {
+                scene = .startGeryon
                 
+            } label: {
+                Text("Continue")
             }
+            .padding()
+            .background(Color.white)
+            .cornerRadius(15)
+            .offset(x: 0, y: 300)
+            .foregroundColor(.black)
+            
         }
         
         .padding()

@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct GeryonView: View {
-    @State private var step: CGFloat = 300
+    @State private var step: CGFloat = 280
     @State private var timer: Timer?
     @State private var isGreen: Bool = true
     @State private var loseSheetShown = false
     
-    @Binding var continueGeryon: Bool
-    @Binding var endGeryon: Bool
+    @Binding var scene: AppScene
     
     var body: some View {
         NavigationStack {
@@ -61,12 +60,12 @@ struct GeryonView: View {
                     changeLight()
                     if isGreen == false {
                         loseSheetShown = true
-                        step = 300
+                        step = 280
                     }
                     
                 }
                 .buttonStyle(.borderedProminent)
-                .offset(y:380)
+                .offset(y:360)
                 .tint(.white)
                 .padding(50)
                 .foregroundStyle(.black)
@@ -92,8 +91,7 @@ struct GeryonView: View {
                             Spacer()
                             
                             Button {
-                                continueGeryon = false
-                                endGeryon = true
+                                scene = .endGeryon
                             } label: {
                                 Text("Continue")
                                     .padding()
@@ -120,7 +118,18 @@ struct GeryonView: View {
                 Text("You need to steal Geryon's cattle while he is sleeping! Only move when the light is green!")
                     .presentationDetents([.medium, .large, .fraction(0.2)])
             }
-            
+            .toolbar{
+                ToolbarItem {
+                    Button{
+                        scene = .quest
+                    } label: {
+                        Image(systemName: "house")
+                            .foregroundStyle(.black)
+                            .frame(width: 50, height: 50)
+                        
+                    }
+                }
+            }
         }
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
@@ -130,7 +139,7 @@ struct GeryonView: View {
     
     
     func randomDelay() -> Double {
-        return Double.random(in: 0.3...1.0)
+        return Double.random(in: 0.3...0.9)
     }
     
     func changeLight(){
@@ -148,5 +157,5 @@ struct GeryonView: View {
 
 
 #Preview {
-    GeryonView(continueGeryon: .constant(false), endGeryon: .constant(true))
+    GeryonView(scene: .constant(.continueGeryon))
 }

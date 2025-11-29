@@ -34,9 +34,7 @@ struct StymphalianView: View {
     @State private var sitting7 = "StymphalianBirdSitting"
     @State private var sitting8 = "StymphalianBirdSitting"
     
-    @Binding var continueStymphlian: Bool
-    @Binding var endStymphalian: Bool
-    
+    @Binding var scene: AppScene
     
     var body: some View {
         NavigationStack {
@@ -98,8 +96,7 @@ struct StymphalianView: View {
                        Spacer()
                         
                         Button {
-                            continueStymphlian = false
-                            endStymphalian = true
+                            scene = .endStymphalian
                         } label: {
                             Text("Continue")
                                 .padding()
@@ -118,13 +115,24 @@ struct StymphalianView: View {
                     
                 }
             }
-            
+            .toolbar{
+                ToolbarItem {
+                    Button{
+                        scene = .quest
+                    } label: {
+                        Image(systemName: "house")
+                            .foregroundStyle(.black)
+                            .frame(width: 50, height: 50)
+                        
+                    }
+                }
+            }
         }
         .navigationBarBackButtonHidden()
         .toolbar{
             ToolbarItem (placement: .topBarLeading){
-                NavigationLink {
-                    QuestView()
+                Button {
+                    scene = .startDeer
                 } label: {
                     Image(systemName: "house" )
                 }
@@ -232,5 +240,5 @@ extension View {
 
 
 #Preview {
-    StymphalianView(continueStymphlian: .constant(true), endStymphalian: .constant(false))
+    StymphalianView(scene: .constant(.continueStymphalian))
 }

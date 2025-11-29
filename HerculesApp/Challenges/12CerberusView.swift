@@ -13,8 +13,7 @@ struct CerberusView: View {
     @StateObject private var motion = MotionDetector()
     @State private var lastStep = Date()
     
-    @Binding var continueCerberus: Bool
-    @Binding var endCerberus: Bool
+    @Binding var scene: AppScene
     
     var body: some View {
         NavigationStack {
@@ -39,8 +38,7 @@ struct CerberusView: View {
                             Spacer()
                             
                             Button {
-                                continueCerberus = false
-                                endCerberus = true
+                                scene = .endCerberus
                             } label: {
                                 Text("Continue")
                                     .padding()
@@ -60,7 +58,7 @@ struct CerberusView: View {
                     .toolbar{
                         ToolbarItem (placement: .topBarLeading){
                             NavigationLink {
-                                QuestView()
+                                //    QuestView()
                             } label: {
                                 Image(systemName: "house" )
                             }
@@ -68,7 +66,7 @@ struct CerberusView: View {
                     }
                 } else {
                     VStack (spacing: 50) {
-                    //    Slider()
+                        //    Slider()
                         HStack {
                             Image(systemName: "figure.walk")
                                 .foregroundStyle(.white)
@@ -97,14 +95,25 @@ struct CerberusView: View {
                     }
                     
                     
-                        }
-                    }
-                    
                 }
-        .navigationBarBackButtonHidden()
-                
-                
             }
+            .toolbar{
+                ToolbarItem {
+                    Button{
+                        scene = .quest
+                    } label: {
+                        Image(systemName: "house")
+                            .foregroundStyle(.black)
+                            .frame(width: 50, height: 50)
+                        
+                    }
+                }
+            }
+        }
+        .navigationBarBackButtonHidden()
+        
+        
+    }
     func addProgress() {
         if progress < 100 {
             
@@ -116,5 +125,5 @@ struct CerberusView: View {
 
 
 #Preview {
-    CerberusView(continueCerberus: .constant(false), endCerberus: .constant(true))
+    CerberusView(scene: .constant(.continueCerberus))
 }

@@ -10,8 +10,7 @@ struct AftAugeanView: View   {
     let textToType = "You rerouted the rivers  Alpheus and Peneus to wash out the filth. You even got Augeas to give you a tenth of the cattle if you finished in a day, which you did! However, when you returned to Eurystheus, he said the labour did not count as you accepted payment and the river had done the work."
     
     @State private var animatedText: String = ""
-    @Binding var endAugean: Bool
-    @Binding var startStymphalian: Bool
+    @Binding var scene: AppScene
     
     
     var body: some View {
@@ -37,8 +36,7 @@ struct AftAugeanView: View   {
                     }
                 
                 Button ("Continue") {
-                    endAugean = false
-                    startStymphalian = true
+                    scene = .startStymphalian
                 }
                 .padding()
                 .background(Color.white)
