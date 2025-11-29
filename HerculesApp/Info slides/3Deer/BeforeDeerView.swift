@@ -20,10 +20,11 @@ struct BeforeDeerView: View   {
             ZStack {
                 Image("Hercules")
                     .resizable()
+                    .aspectRatio(contentMode: .fill)
                     .frame(width: 500, height: 900)
                     .ignoresSafeArea()
                     .brightness(-0.4)
-                    .aspectRatio(contentMode: .fill)
+                  
                 
                 VStack {
                     Text(animatedText)
@@ -67,5 +68,9 @@ struct BeforeDeerView: View   {
             }
         }
     }
+}
+
+#Preview {
+    BeforeDeerView(scene: .constant(.startDeer))
 }
 
