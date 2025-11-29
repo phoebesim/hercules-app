@@ -16,45 +16,40 @@ struct BeforeDeerView: View   {
     
     
     var body: some View {
-        
-            ZStack {
-                Image("Hercules")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 500, height: 900)
-                    .ignoresSafeArea()
-                    .brightness(-0.4)
-                  
-                
-                VStack {
-                    Text(animatedText)
-                        .padding()
-                        .foregroundStyle(.white)
-                        .font(.title)
-                        .multilineTextAlignment(.leading)
-                        .frame(maxWidth: .infinity)
-                        .padding(50)
-                }
-                .onAppear {
-                    animateText()
-                }
-                
-                Button {
-                    scene = .continueDeer
-                    
-                } label: {
-                    Text("Continue")
-                }
-                .padding()
-                .background(Color.white)
-                .cornerRadius(15)
-                .offset(x: 0, y: 300)
-                .foregroundColor(.black)
-                
+        ZStack {
+            Image("Hercules")
+                .resizable()
+                .aspectRatio(contentMode:  .fill)
+                .ignoresSafeArea()
+                .brightness(-0.4)
+                .offset(x: -20)
+     
+            
+            VStack {
+                Text(animatedText)
+                    .padding()
+                    .foregroundStyle(.white)
+                    .font(.title)
+                    .multilineTextAlignment(.leading)
+                    .frame(maxWidth: .infinity)
+                    .padding(50)
+            }
+            .onAppear {
+                animateText()
             }
             
+            Button {
+                scene = .continueDeer
+            } label: {
+                Text("Continue")
+            }
             .padding()
-        
+            .background(Color.white)
+            .cornerRadius(15)
+            .offset(x: 0, y: 300)
+            .foregroundColor(.black)
+        }
+       
         .navigationBarBackButtonHidden(true)
     }
     
@@ -63,8 +58,6 @@ struct BeforeDeerView: View   {
         for (index, character) in textToType.enumerated() {
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(index) * 0.05) {
                 animatedText.append(character)
-                
-                
             }
         }
     }
@@ -73,4 +66,3 @@ struct BeforeDeerView: View   {
 #Preview {
     BeforeDeerView(scene: .constant(.startDeer))
 }
-

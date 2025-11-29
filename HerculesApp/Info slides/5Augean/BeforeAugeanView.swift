@@ -21,10 +21,10 @@ struct BeforeAugeanView: View   {
             ZStack {
                 Image("Hercules")
                     .resizable()
-                    .frame(width: 500, height: 900)
+                    .aspectRatio(contentMode: .fill)
                     .ignoresSafeArea()
                     .brightness(-0.4)
-                    .aspectRatio(contentMode: .fill)
+                    .offset(x: -20)
                 
                 VStack {
                     Text(animatedText)
@@ -53,7 +53,7 @@ struct BeforeAugeanView: View   {
                 
             }
             
-            .padding()
+
         }
         .navigationBarBackButtonHidden(true)
     }
@@ -67,7 +67,7 @@ struct BeforeAugeanView: View   {
         }
     }
 }
-//
-//#Preview {
-//    BeforeAugeanView(startAugean: .constant(false), continueAugean: .constant(true))
-//}
+
+#Preview {
+    BeforeAugeanView(scene: .constant(.startAugean))
+}

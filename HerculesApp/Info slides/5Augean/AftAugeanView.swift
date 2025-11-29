@@ -19,9 +19,10 @@ struct AftAugeanView: View   {
             ZStack {
                 Image("Hercules")
                     .resizable()
-                    .frame(width: 500, height: 900)
+                    .aspectRatio(contentMode: .fill)
                     .ignoresSafeArea()
                     .brightness(-0.4)
+                    .offset(x: -20)
                     .aspectRatio(contentMode: .fill)
                 Text(animatedText)
                     .padding()
@@ -63,6 +64,6 @@ struct AftAugeanView: View   {
     }
 }
 
-//#Preview {
-//    AftAugeanView()
-//}
+#Preview {
+    AftAugeanView(scene: .constant(.endAugean))
+}

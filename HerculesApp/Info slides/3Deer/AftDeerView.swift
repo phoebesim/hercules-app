@@ -28,10 +28,11 @@ struct AftDeerView: View   {
             ZStack {
                 Image("Hercules")
                     .resizable()
-                    .frame(width: 500, height: 900)
+                    
+                    .aspectRatio(contentMode: .fill)
                     .ignoresSafeArea()
                     .brightness(-0.4)
-                    .aspectRatio(contentMode: .fill)
+                    .offset(x: -20)
                 ScrollView{
                     Text(animatedText)
                         .padding()
@@ -56,7 +57,7 @@ struct AftDeerView: View   {
                 .foregroundColor(.black)
                 
             }
-            .padding()
+        
         }
         .navigationBarBackButtonHidden(true)
     }
@@ -72,6 +73,6 @@ struct AftDeerView: View   {
     }
 }
 
-//#Preview {
-//    AftDeerView(endDeer: .constant(true), startAugean: .constant(false))
-//}
+#Preview {
+    AftDeerView(scene: .constant(.endDeer))
+}

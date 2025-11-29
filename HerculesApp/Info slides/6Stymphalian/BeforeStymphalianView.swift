@@ -20,10 +20,10 @@ struct BeforeStymphalianView: View   {
             ZStack {
                 Image("Hercules")
                     .resizable()
-                    .frame(width: 500, height: 900)
+                    .aspectRatio(contentMode: .fill)
                     .ignoresSafeArea()
                     .brightness(-0.4)
-                    .aspectRatio(contentMode: .fill)
+                    .offset(x: -20)
                 
                 VStack {
                     Text(animatedText)
@@ -51,7 +51,6 @@ struct BeforeStymphalianView: View   {
                 .foregroundColor(.black)
             }
             
-            .padding()
         }
         .navigationBarBackButtonHidden(true)
     }

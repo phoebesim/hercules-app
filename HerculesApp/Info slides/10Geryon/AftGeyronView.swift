@@ -13,10 +13,10 @@ struct AftGeryonView: View   {
             ZStack {
                 Image("Hercules")
                     .resizable()
-                    .frame(width: 500, height: 900)
+                    .aspectRatio(contentMode: .fill)
                     .ignoresSafeArea()
                     .brightness(-0.4)
-                    .aspectRatio(contentMode: .fill)
+                    .offset(x: -20)
                 Text(animatedText)
                     .padding()
                     .foregroundStyle(.white)
@@ -46,7 +46,7 @@ struct AftGeryonView: View   {
                 
             }
             
-            .padding()
+        
         }
         .navigationBarBackButtonHidden(true)
     }
