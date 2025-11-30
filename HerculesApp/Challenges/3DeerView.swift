@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ConfettiSwiftUI
 
 struct DeerView: View {
     
@@ -14,6 +15,8 @@ struct DeerView: View {
     @State private var gameOver = false
     @State private var weaponSheet = false
     @State private var timer: Timer? = nil
+    @State private var confettiTrigger: Int = 0
+    
     
     @State var weaponImage: UIImage?
     @State var showButton = true
@@ -24,7 +27,7 @@ struct DeerView: View {
     @State private var tolerance: CGFloat = 100
     
     @Binding var scene: AppScene
-
+    
     var body: some View {
         
         NavigationStack{
@@ -38,10 +41,10 @@ struct DeerView: View {
                 
                 
                 VStack{
-                  //  Text ("Difficulty")
-                       // .bold()
-                  /*  Slider(value: $tolerance, in: 5...50)
-                   .padding()*/
+                    //  Text ("Difficulty")
+                    // .bold()
+                    /*  Slider(value: $tolerance, in: 5...50)
+                     .padding()*/
                     
                     Text("Trap the Hind!")
                         .font(.title)
@@ -83,7 +86,7 @@ struct DeerView: View {
                             Button("Get your weapon!"){
                                 weaponSheet = true
                                 showButton = false
-
+                                
                             }
                             .buttonStyle(.bordered)
                             .background()
@@ -94,7 +97,7 @@ struct DeerView: View {
                     .sheet(isPresented: $weaponSheet) {
                         
                         BackgroundRemovalView(weapon: .constant("a net (e.g. a towel)"), onDone: { image in weaponImage = image; weaponSheet = false })
-
+                        
                     }
                     
                     
@@ -108,12 +111,12 @@ struct DeerView: View {
                     Button{
                         checkIfAtCenter()
                         
+                        withAnimation(.easeInOut) {
+                            weaponYOffset = -200
+                            
                             withAnimation(.easeInOut) {
-                                weaponYOffset = -200
-                                
-                                withAnimation(.easeInOut) {
-                                    weaponYOffset = 0
-                                }
+                                weaponYOffset = 0
+                            }
                         }
                     } label: {
                         
@@ -127,7 +130,7 @@ struct DeerView: View {
                             .bold()
                         
                     }
-//                    .disabled(weaponImage == nil)
+                    //                    .disabled(weaponImage == nil)
                     .opacity(weaponImage == nil ? 0.5 : 1.0)
                     
                     Spacer()
@@ -150,10 +153,22 @@ struct DeerView: View {
                             .ignoresSafeArea()
                         VStack(spacing: 24) {
                             Spacer()
-                            Text("You won!!!")
+                            Text("You won🎉🎉🎉")
                                 .font(.system(size: 48, weight: .bold))
                                 .foregroundColor(.black)
                                 .multilineTextAlignment(.center)
+                                //.onTapGesture {confettiTrigger += 1
+                                //}
+                                //.confettiCannon(trigger: $confettiTrigger)
+                                .confettiCannon(trigger: $confettiTrigger)
+                                                            
+                                                            
+                                                            .onAppear {
+                                                                confettiTrigger += 1
+                                                            }
+                            
+                            
+            
                             
                             Spacer()
                             
@@ -167,14 +182,14 @@ struct DeerView: View {
                                     .frame(maxWidth: .infinity, minHeight: 56, )
                                     .padding()
                             }
-                            .background(Color.gray)
+                            .background(Color.pink)
                             .cornerRadius(12)
                             .padding(.horizontal, 60)
                             .padding(.bottom, 40)
                             
                         }
                     }
-                   
+                    
                 }
                 
             }
@@ -198,7 +213,7 @@ struct DeerView: View {
         timer = Timer.scheduledTimer(withTimeInterval: 0.9, repeats: true) { _ in
             withAnimation(.easeInOut(duration: 0.8)) {
                 xOffset = CGFloat.random(in: -200...200)
-     
+                
             }
             if gameOver {
                 stopTimer()
@@ -222,7 +237,7 @@ struct DeerView: View {
             
         } else {
             message = "Try again..."
-                
+            
         }
     }
     

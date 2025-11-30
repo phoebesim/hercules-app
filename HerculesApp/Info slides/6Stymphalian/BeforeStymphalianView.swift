@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct BeforeStymphalianView: View   {
-    let textToType = "Your sixth labour: to slay the Stymphalian birds. They are man-eating birds with bronze beaks and sharp metallic feathers they can launch at you! And their dung is highly toxic. They are too far into the swamp for you to reach. Fortunately, Athena has noticed your plight and gifted you a rattle, called a krotala, made by Hephaestus that you can use to scare the birds into the air!"
+    let textToType = "Your sixth labour: slay the Stymphalian birds—man-eaters with bronze beaks and razor feathers. They hide deep in the swamp, but Athena aids you with a Hephaestus-forged rattle to drive them into the air."
     
     @State private var animatedText: String = ""
     

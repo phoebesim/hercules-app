@@ -7,11 +7,14 @@
 
 import SwiftUI
 import CoreMotion
+import ConfettiSwiftUI
 
 struct CerberusView: View {
     @State private var progress: CGFloat = 0
     @StateObject private var motion = MotionDetector()
     @State private var lastStep = Date()
+    @State private var confettiTrigger: Int = 0
+
     
     @Binding var scene: AppScene
     
@@ -34,6 +37,12 @@ struct CerberusView: View {
                                 .font(.system(size: 48, weight: .bold))
                                 .foregroundColor(.black)
                                 .multilineTextAlignment(.center)
+                                .confettiCannon(trigger: $confettiTrigger)
+                                                            
+                                                            
+                                                            .onAppear {
+                                                                confettiTrigger += 1 
+                                                            }
                             
                             Spacer()
                             
@@ -47,7 +56,7 @@ struct CerberusView: View {
                                     .frame(maxWidth: .infinity, minHeight: 56, )
                                     .padding()
                             }
-                            .background(Color.gray)
+                            .background(Color.pink)
                             .cornerRadius(12)
                             .padding(.horizontal, 60)
                             .padding(.bottom, 40)

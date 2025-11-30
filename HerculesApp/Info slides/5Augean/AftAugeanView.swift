@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct AftAugeanView: View   {
-    let textToType = "You rerouted the rivers  Alpheus and Peneus to wash out the filth. You even got Augeas to give you a tenth of the cattle if you finished in a day, which you did! However, when you returned to Eurystheus, he said the labour did not count as you accepted payment and the river had done the work."
+    let textToType = "You diverted the Alpheus and Peneus to clean the stables in a day, but Eurystheus refused to count it, saying you took payment and let the rivers do the work."
     
     @State private var animatedText: String = ""
     @Binding var scene: AppScene

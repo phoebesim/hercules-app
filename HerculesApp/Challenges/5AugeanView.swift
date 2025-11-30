@@ -13,6 +13,9 @@
 //
 
 import SwiftUI
+import ConfettiSwiftUI
+
+
 
 enum PipeType {
     case straight, corner, end, t
@@ -62,7 +65,9 @@ enum Direction: CaseIterable {
 
 
 struct AugeanView: View {
-    
+    //here is the change
+    @State private var confettiTrigger: Int = 0
+
     
     
     let lightRed = Color(red: 0.969, green: 0.667, blue: 0.584)
@@ -154,6 +159,16 @@ struct AugeanView: View {
                                 .font(.system(size: 48, weight: .bold))
                                 .foregroundColor(.black)
                                 .multilineTextAlignment(.center)
+                                //.onTapGesture //{confettiTrigger += 1
+                                                                //}
+                                                                //.confettiCannon(trigger: $confettiTrigger)
+                            
+                                .confettiCannon(trigger: $confettiTrigger)
+                                                            
+                                                            
+                                                            .onAppear {
+                                                                confettiTrigger += 1
+                                                            }
                             
                             Spacer()
                             
@@ -167,7 +182,7 @@ struct AugeanView: View {
                                     .frame(maxWidth: .infinity, minHeight: 56, )
                                     .padding()
                             }
-                            .background(Color.gray)
+                            .background(Color.pink)
                             .cornerRadius(12)
                             .padding(.horizontal, 60)
                             .padding(.bottom, 40)

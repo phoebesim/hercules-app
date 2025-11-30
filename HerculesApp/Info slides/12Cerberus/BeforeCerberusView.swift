@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct BeforeCerberusView: View   {
-    let textToType = "Your twelfth labour: capturing and bringing back Cerberus, the three-headed dog belonging to Hades, from the Underworld. You asked for permission from Hades, god of the Underworld, to fight Cerberus unassisted by weapons. After overpowering it with your hands, you must now walk back to Eurystheus... for the last time."
+    let textToType = "Your final labour: capture Cerberus barehanded with Hades’ permission and bring it back to Eurystheus."
     
     @State private var animatedText: String = ""
     
