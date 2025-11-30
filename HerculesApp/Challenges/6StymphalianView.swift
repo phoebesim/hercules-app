@@ -7,8 +7,12 @@
 
 import SwiftUI
 import AVFoundation
+import ConfettiSwiftUI
 
 struct StymphalianView: View {
+    //Here is the change
+    @State private var confettiTrigger: Int = 0
+
     
     var allBirdsAreFlying: Bool {
         sitting1 == "StymphalianBirdFlying" &&
@@ -91,6 +95,10 @@ struct StymphalianView: View {
                             .font(.system(size: 48, weight: .bold))
                             .foregroundColor(.black)
                             .multilineTextAlignment(.center)
+                        //here is the change
+                            .onTapGesture {confettiTrigger += 1
+                                                            }
+                                                            .confettiCannon(trigger: $confettiTrigger)
                         
                         
                        Spacer()

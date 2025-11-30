@@ -7,11 +7,14 @@
 
 import SwiftUI
 import CoreMotion
+import ConfettiSwiftUI
 
 struct CerberusView: View {
     @State private var progress: CGFloat = 0
     @StateObject private var motion = MotionDetector()
     @State private var lastStep = Date()
+    @State private var confettiTrigger: Int = 0
+
     
     @Binding var scene: AppScene
     
@@ -34,6 +37,9 @@ struct CerberusView: View {
                                 .font(.system(size: 48, weight: .bold))
                                 .foregroundColor(.black)
                                 .multilineTextAlignment(.center)
+                                .onTapGesture {confettiTrigger += 1
+                                                                }
+                                                                .confettiCannon(trigger: $confettiTrigger)
                             
                             Spacer()
                             

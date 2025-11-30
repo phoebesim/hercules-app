@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import ConfettiSwiftUI
 
 struct GeryonView: View {
     @State private var step: CGFloat = 280
     @State private var timer: Timer?
     @State private var isGreen: Bool = true
     @State private var loseSheetShown = false
+    @State private var confettiTrigger: Int = 0
+
     
     @Binding var scene: AppScene
     
@@ -87,6 +90,9 @@ struct GeryonView: View {
                                 .font(.system(size: 48, weight: .bold))
                                 .foregroundColor(.black)
                                 .multilineTextAlignment(.center)
+                                .onTapGesture {confettiTrigger += 1
+                                                                }
+                                                                .confettiCannon(trigger: $confettiTrigger)
                             
                             Spacer()
                             
