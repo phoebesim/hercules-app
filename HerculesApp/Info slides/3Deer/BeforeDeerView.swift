@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct BeforeDeerView: View   {
-    let textToType = "Your third labour: to capture the Ceryneian Hind and deliver it to the King alive. It can outpace even the best arrows and is only visible by a glint of moonlight on its antlers."
+    let textToType = "Your third labour: capture the Ceryneian Hind alive—faster than any arrow and visible only by the moonlight on its antlers."
     
     @State private var animatedText: String = ""
     @Environment(\.dismiss) var dismiss

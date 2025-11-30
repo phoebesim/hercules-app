@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct AftCerberusView: View   {
-    let textToType = "After showing Eurystheus Cerberus, he so frightened he fled to his storeroom. He begged for you to return Cerberus to the Underworld, in exchange for releasing you from any further labours."
+    let textToType = "After you showed Eurystheus Cerberus, he fled in terror and begged you to return the beast, offering to free you from all remaining labours."
     
     @State private var animatedText: String = ""
     

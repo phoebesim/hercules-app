@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct BeforeAugeanView: View   {
-    let textToType = "Your fifth labour: to clean the stables of King Augeas. The divine livestock in it are immortal, and it has not been cleaned in over 30 years, leading to a huge pileup of dung!"
+    let textToType = "Your fifth labour: clean King Augeas’ stables, untouched for 30 years and overflowing with immortal livestock dung!"
     
     @State private var animatedText: String = ""
     

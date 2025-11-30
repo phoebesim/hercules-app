@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct BeforeGeryonView: View   {
-    let textToType = "Your tenth labour: to steal the prized cattle of the giant Geryon, who has three bodies. On the way, you received a golden cup from the sun god Helios as he was impressed with your audacity to shoot at the Sun. You killed Orthus the two-headed dog and Eurytion the herdsman as well."
+    let textToType = "Your tenth labour: steal Geryon’s cattle. With Helios’s golden cup, you defeated his two-headed dog and herdsman to claim the herd."
     
     @State private var animatedText: String = ""
     

@@ -16,7 +16,7 @@
 import SwiftUI
 
 struct AftDeerView: View   {
-    let textToType = "After a year of searching, you finally captured the hind with a net while it was asleep. But you immediately realised you had messed up: the hind was a sacred animal to the fierce goddess Artemis! Luckily for you, you met her and on your way back to King Eurystheus. You begged her for forgiveness. After listening to your explanation, she forgave you on the condition you would return the hind to the wild. Just before the King could grab it from your hands, you let go of the hind and it dashed back to the wild!"
+    let textToType = "After a year’s hunt, the hero caught Artemis’s sacred hind, earned her forgiveness, and released it before Eurystheus could seize it."
     
     @State private var animatedText: String = ""
     
