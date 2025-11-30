@@ -12,7 +12,7 @@ class MotionDetector: ObservableObject {
     private let manager = CMMotionManager()
     @Published var stepDetected = false
     
-    private let threshold: Double = 1.10
+    private let threshold: Double = 1.10 
 
     init() {
         start()

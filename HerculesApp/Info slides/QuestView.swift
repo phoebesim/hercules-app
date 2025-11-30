@@ -5,36 +5,36 @@ struct QuestView: View {
     
     var body: some View {
         NavigationStack {
-            
+            // levels
             VStack(alignment: .leading){
                 ScrollView {
                     VStack (spacing: 50) {
-                        NavigationLink(destination: ComingSoonView()) {
-                            Text("Nemean Lion")
-                                .font(.title)
-                                .foregroundStyle(.white)
-                                .bold()
-                                .background(
-                                    Rectangle()
-                                        .frame(width: 300, height: 70)
-                                        .cornerRadius(8)
-                                        .foregroundColor(.gray)
-                                        .brightness(-0.2)
-                                )
-                        }
-                        NavigationLink(destination: ComingSoonView()) {
-                            Text("Lernean Hydra")
-                                .font(.title)
-                                .foregroundStyle(.white)
-                                .bold()
-                                .background(
-                                    Rectangle()
-                                        .frame(width: 300, height: 70)
-                                        .cornerRadius(8)
-                                        .foregroundColor(.gray)
-                                        .brightness(-0.2)
-                                )
-                        }
+//                        NavigationLink(destination: ComingSoonView()) {
+//                            Text("Nemean Lion")
+//                                .font(.title)
+//                                .foregroundStyle(.white)
+//                                .bold()
+//                                .background(
+//                                    Rectangle()
+//                                        .frame(width: 300, height: 70)
+//                                        .cornerRadius(8)
+//                                        .foregroundColor(.gray)
+//                                        .brightness(-0.2)
+//                                )
+//                        }
+//                        NavigationLink(destination: ComingSoonView()) {
+//                            Text("Lernean Hydra")
+//                                .font(.title)
+//                                .foregroundStyle(.white)
+//                                .bold()
+//                                .background(
+//                                    Rectangle()
+//                                        .frame(width: 300, height: 70)
+//                                        .cornerRadius(8)
+//                                        .foregroundColor(.gray)
+//                                        .brightness(-0.2)
+//                                )
+//                        }
                         
                         Button {
                             scene = .startDeer
@@ -48,24 +48,24 @@ struct QuestView: View {
                                     Image("DeerPainting")
                                         .resizable()
                                         .scaledToFill()
-                                        .frame(width: 300, height: 70)
+                                        .frame(width: 350, height: 70)
                                         .cornerRadius(8)
                                         .brightness(-0.2)
                                 )
                         }
-                        NavigationLink(destination: ComingSoonView()) {
-                            Text("Erymanthian Boar")
-                                .font(.title)
-                                .foregroundStyle(.white)
-                                .bold()
-                                .background(
-                                    Rectangle()
-                                        .frame(width: 300, height: 70)
-                                        .cornerRadius(8)
-                                        .foregroundColor(.gray)
-                                        .brightness(-0.2)
-                                )
-                        }
+//                        NavigationLink(destination: ComingSoonView()) {
+//                            Text("Erymanthian Boar")
+//                                .font(.title)
+//                                .foregroundStyle(.white)
+//                                .bold()
+//                                .background(
+//                                    Rectangle()
+//                                        .frame(width: 300, height: 70)
+//                                        .cornerRadius(8)
+//                                        .foregroundColor(.gray)
+//                                        .brightness(-0.2)
+//                                )
+//                        }
                         Button() {
                             scene = .startAugean
                         } label: {
@@ -100,45 +100,45 @@ struct QuestView: View {
                                         .brightness(-0.2)
                                 )
                         }
-                        NavigationLink(destination: ComingSoonView()) {
-                            Text("Cretan Bull")
-                                .font(.title)
-                                .foregroundStyle(.white)
-                                .bold()
-                                .background(
-                                    Rectangle()
-                                        .frame(width: 300, height: 70)
-                                        .cornerRadius(8)
-                                        .foregroundColor(.gray)
-                                        .brightness(-0.2)
-                                )
-                        }
-                        NavigationLink(destination: ComingSoonView()) {
-                            Text("Mares of Diomedes")
-                                .font(.title)
-                                .foregroundStyle(.white)
-                                .bold()
-                                .background(
-                                    Rectangle()
-                                        .frame(width: 300, height: 70)
-                                        .cornerRadius(8)
-                                        .foregroundColor(.gray)
-                                        .brightness(-0.2)
-                                )
-                        }
-                        NavigationLink(destination: ComingSoonView()) {
-                            Text("Belt of Hippolyta")
-                                .font(.title)
-                                .foregroundStyle(.white)
-                                .bold()
-                                .background(
-                                    Rectangle()
-                                        .frame(width: 300, height: 70)
-                                        .cornerRadius(8)
-                                        .foregroundColor(.gray)
-                                        .brightness(-0.2)
-                                )
-                        }
+//                        NavigationLink(destination: ComingSoonView()) {
+//                            Text("Cretan Bull")
+//                                .font(.title)
+//                                .foregroundStyle(.white)
+//                                .bold()
+//                                .background(
+//                                    Rectangle()
+//                                        .frame(width: 300, height: 70)
+//                                        .cornerRadius(8)
+//                                        .foregroundColor(.gray)
+//                                        .brightness(-0.2)
+//                                )
+//                        }
+//                        NavigationLink(destination: ComingSoonView()) {
+//                            Text("Mares of Diomedes")
+//                                .font(.title)
+//                                .foregroundStyle(.white)
+//                                .bold()
+//                                .background(
+//                                    Rectangle()
+//                                        .frame(width: 300, height: 70)
+//                                        .cornerRadius(8)
+//                                        .foregroundColor(.gray)
+//                                        .brightness(-0.2)
+//                                )
+//                        }
+//                        NavigationLink(destination: ComingSoonView()) {
+//                            Text("Belt of Hippolyta")
+//                                .font(.title)
+//                                .foregroundStyle(.white)
+//                                .bold()
+//                                .background(
+//                                    Rectangle()
+//                                        .frame(width: 300, height: 70)
+//                                        .cornerRadius(8)
+//                                        .foregroundColor(.gray)
+//                                        .brightness(-0.2)
+//                                )
+//                        }
                         Button {
                             scene = .startGeryon
                         } label:  {
@@ -156,19 +156,19 @@ struct QuestView: View {
                                         .brightness(-0.2)
                                 )
                         }
-                        NavigationLink(destination: ComingSoonView()) {
-                            Text("Golden Apples")
-                                .font(.title)
-                                .foregroundStyle(.white)
-                                .bold()
-                                .background(
-                                    Rectangle()
-                                        .frame(width: 300, height: 70)
-                                        .cornerRadius(8)
-                                        .foregroundColor(.gray)
-                                        .brightness(-0.2)
-                                )
-                        }
+//                        NavigationLink(destination: ComingSoonView()) {
+//                            Text("Golden Apples")
+//                                .font(.title)
+//                                .foregroundStyle(.white)
+//                                .bold()
+//                                .background(
+//                                    Rectangle()
+//                                        .frame(width: 300, height: 70)
+//                                        .cornerRadius(8)
+//                                        .foregroundColor(.gray)
+//                                        .brightness(-0.2)
+//                                )
+//                        }
                         Button {
                             scene = .startCerberus
                         } label: {
@@ -204,7 +204,6 @@ struct QuestView: View {
                 }
                 
                 .navigationTitle("Your Labours")
-                .navigationBarTitleDisplayMode(.inline)
                 
                 
                 .toolbarTitleDisplayMode(.inlineLarge)

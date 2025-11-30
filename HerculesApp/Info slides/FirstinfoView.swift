@@ -11,7 +11,7 @@ struct FirstinfoView: View   {
     var body: some View {
         
         NavigationStack {
-            ZStack(alignment: .leading) {
+            ZStack(alignment: .center) {
                 
                 Image("Hercules")
                     .resizable()
@@ -20,34 +20,43 @@ struct FirstinfoView: View   {
                     .brightness(-0.4)
                     .offset(x: -20)
                 
-                VStack(alignment: .leading) {
+                VStack {
                     Text(animatedText)
-                        .padding()
+                      
                         .foregroundStyle(.white)
                         .font(.title)
                         .multilineTextAlignment(.leading)
-                        .padding(50)
+                       
+                    
+                    Spacer()
+                    
+                    Button {
+                        scene = .quest
+                        
+                    } label: {
+                        Text("Continue")
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                    }
+                    
+                    
+                    .background(Color.white)
+                    .cornerRadius(15)
+                    .foregroundColor(.black)
                     
                     
                 }
+                .padding(30)
                 .onAppear {
                     animateText()
                 }
                 
                 
-                
-                Button {
-                    scene = .quest
-                    
-                } label: {
-                    Text("Continue")
-                }
-                .padding()
-                .background(Color.white)
-                .cornerRadius(15)
-                .foregroundColor(.black)
-                .offset(x:200, y: 300)
             }
+            
+            
+            
+            
         }
         .navigationBarBackButtonHidden(true)
     }
