@@ -16,7 +16,7 @@ struct AftAugeanView: View   {
     var body: some View {
         
         NavigationStack {
-            ZStack {
+            ZStack (alignment: .leading){
                 Image("Hercules")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
@@ -45,6 +45,7 @@ struct AftAugeanView: View   {
                 .offset(x:0, y: 300)
                 .padding()
                 .foregroundColor(.black)
+                .offset(x: 180)
                 
             }
             

@@ -25,10 +25,10 @@ struct AftDeerView: View   {
     var body: some View {
         
         NavigationStack {
-            ZStack {
+            ZStack(alignment: .leading) {
+                
                 Image("Hercules")
                     .resizable()
-                    
                     .aspectRatio(contentMode: .fill)
                     .ignoresSafeArea()
                     .brightness(-0.4)
@@ -46,18 +46,19 @@ struct AftDeerView: View   {
                         }
                 }
                 
-                Button("Continue") {
-                    scene = .startAugean
-                }
-                .padding()
-                .background(Color.white)
-                .cornerRadius(15)
-                .offset(x:0, y: 300)
-                .padding()
-                .foregroundColor(.black)
+                    Button("Continue") {
+                        scene = .startAugean
+                    }
+                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(15)
+                    .offset(x:0, y: 300)
+                    .padding()
+                    .foregroundColor(.black)
+                    .offset(x: 180)
+                    
                 
             }
-        
         }
         .navigationBarBackButtonHidden(true)
     }
@@ -67,7 +68,7 @@ struct AftDeerView: View   {
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(index) * 0.05) {
                 animatedText.append(character)
                 
-            
+                
             }
         }
     }

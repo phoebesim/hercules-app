@@ -16,7 +16,7 @@ struct AftStymphalianView: View   {
     var body: some View {
         
         
-        ZStack {
+        ZStack (alignment: .leading){
             Image("Hercules")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
@@ -46,6 +46,7 @@ struct AftStymphalianView: View   {
             .cornerRadius(15)
             .offset(x: 0, y: 300)
             .foregroundColor(.black)
+            .offset(x: 180)
             
         }
         
