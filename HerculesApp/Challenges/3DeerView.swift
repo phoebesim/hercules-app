@@ -157,9 +157,15 @@ struct DeerView: View {
                                 .font(.system(size: 48, weight: .bold))
                                 .foregroundColor(.black)
                                 .multilineTextAlignment(.center)
-                                .onTapGesture {confettiTrigger += 1
-                                }
+                                //.onTapGesture {confettiTrigger += 1
+                                //}
+                                //.confettiCannon(trigger: $confettiTrigger)
                                 .confettiCannon(trigger: $confettiTrigger)
+                                                            
+                                                            
+                                                            .onAppear {
+                                                                confettiTrigger += 1
+                                                            }
                             
                             
             
@@ -176,7 +182,7 @@ struct DeerView: View {
                                     .frame(maxWidth: .infinity, minHeight: 56, )
                                     .padding()
                             }
-                            .background(Color.gray)
+                            .background(Color.pink)
                             .cornerRadius(12)
                             .padding(.horizontal, 60)
                             .padding(.bottom, 40)
