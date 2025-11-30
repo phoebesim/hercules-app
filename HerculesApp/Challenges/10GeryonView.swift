@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GeryonView: View {
-    @State private var step: CGFloat = 280
+    @State private var step: CGFloat = 250
     @State private var timer: Timer?
     @State private var isGreen: Bool = true
     @State private var loseSheetShown = false
@@ -64,14 +64,21 @@ struct GeryonView: View {
                     }
                     
                 }
-                .buttonStyle(.borderedProminent)
-                .offset(y:360)
-                .tint(.white)
-                .padding(50)
-                .foregroundStyle(.black)
-                .controlSize(.extraLarge)
-                .buttonBorderShape(.circle)
-                .fontWeight(.bold)
+
+                .foregroundColor(.black)
+                .bold()
+                .padding(35)
+                .background(Color.white)
+                .clipShape(.circle)
+//                .buttonStyle(.borderedProminent)
+                .offset(y:350)
+//                .tint(.white)
+//                .padding(50)
+//                .foregroundStyle(.black)
+//                .controlSize(.extraLarge)
+//                .buttonBorderShape(.circle)
+//                .fontWeight(.bold)
+                
                 Image(isGreen ? "GreenLight":"RedLight")
                     .offset(x: 130, y: -190)
                 
