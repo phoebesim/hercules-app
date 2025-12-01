@@ -39,14 +39,13 @@ struct FirstinfoView: View   {
                             .frame(maxWidth: .infinity)
                     }
                     
-                    
                     .background(Color.white)
                     .cornerRadius(15)
                     .foregroundColor(.black)
-                    
+                    .padding()
                     
                 }
-                .padding(30)
+                .padding(.horizontal)
                 .onAppear {
                     animateText()
                 }
