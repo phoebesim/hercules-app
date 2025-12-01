@@ -26,7 +26,7 @@ struct CerberusView: View {
                     .scaledToFill()
                     .ignoresSafeArea()
                 
-                if progress == 100 {
+                if progress == 0 {
                     ZStack {
                         Rectangle()
                             .fill(.ultraThinMaterial)
@@ -38,11 +38,11 @@ struct CerberusView: View {
                                 .foregroundColor(.black)
                                 .multilineTextAlignment(.center)
                                 .confettiCannon(trigger: $confettiTrigger)
-                                                            
-                                                            
-                                                            .onAppear {
-                                                                confettiTrigger += 1 
-                                                            }
+                            
+                            
+                                .onAppear {
+                                    confettiTrigger += 1
+                                }
                             
                             Spacer()
                             
@@ -108,14 +108,6 @@ struct CerberusView: View {
             }
             .toolbar{
                 ToolbarItem {
-                    Button{
-                        scene = .quest
-                    } label: {
-                        Image(systemName: "house")
-                            .foregroundStyle(.black)
-                            .frame(width: 50, height: 50)
-                        
-                    }
                 }
             }
         }

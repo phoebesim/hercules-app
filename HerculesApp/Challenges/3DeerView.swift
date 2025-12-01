@@ -6,8 +6,7 @@
 //
 
 import SwiftUI
-import ConfettiSwiftUI
-
+import ConfettiSwiftUI 
 struct DeerView: View {
     
     @State private var xOffset: CGFloat = 100

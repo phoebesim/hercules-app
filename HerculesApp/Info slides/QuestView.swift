@@ -204,7 +204,7 @@ struct QuestView: View {
                 }
                 
                 .navigationTitle("Your Labours")
-                
+                .toolbarColorScheme(.dark, for: .navigationBar)
                 
                 .toolbarTitleDisplayMode(.inlineLarge)
                 .toolbar {
