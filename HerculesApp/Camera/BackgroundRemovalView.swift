@@ -24,7 +24,7 @@ struct BackgroundRemovalView: View {
                     .padding()
                //     .rotationEffect(Angle(degrees: 90))
             } else {
-                Text("Take a photo of something you have that resembles \(weapon). It will be your weapon!")
+                Text("Take a photo of an object you have that resembles \(weapon). It will be your weapon!")
                     .font(.headline)
                     .padding()
                     .multilineTextAlignment(.center)
