@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0585A74F2EDC6C5500C646A6 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0585A74E2EDC6C5500C646A6 /* ConfettiSwiftUI */; };
 		D98636512EDC4D0E00F3DC4A /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = D98636502EDC4D0E00F3DC4A /* ConfettiSwiftUI */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0585A74F2EDC6C5500C646A6 /* ConfettiSwiftUI in Frameworks */,
 				D98636512EDC4D0E00F3DC4A /* ConfettiSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -63,6 +65,7 @@
 			name = HerculesApp;
 			packageProductDependencies = (
 				D98636502EDC4D0E00F3DC4A /* ConfettiSwiftUI */,
+				0585A74E2EDC6C5500C646A6 /* ConfettiSwiftUI */,
 			);
 			productName = HerculesApp;
 			productReference = D92471982EC17F72008E9E97 /* HerculesApp.app */;
@@ -93,7 +96,7 @@
 			mainGroup = 0555293F2EBDFD3D00BA8624;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				D986364F2EDC4D0E00F3DC4A /* XCLocalSwiftPackageReference "../../Downloads/ConfettiSwiftUI-master" */,
+				0585A74D2EDC6C5500C646A6 /* XCLocalSwiftPackageReference "../../Downloads/ConfettiSwiftUI-master" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 0555293F2EBDFD3D00BA8624;
@@ -339,13 +342,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		D986364F2EDC4D0E00F3DC4A /* XCLocalSwiftPackageReference "../../Downloads/ConfettiSwiftUI-master" */ = {
+		0585A74D2EDC6C5500C646A6 /* XCLocalSwiftPackageReference "../../Downloads/ConfettiSwiftUI-master" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../Downloads/ConfettiSwiftUI-master";
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0585A74E2EDC6C5500C646A6 /* ConfettiSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ConfettiSwiftUI;
+		};
 		D98636502EDC4D0E00F3DC4A /* ConfettiSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ConfettiSwiftUI;

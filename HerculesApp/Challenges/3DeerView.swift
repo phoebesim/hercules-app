@@ -24,7 +24,7 @@ struct DeerView: View {
     @State private var weaponYOffset = 0
     
     
-    @State private var tolerance: CGFloat = 100
+    @State private var tolerance: CGFloat = 20
     
     @Binding var scene: AppScene
     
@@ -130,7 +130,7 @@ struct DeerView: View {
                             .bold()
                         
                     }
-                    //                    .disabled(weaponImage == nil)
+                    .disabled(weaponImage == nil)
                     .opacity(weaponImage == nil ? 0.5 : 1.0)
                     
                     Spacer()

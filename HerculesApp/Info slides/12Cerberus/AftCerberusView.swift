@@ -36,7 +36,7 @@ struct AftCerberusView: View   {
                     }
                 
                 Button {
-                    scene = .continueDeer
+                    scene = .lastInfo
                     
                 } label: {
                     Text("Continue")
