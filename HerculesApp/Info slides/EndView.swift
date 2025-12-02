@@ -15,8 +15,6 @@ struct EndView: View   {
     @State private var animatedText: String = ""
     @Binding var scene: AppScene
     
-    
-    
     var body: some View {
         
         NavigationStack {
@@ -28,10 +26,10 @@ struct EndView: View   {
                     .ignoresSafeArea()
                     .brightness(-0.4)
                     .offset(x: -20)
+                    .confettiCannon(trigger: $confettiTrigger)
                 
                 VStack {
                     Text(animatedText)
-                      
                         .foregroundStyle(.white)
                         .font(.title)
                         .multilineTextAlignment(.leading)
@@ -46,32 +44,21 @@ struct EndView: View   {
                         Text("Finish")
                             .padding()
                             .frame(maxWidth: .infinity)
-                            .padding(50)
-                            .confettiCannon(trigger: $confettiTrigger)
-                        
-                        
-                        
-                        
-                        
+                           
                     }
-                    .onAppear {
-                        animateText()
-                        confettiTrigger += 1
-                        
-                    }
-                    }
-                    
                     .background(Color.white)
                     .cornerRadius(15)
                     .foregroundColor(.black)
                     .padding(50)
-                    
                 }
-                .padding()
                 .onAppear {
                     animateText()
+                    confettiTrigger += 1
                 }
                 
+                
+                
+                .padding()
                 
             }
             
