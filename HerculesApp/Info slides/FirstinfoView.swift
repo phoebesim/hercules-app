@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct FirstinfoView: View   {
-    let textToType = "You have incurred Hera’s wrath... because you exist. You are a result of Zeus’ infidelity. Hera tried to stop your birth. Hera tried to kill you as a baby. Hera turned you into a murderer. Hera made you a slave for your cousin and king Eurystheus. Now, you must perform 10 labours for him. You are Hercules."
+    let textToType = "Hera hates you for being Zeus’s son. She tried to kill you, drove you mad, and forced you into serving King Eurystheus. Now you face ten brutal labours. You are Hercules."
     
     @State private var animatedText: String = ""
     
