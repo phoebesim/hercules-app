@@ -18,7 +18,8 @@ struct BeforeAugeanView: View   {
     var body: some View {
         
         NavigationStack {
-            ZStack (alignment: .leading) {
+            ZStack(alignment: .center) {
+                
                 Image("Hercules")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
@@ -28,33 +29,36 @@ struct BeforeAugeanView: View   {
                 
                 VStack {
                     Text(animatedText)
-                        .padding()
+                    
                         .foregroundStyle(.white)
                         .font(.title)
                         .multilineTextAlignment(.leading)
-                        .frame(maxWidth: .infinity)
                         .padding(50)
-                }
-                .onAppear {
-                    animateText()
+                    
+                    Spacer()
+                    
+                    Button{
+                        scene = .continueAugean
+                        
+                    } label: {
+                        Text("Continue")
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                    }
+                    
+                    .background(Color.white)
+                    .cornerRadius(15)
+                    .foregroundColor(.black)
+                    .padding(50)
                     
                 }
-                
-                Button {
-                    scene = .continueAugean
-                } label: {
-                    Text("Continue")
-                }
                 .padding()
-                .background(Color.white)
-                .cornerRadius(15)
-                .offset(x: 0, y: 300)
-                .foregroundColor(.black)
-                .offset(x: 180)
+                .onAppear {
+                    animateText()
+                }
+                
                 
             }
-            
-
         }
         .navigationBarBackButtonHidden(true)
     }

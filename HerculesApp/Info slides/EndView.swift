@@ -18,45 +18,48 @@ struct EndView: View   {
     var body: some View {
         
         NavigationStack {
-            ZStack {
+            ZStack(alignment: .center) {
+                
                 Image("Hercules")
                     .resizable()
-                    .frame(width: 500, height: 900)
+                    .aspectRatio(contentMode: .fill)
                     .ignoresSafeArea()
                     .brightness(-0.4)
-                    .aspectRatio(contentMode: .fill)
-                ScrollView{
-                    VStack {
-                        Text(animatedText)
-                            .padding()
-                            .foregroundStyle(.white)
-                            .font(.title)
-                            .multilineTextAlignment(.leading)
-                            .frame(maxWidth: .infinity)
-                            .padding(50)
-                    }
-                    .onAppear {
-                        animateText()
+                    .offset(x: -20)
+                
+                VStack {
+                    Text(animatedText)
+                      
+                        .foregroundStyle(.white)
+                        .font(.title)
+                        .multilineTextAlignment(.leading)
+                        .padding(50)
+                    
+                    Spacer()
+                    
+                    Button {
+                        scene = .quest
                         
+                    } label: {
+                        Text("Finish")
+                            .padding()
+                            .frame(maxWidth: .infinity)
                     }
+                    
+                    .background(Color.white)
+                    .cornerRadius(15)
+                    .foregroundColor(.black)
+                    .padding(50)
+                    
+                }
+                .padding()
+                .onAppear {
+                    animateText()
                 }
                 
-                Button {
-                    scene = .quest
-                    
-                } label: {
-                    Text("Play again")
-                        .padding()
-                        .background(Color.white)
-                        .cornerRadius(15)
-                        .offset(x:0, y: 300)
-                        .padding()
-                        .foregroundColor(.black)
-                }
                 
             }
             
-            .padding()
         }
         .navigationBarBackButtonHidden()
     }

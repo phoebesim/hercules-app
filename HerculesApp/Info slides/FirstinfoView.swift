@@ -26,7 +26,7 @@ struct FirstinfoView: View   {
                         .foregroundStyle(.white)
                         .font(.title)
                         .multilineTextAlignment(.leading)
-                       
+                        .padding(50)
                     
                     Spacer()
                     
@@ -42,10 +42,10 @@ struct FirstinfoView: View   {
                     .background(Color.white)
                     .cornerRadius(15)
                     .foregroundColor(.black)
-                    .padding()
+                    .padding(50)
                     
                 }
-                .padding(.horizontal)
+                .padding()
                 .onAppear {
                     animateText()
                 }

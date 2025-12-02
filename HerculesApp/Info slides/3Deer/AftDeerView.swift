@@ -25,7 +25,7 @@ struct AftDeerView: View   {
     var body: some View {
         
         NavigationStack {
-            ZStack(alignment: .leading) {
+            ZStack(alignment: .center) {
                 
                 Image("Hercules")
                     .resizable()
@@ -33,33 +33,43 @@ struct AftDeerView: View   {
                     .ignoresSafeArea()
                     .brightness(-0.4)
                     .offset(x: -20)
-                ScrollView{
+                
+                VStack {
                     Text(animatedText)
-                        .padding()
+                    
                         .foregroundStyle(.white)
                         .font(.title)
                         .multilineTextAlignment(.leading)
-                        .frame(maxWidth: .infinity)
                         .padding(50)
-                        .onAppear {
-                            animateText()
-                        }
-                }
-                
-                    Button("Continue") {
-                        scene = .startAugean
+                    
+                    Spacer()
+                    
+                    Button {
+                        scene = .startStymphalian
+                        
+                    } label: {
+                        Text("Continue")
+                            .padding()
+                            .frame(maxWidth: .infinity)
                     }
-                    .padding()
+                    
                     .background(Color.white)
                     .cornerRadius(15)
-                    .offset(x:0, y: 300)
-                    .padding()
                     .foregroundColor(.black)
-                    .offset(x: 180)
+                    .padding(50)
                     
+                }
+                .padding()
+                .onAppear {
+                    animateText()
+                }
+                
                 
             }
+            
+            
         }
+        
         .navigationBarBackButtonHidden(true)
     }
     

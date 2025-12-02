@@ -16,39 +16,48 @@ struct AftCerberusView: View   {
     var body: some View {
         
         NavigationStack {
-            ZStack (alignment: .leading){
+            ZStack(alignment: .center) {
+                
                 Image("Hercules")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .ignoresSafeArea()
                     .brightness(-0.4)
                     .offset(x: -20)
-                Text(animatedText)
-                    .padding()
-                    .foregroundStyle(.white)
-                    .font(.title)
-                    .multilineTextAlignment(.leading)
-                    .frame(maxWidth: .infinity)
-                    .padding(50)
-                    .onAppear {
-                        animateText()
-                        
-                    }
                 
-                Button {
-                    scene = .lastInfo
+                VStack {
+                    Text(animatedText)
+                      
+                        .foregroundStyle(.white)
+                        .font(.title)
+                        .multilineTextAlignment(.leading)
+                        .padding(50)
                     
-                } label: {
-                    Text("Continue")
+                    Spacer()
+                    
+                    Button {
+                        scene = .lastInfo
+                        
+                    } label: {
+                        Text("Continue")
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                    }
+                    
+                    .background(Color.white)
+                    .cornerRadius(15)
+                    .foregroundColor(.black)
+                    .padding(50)
+                    
                 }
                 .padding()
-                .background(Color.white)
-                .cornerRadius(15)
-                .offset(x: 0, y: 300)
-                .foregroundColor(.black)
-                .offset(x: 180)
+                .onAppear {
+                    animateText()
+                }
+                
+                
             }
-        
+            
         }
         .navigationBarBackButtonHidden(true)
     }

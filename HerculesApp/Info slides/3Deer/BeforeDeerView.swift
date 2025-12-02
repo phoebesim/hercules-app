@@ -16,42 +16,52 @@ struct BeforeDeerView: View   {
     
     
     var body: some View {
-        ZStack (alignment: .leading) {
-            Image("Hercules")
-                .resizable()
-                .aspectRatio(contentMode:  .fill)
-                .ignoresSafeArea()
-                .brightness(-0.4)
-                .offset(x: -20)
-     
-            
-            VStack {
-                Text(animatedText)
-                    .padding()
-                    .foregroundStyle(.white)
-                    .font(.title)
-                    .multilineTextAlignment(.leading)
-                    .frame(maxWidth: .infinity)
+        NavigationStack {
+            ZStack(alignment: .center) {
+                
+                Image("Hercules")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .ignoresSafeArea()
+                    .brightness(-0.4)
+                    .offset(x: -20)
+                
+                VStack {
+                    Text(animatedText)
+                    
+                        .foregroundStyle(.white)
+                        .font(.title)
+                        .multilineTextAlignment(.leading)
+                        .padding(50)
+                    
+                    Spacer()
+                    
+                    Button {
+                        scene = .startStymphalian
+                        
+                    } label: {
+                        Text("Continue")
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                    }
+                    
+                    .background(Color.white)
+                    .cornerRadius(15)
+                    .foregroundColor(.black)
                     .padding(50)
-            }
-            .onAppear {
-                animateText()
+                    
+                }
+                .padding()
+                .onAppear {
+                    animateText()
+                }
+                
+                
             }
             
-            Button {
-                scene = .continueDeer
-            } label: {
-                Text("Continue")
-            }
-            .padding()
-            .background(Color.white)
-            .cornerRadius(15)
-            .offset(x: 0, y: 300)
-            .foregroundColor(.black)
-            .offset(x: 180)
+            
         }
-       
-        .navigationBarBackButtonHidden(true)
+        .navigationBarBackButtonHidden()
     }
     
     
