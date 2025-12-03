@@ -75,5 +75,5 @@ struct BeforeDeerView: View   {
 }
 
 #Preview {
-    BeforeDeerView(scene: .constant(.startDeer))
+    BeforeDeerView(scene: .constant(.continueDeer))
 }

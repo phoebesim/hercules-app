@@ -70,7 +70,7 @@ struct AftDeerView: View   {
             
         }
         
-        .navigationBarBackButtonHidden(true)
+       .navigationBarBackButtonHidden(true)
     }
     
     func animateText() {

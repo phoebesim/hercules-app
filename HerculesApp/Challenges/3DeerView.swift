@@ -147,7 +147,7 @@ struct DeerView: View {
                 }
                 if gameOver {
                     ZStack {
-                        Image(.greece)
+                        Image("Greece")
                             .resizable()
                             .brightness(0.5)
                                                     //.fill(.ultraThinMaterial)
