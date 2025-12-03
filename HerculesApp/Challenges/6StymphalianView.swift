@@ -89,6 +89,7 @@ struct StymphalianView: View {
                         .resizable()
                         //.fill(.ultraThinMaterial)
                         .ignoresSafeArea()
+                        .brightness(0.5)
                     
                     VStack(spacing: 24) {
                        Spacer()

@@ -32,6 +32,7 @@ struct CerberusView: View {
                             .resizable()
                             //.fill(.ultraThinMaterial)
                             .ignoresSafeArea()
+                            .brightness(0.5)
                         VStack(spacing: 24) {
                             Spacer()
                             Text("You Won")

@@ -149,7 +149,8 @@ struct DeerView: View {
                     ZStack {
                         Image(.greece)
                             .resizable()
-                                                        //.fill(.ultraThinMaterial)
+                            .brightness(0.5)
+                                                    //.fill(.ultraThinMaterial)
                             .ignoresSafeArea()
                         VStack(spacing: 24) {
                             Spacer()
