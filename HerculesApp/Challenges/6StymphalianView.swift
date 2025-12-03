@@ -85,17 +85,19 @@ struct StymphalianView: View {
                 
                 if allBirdsAreFlying {
                     
-                    Rectangle()
-                        .fill(.ultraThinMaterial)
+                    Image(.greece)
+                        .resizable()
+                        //.fill(.ultraThinMaterial)
                         .ignoresSafeArea()
+                        .brightness(0.5)
                     
                     VStack(spacing: 24) {
                        Spacer()
-                        Text("You won!!!")
+                        Text("You Won")
                             .font(.system(size: 48, weight: .bold))
                             .foregroundColor(.black)
                             .multilineTextAlignment(.center)
-                            .confettiCannon(trigger: $confettiTrigger)
+                            .confettiCannon(trigger: $confettiTrigger, num: 50, confettiSize: 20.0, radius: 800.0)
                                                         
                                         
                                                         .onAppear {
