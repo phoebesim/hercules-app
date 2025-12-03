@@ -9,7 +9,7 @@ import SwiftUI
 import ConfettiSwiftUI 
 struct DeerView: View {
     
-    @State private var xOffset: CGFloat = 100
+    @State private var xOffset: CGFloat = 20
     @State private var message: String = ""
     @State private var gameOver = false
     @State private var weaponSheet = false
@@ -129,7 +129,7 @@ struct DeerView: View {
                             .bold()
                         
                     }
-                    .disabled(weaponImage == nil)
+                   // .disabled(weaponImage == nil)
                     .opacity(weaponImage == nil ? 0.5 : 1.0)
                     
                     Spacer()

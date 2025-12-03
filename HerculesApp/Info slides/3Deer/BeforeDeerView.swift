@@ -37,7 +37,7 @@ struct BeforeDeerView: View   {
                     Spacer()
                     
                     Button {
-                        scene = .startStymphalian
+                        scene = .continueDeer
                         
                     } label: {
                         Text("Continue")
