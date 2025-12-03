@@ -34,28 +34,11 @@ enum AppScene {
 struct ContentView: View {
     
     @State var scene = AppScene.firstInfo
-    
-    
-    //    @State private var startDeer = false
-    //    @State private var startAugean = false
-    //    @State private var startStymphalian = false
-    //    @State private var startGeryon = false
-    //    @State private var startCerberus = false
-    //
-    //    @State private var continueDeer = false
-    //    @State private var continueAugean = false
-    //    @State private var continueStymphalian = false
-    //    @State private var continueGeryon = false
-    //    @State private var continueCerberus = false
-    //
-    //    @State private var endDeer = false
-    //    @State private var endAugean = false
-    //    @State private var endStymphalian = false
-    //    @State private var endGeryon = false
-    //    @State private var endCerberus = false
-    //
-    //    @State private var startStory = true
-    //    @State private var endStory = false
+    @State var completedDeer = false
+    @State var completedAugean = false
+    @State var completedStymphalian = false
+    @State var completedGeryon = false
+    @State var completedCerberus = false 
     
     
     
@@ -68,33 +51,33 @@ struct ContentView: View {
         case .continueDeer:
             DeerView(scene: $scene)
         case .endDeer:
-            AftDeerView(scene: $scene)
+            AftDeerView(scene: $scene, completedDeer: $completedDeer)
         case .startAugean:
             BeforeAugeanView(scene: $scene)
         case .continueAugean:
             AugeanView(scene: $scene)
         case .endAugean:
-            AftAugeanView(scene: $scene)
+            AftAugeanView(scene: $scene, completedAugean: $completedAugean)
         case .startStymphalian:
             BeforeStymphalianView(scene: $scene)
         case .continueStymphalian:
             StymphalianView(scene: $scene)
         case .endStymphalian:
-            AftStymphalianView(scene: $scene)
+            AftStymphalianView(scene: $scene, completedStymphalian: $completedStymphalian)
         case .startGeryon:
             BeforeGeryonView(scene: $scene)
         case .continueGeryon:
             GeryonView(scene: $scene)
         case .endGeryon:
-            AftGeryonView(scene: $scene)
+            AftGeryonView(scene: $scene, completedGeryon: $completedGeryon)
         case .startCerberus:
             BeforeCerberusView(scene: $scene)
         case .continueCerberus:
             CerberusView(scene: $scene)
         case .endCerberus:
-            AftCerberusView(scene: $scene)
+            AftCerberusView(scene: $scene, completedCerberus: $completedCerberus)
         case .quest:
-            QuestView(scene: $scene)
+            QuestView(scene: $scene, completedDeer: $completedDeer, completedAugean: $completedAugean, completedStymphalian: $completedStymphalian, completedGeryon: $completedGeryon, completedCerberus: $completedCerberus)
         case .firstInfo:
             FirstinfoView(scene: $scene)
         case .lastInfo:

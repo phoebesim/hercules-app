@@ -6,6 +6,7 @@ struct AftGeryonView: View   {
     @State private var animatedText: String = ""
     
     @Binding var scene: AppScene
+    @Binding var completedGeryon: Bool
     
     var body: some View {
         
@@ -31,6 +32,7 @@ struct AftGeryonView: View   {
                     
                     Button {
                         scene = .startCerberus
+                        completedGeryon = true
                         
                     } label: {
                         Text("Continue")

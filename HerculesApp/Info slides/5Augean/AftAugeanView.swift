@@ -11,6 +11,7 @@ struct AftAugeanView: View   {
     
     @State private var animatedText: String = ""
     @Binding var scene: AppScene
+    @Binding var completedAugean: Bool
     
     
     var body: some View {
@@ -37,6 +38,7 @@ struct AftAugeanView: View   {
                     
                     Button {
                         scene = .startStymphalian
+                        completedAugean = true
                         
                     } label: {
                         Text("Continue")
@@ -75,5 +77,5 @@ struct AftAugeanView: View   {
 }
 
 #Preview {
-    AftAugeanView(scene: .constant(.endAugean))
+    AftAugeanView(scene: .constant(.endAugean), completedAugean: .constant(true))
 }

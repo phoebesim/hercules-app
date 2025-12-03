@@ -97,6 +97,7 @@ struct AugeanView: View {
     
     
     @Binding var scene: AppScene
+   
     
     var body: some View {
        

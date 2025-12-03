@@ -2,6 +2,11 @@ import SwiftUI
 
 struct QuestView: View {
     @Binding var scene: AppScene
+    @Binding var completedDeer: Bool
+    @Binding var completedAugean: Bool
+    @Binding var completedStymphalian: Bool
+    @Binding var completedGeryon: Bool
+    @Binding var completedCerberus: Bool
     
     var body: some View {
         NavigationStack {
@@ -83,6 +88,8 @@ struct QuestView: View {
                                         .brightness(-0.2)
                                 )
                         }
+                        .disabled(completedDeer == false)
+                        .opacity(completedDeer ? 1 : 0.4)
                         Button {
                             scene = .startStymphalian
                         } label: {
@@ -100,6 +107,8 @@ struct QuestView: View {
                                         .brightness(-0.2)
                                 )
                         }
+                        .disabled(completedAugean == false)
+                        .opacity(completedAugean ? 1 : 0.4)
 //                        NavigationLink(destination: ComingSoonView()) {
 //                            Text("Cretan Bull")
 //                                .font(.title)
@@ -156,6 +165,8 @@ struct QuestView: View {
                                         .brightness(-0.2)
                                 )
                         }
+                        .disabled(completedStymphalian == false)
+                        .opacity(completedStymphalian ? 1 : 0.4)
 //                        NavigationLink(destination: ComingSoonView()) {
 //                            Text("Golden Apples")
 //                                .font(.title)
@@ -186,6 +197,8 @@ struct QuestView: View {
                                         .brightness(-0.2)
                                 )
                         }
+                        .disabled(completedGeryon == false)
+                        .opacity(completedGeryon ? 1 : 0.4)
                     }
                     .padding()
                 }
@@ -207,17 +220,17 @@ struct QuestView: View {
                 .toolbarColorScheme(.dark, for: .navigationBar)
                 
                 .toolbarTitleDisplayMode(.inlineLarge)
-                .toolbar {
-                    ToolbarItem(placement: .topBarTrailing) {
-                        
-                        Button {
-                            scene = .startDeer
-                        } label: {
-                            Image(systemName: "play.fill")
-                        }
-                    }
-                    
-                }
+//                .toolbar {
+//                    ToolbarItem(placement: .topBarTrailing) {
+//                        
+//                        Button {
+//                            scene = .startDeer
+//                        } label: {
+//                            Image(systemName: "play.fill")
+//                        }
+//                    }
+//                    
+//                }
                 
                 .navigationBarBackButtonHidden(true)
             }
@@ -229,6 +242,6 @@ struct QuestView: View {
 
 
 #Preview {
-    QuestView(scene: .constant(.quest))
+    QuestView(scene: .constant(.quest), completedDeer: .constant(true), completedAugean: .constant(true), completedStymphalian: .constant(true), completedGeryon: .constant(true), completedCerberus: .constant(true))
 }
 

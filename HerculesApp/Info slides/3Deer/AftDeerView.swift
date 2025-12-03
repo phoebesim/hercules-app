@@ -21,6 +21,7 @@ struct AftDeerView: View   {
     @State private var animatedText: String = ""
     
     @Binding var scene: AppScene
+    @Binding var completedDeer: Bool
     
     var body: some View {
         
@@ -46,6 +47,7 @@ struct AftDeerView: View   {
                     
                     Button {
                         scene = .startStymphalian
+                        completedDeer = true
                         
                     } label: {
                         Text("Continue")
@@ -85,5 +87,5 @@ struct AftDeerView: View   {
 }
 
 #Preview {
-    AftDeerView(scene: .constant(.endDeer))
+    AftDeerView(scene: .constant(.endDeer), completedDeer: .constant(true))
 }

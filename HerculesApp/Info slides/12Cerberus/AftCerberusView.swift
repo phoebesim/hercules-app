@@ -12,6 +12,7 @@ struct AftCerberusView: View   {
     @State private var animatedText: String = ""
     
     @Binding var scene: AppScene
+    @Binding var completedCerberus: Bool
     
     var body: some View {
         
@@ -37,6 +38,7 @@ struct AftCerberusView: View   {
                     
                     Button {
                         scene = .lastInfo
+                        completedCerberus = true
                         
                     } label: {
                         Text("Continue")
@@ -71,6 +73,6 @@ struct AftCerberusView: View   {
     }
 }
 
-#Preview {
-    AftCerberusView(scene: .constant(.endCerberus))
-}
+//#Preview {
+//    AftCerberusView(scene: .constant(.endCerberus))
+//}

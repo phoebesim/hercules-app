@@ -26,6 +26,7 @@ struct DeerView: View {
     @State private var tolerance: CGFloat = 20
     
     @Binding var scene: AppScene
+   
     
     var body: some View {
         
@@ -176,6 +177,7 @@ struct DeerView: View {
                             
                             Button {
                                 scene = .endDeer
+                                
                             } label:{
                                 Text("Continue")
                                     .padding()
