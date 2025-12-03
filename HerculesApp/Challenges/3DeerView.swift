@@ -147,19 +147,21 @@ struct DeerView: View {
                 }
                 if gameOver {
                     ZStack {
-                        Rectangle()
-                            .fill(.ultraThinMaterial)
+                        Image(.greece)
+                            .resizable()
+                                                        //.fill(.ultraThinMaterial)
                             .ignoresSafeArea()
                         VStack(spacing: 24) {
                             Spacer()
-                            Text("You won🎉🎉🎉")
+                            Text("You Won")
+                                
                                 .font(.system(size: 48, weight: .bold))
                                 .foregroundColor(.black)
                                 .multilineTextAlignment(.center)
                                 //.onTapGesture {confettiTrigger += 1
                                 //}
                                 //.confettiCannon(trigger: $confettiTrigger)
-                                .confettiCannon(trigger: $confettiTrigger)
+                                .confettiCannon(trigger: $confettiTrigger, num: 50, confettiSize: 20.0, radius: 800.0)
                                                             
                                                             
                                                             .onAppear {
