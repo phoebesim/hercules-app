@@ -152,7 +152,7 @@ struct AugeanView: View {
                     ZStack {
                         Image(.greece)
                             .resizable()
-                            .brightness(0.5)
+                            .brightness(-0.3)
                             //.fill(.ultraThinMaterial)
                             .ignoresSafeArea()
                         VStack(spacing: 24) {
