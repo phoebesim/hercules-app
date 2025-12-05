@@ -8,6 +8,7 @@ struct BackgroundRemovalView: View {
     @State private var processedImage: UIImage?
     @State private var showingCamera = false
     @Binding var weapon: String
+    @State var showButton = true
     
     var onDone: (UIImage?) -> Void
     
@@ -16,7 +17,7 @@ struct BackgroundRemovalView: View {
     private let ciContext = CIContext()
     
     var body: some View {
-        VStack {
+        ZStack {
             if let displayImage = processedImage {
                 Image(uiImage: displayImage)
                     .resizable()
@@ -29,8 +30,12 @@ struct BackgroundRemovalView: View {
             //                    .padding()
             //                    .multilineTextAlignment(.center)
             //            }
-            
+            Image("Net")
+                .resizable()
+                .frame(width:115, height:170)
+                .opacity(showButton ? 1: 0)
             Button{
+                showButton = false
                 // Check if camera is available before presenting
                 if UIImagePickerController.isSourceTypeAvailable(.camera) {
                     showingCamera = true
@@ -44,7 +49,11 @@ struct BackgroundRemovalView: View {
             .buttonStyle(.bordered)
             .background()
             .cornerRadius(10)
+            .opacity(showButton ? 1 : 0)
+            
+            
         }
+        
         .sheet(isPresented: $showingCamera) {
             // Present the CameraView when showingCamera is true
             ZStack {

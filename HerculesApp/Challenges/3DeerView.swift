@@ -15,15 +15,11 @@ struct DeerView: View {
     @State private var weaponSheet = false
     @State private var timer: Timer? = nil
     @State private var confettiTrigger: Int = 0
-    
-    
     @State var weaponImage: UIImage?
-    @State var showButton = true
-    
     @State private var weaponYOffset = 0
-    
-    
     @State private var tolerance: CGFloat = 20
+    
+    @Binding var showButton: Bool
     
     @Binding var scene: AppScene
    
@@ -66,12 +62,12 @@ struct DeerView: View {
                     
                     ZStack {
                         
-                        if showButton == true {
-                            Image(.net)
-                                .resizable()
-                                .frame(width:115, height:170)
+//                        if showButton == true {
+//                            Image(.net)
+//                                .resizable()
+//                                .frame(width:115, height:170)
+//                        }
                             
-                        }
                         
                         if let img = weaponImage {
                             
@@ -82,6 +78,7 @@ struct DeerView: View {
                                 .offset(x: CGFloat(weaponYOffset))
                                 .rotationEffect(Angle(degrees: 90))
                         }
+                    }
 //                        if showButton == true {
 //                            Button("Get your weapon!"){
 //                                weaponSheet = true
@@ -92,12 +89,16 @@ struct DeerView: View {
 //                            .background()
 //                            .cornerRadius(10)
 //                        }
-                    }
+                    
                     
                    // .sheet(isPresented: $weaponSheet) {
                         
-                        BackgroundRemovalView(weapon: .constant("a net (e.g. a towel)"), onDone: { image in weaponImage = image; weaponSheet = false })
-                        .offset(x: 0, y:-100)
+                    BackgroundRemovalView(weapon: .constant("a net (e.g. a towel)"), onDone: { image in
+                        weaponImage = image
+                        weaponSheet = false
+                        showButton = false
+                    })
+                    .offset(x: 0, y:-100)
                        
                      
                   //  }
@@ -250,5 +251,5 @@ struct DeerView: View {
 }
 
 #Preview {
-    DeerView(scene: .constant(.continueDeer))
+    DeerView(showButton: .constant(true), scene: .constant(.continueDeer))
 }

@@ -32,6 +32,7 @@ struct FirstinfoView: View   {
                     
                     Button {
                         scene = .quest
+
                         
                     } label: {
                         Text("Continue")
@@ -52,9 +53,6 @@ struct FirstinfoView: View   {
                 
                 
             }
-            
-            
-            
             
         }
         .navigationBarBackButtonHidden(true)

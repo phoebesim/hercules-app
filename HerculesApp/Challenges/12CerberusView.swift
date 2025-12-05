@@ -26,7 +26,7 @@ struct CerberusView: View {
                     .scaledToFill()
                     .ignoresSafeArea()
                 
-                if progress == 0 {
+                if progress == 100{
                     ZStack {
                         Image(.greece)
                             .resizable()

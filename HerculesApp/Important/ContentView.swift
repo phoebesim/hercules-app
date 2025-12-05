@@ -34,12 +34,11 @@ enum AppScene {
 struct ContentView: View {
     
     @State var scene = AppScene.firstInfo
-    @State var completedDeer = false
-    @State var completedAugean = false
-    @State var completedStymphalian = false
-    @State var completedGeryon = false
-    @State var completedCerberus = false 
-    
+    @AppStorage("completedDeer") var completedDeer = false
+    @AppStorage("completedAugean") var completedAugean = false
+    @AppStorage("completedStymphalian") var completedStymphalian = false
+    @AppStorage("completedGeryon") var completedGeryon = false
+    @AppStorage("completedCerberus") var completedCerberus = false
     
     
     
@@ -49,7 +48,7 @@ struct ContentView: View {
         case .startDeer:
             BeforeDeerView(scene: $scene)
         case .continueDeer:
-            DeerView(scene: $scene)
+            DeerView(showButton: .constant(true), scene: $scene)
         case .endDeer:
             AftDeerView(scene: $scene, completedDeer: $completedDeer)
         case .startAugean:
