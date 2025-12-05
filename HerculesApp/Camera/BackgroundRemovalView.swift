@@ -22,13 +22,13 @@ struct BackgroundRemovalView: View {
                     .resizable()
                     .scaledToFit()
                     .padding()
-               //     .rotationEffect(Angle(degrees: 90))
-            } else {
-                Text("Take a photo of an object you have that resembles \(weapon). It will be your weapon!")
-                    .font(.headline)
-                    .padding()
-                    .multilineTextAlignment(.center)
-            }
+                //     .rotationEffect(Angle(degrees: 90))
+            }// else {
+            //                Text("Take a photo of an object you have that resembles \(weapon). It will be your weapon!")
+            //                    .font(.headline)
+            //                    .padding()
+            //                    .multilineTextAlignment(.center)
+            //            }
             
             Button{
                 // Check if camera is available before presenting
@@ -41,11 +41,26 @@ struct BackgroundRemovalView: View {
                 Text("Take a photo!")
                 Image(systemName: "camera.fill")
             }
+            .buttonStyle(.bordered)
+            .background()
+            .cornerRadius(10)
         }
         .sheet(isPresented: $showingCamera) {
             // Present the CameraView when showingCamera is true
-            CameraView(selectedImage: $processedImage, onCapture: handleCapturedImage)
-                .ignoresSafeArea()
+            ZStack {
+                CameraView(selectedImage: $processedImage, onCapture: handleCapturedImage)
+                    .ignoresSafeArea()
+                
+                Text("Take a photo of an object you have that resembles \(weapon). It will be your weapon!")
+                    .font(.headline)
+                    .foregroundStyle(.black)
+                    .background()
+                    .cornerRadius(10)
+                    .padding()
+                    .multilineTextAlignment(.center)
+                    .offset(x: 0, y: 170)
+                
+            }
         }
     }
     

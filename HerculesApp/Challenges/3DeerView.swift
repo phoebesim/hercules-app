@@ -82,23 +82,25 @@ struct DeerView: View {
                                 .offset(x: CGFloat(weaponYOffset))
                                 .rotationEffect(Angle(degrees: 90))
                         }
-                        if showButton == true {
-                            Button("Get your weapon!"){
-                                weaponSheet = true
-                                showButton = false
-                                
-                            }
-                            .buttonStyle(.bordered)
-                            .background()
-                            .cornerRadius(10)
-                        }
+//                        if showButton == true {
+//                            Button("Get your weapon!"){
+//                                weaponSheet = true
+//                                showButton = false
+//                                
+//                            }
+//                            .buttonStyle(.bordered)
+//                            .background()
+//                            .cornerRadius(10)
+//                        }
                     }
                     
-                    .sheet(isPresented: $weaponSheet) {
+                   // .sheet(isPresented: $weaponSheet) {
                         
                         BackgroundRemovalView(weapon: .constant("a net (e.g. a towel)"), onDone: { image in weaponImage = image; weaponSheet = false })
-                        
-                    }
+                        .offset(x: 0, y:-100)
+                       
+                     
+                  //  }
                     
                     
                     Image(systemName: "arrowshape.up.fill")
