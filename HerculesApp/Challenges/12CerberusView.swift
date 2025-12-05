@@ -37,7 +37,7 @@ struct CerberusView: View {
                             Spacer()
                             Text("You Won")
                                 .font(.system(size: 48, weight: .bold))
-                                .foregroundColor(.black)
+                                .foregroundColor(.white)
                                 .multilineTextAlignment(.center)
                                 .confettiCannon(trigger: $confettiTrigger, num: 50, confettiSize: 20.0, radius: 800.0)
                             

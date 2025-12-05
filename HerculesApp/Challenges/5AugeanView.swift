@@ -160,7 +160,7 @@ struct AugeanView: View {
                             Spacer()
                             Text("You Won")
                                 .font(.system(size: 48, weight: .bold))
-                                .foregroundColor(.black)
+                                .foregroundColor(.white)
                                 .multilineTextAlignment(.center)
                                 
                                 //.onTapGesture //{confettiTrigger += 1
