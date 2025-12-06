@@ -9,10 +9,10 @@ import SwiftUI
 import ConfettiSwiftUI
 
 struct GeryonView: View {
-    @State private var step: CGFloat = 250
+    @State private var step: CGFloat = 230
     @State private var timer: Timer?
     @State private var isGreen: Bool = true
-    @State private var loseSheetShown = false
+    @State private var loseShown = false
     @State private var confettiTrigger: Int = 0
 
     
@@ -58,29 +58,41 @@ struct GeryonView: View {
                     .resizable()
                     .frame(width: 50, height: 100)
                     .offset(y: step)
-                Button("Walk") {
-                    step -= 10
-                    changeLight()
-                    if isGreen == false {
-                        loseSheetShown = true
-                        step = 280
+
+                    Button("Walk") {
+                        step -= 10
+                        changeLight()
+                        if isGreen == false {
+                            loseShown = true
+                            step = 230
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                                        loseShown = false
+                                    }
+                        }
+                        
                     }
                     
-                }
+                    .foregroundColor(.black)
+                    .bold()
+                    .padding(35)
+                    .background(Color.white)
+                    .clipShape(.circle)
+                    .offset(y:335)
+                
+                    
+                    if loseShown == true {
+                       
+                        Text("Try again")
+                            .bold()
+                            .font(.title2)
+                            .foregroundStyle(.white)
+                            .offset(x: 0, y: -350)
+                       
+                    }
+              
+            
 
-                .foregroundColor(.black)
-                .bold()
-                .padding(35)
-                .background(Color.white)
-                .clipShape(.circle)
-//                .buttonStyle(.borderedProminent)
-                .offset(y:350)
-//                .tint(.white)
-//                .padding(50)
-//                .foregroundStyle(.black)
-//                .controlSize(.extraLarge)
-//                .buttonBorderShape(.circle)
-//                .fontWeight(.bold)
                 
                 Image(isGreen ? "GreenLight":"RedLight")
                     .offset(x: 130, y: -190)
@@ -141,10 +153,12 @@ struct GeryonView: View {
                     
                 }
             }
-            .sheet(isPresented: $loseSheetShown) {
-                Text("You need to steal Geryon's cattle while he is sleeping! Only move when the light is green!")
-                    .presentationDetents([.medium, .large, .fraction(0.2)])
-            }
+//            .sheet(isPresented: $loseSheetShown) {
+//                Text("You need to steal Geryon's cattle while he is sleeping! Only move when the light is green!")
+//                    .presentationDetents([.medium, .large, .fraction(0.2)])
+//            }
+            
+          
             .toolbar{
                 ToolbarItem {
                     Button{
