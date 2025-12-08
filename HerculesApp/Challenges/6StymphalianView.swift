@@ -89,7 +89,7 @@ struct StymphalianView: View {
                         .resizable()
                         //.fill(.ultraThinMaterial)
                         .ignoresSafeArea()
-                        .brightness(-0.3)
+                        //.brightness(-0.3)
                     
                     VStack(spacing: 24) {
                        Spacer()
@@ -125,8 +125,8 @@ struct StymphalianView: View {
                         .background(Color.white)
                         .cornerRadius(15)
                         .foregroundColor(.black)
-                        .padding(50)
-                        
+                        .padding(.horizontal, 60)
+                        .padding(.bottom, 40)
                     }
                     
                     
