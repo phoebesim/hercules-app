@@ -203,28 +203,25 @@ struct DeerView: View {
                             .padding(50)
                             
                             
-                            }
-                            
                         }
-                        // .background(Color.pink)
-                        //.cornerRadius(12)
-                        //.padding(.horizontal, 60)
-                        //.padding(.bottom, 40)
-                        /*
-                         .background(Color.white)
-                         .cornerRadius(15)
-                         .foregroundColor(.black)
-                         .padding(.horizontal, 60)
-                         .padding(.bottom, 40)*/
-                        
                         
                     }
+                    // .background(Color.pink)
+                    //.cornerRadius(12)
+                    //.padding(.horizontal, 60)
+                    //.padding(.bottom, 40)
+                    /*
+                     .background(Color.white)
+                     .cornerRadius(15)
+                     .foregroundColor(.black)
+                     .padding(.horizontal, 60)
+                     .padding(.bottom, 40)*/
+                    
+                    
                 }
-                
             }
-            
+            .navigationBarBackButtonHidden()
         }
-        
         .toolbar{
             ToolbarItem {
                 Button{
@@ -236,42 +233,46 @@ struct DeerView: View {
                     
                 }
             }
-        }
-    }
-        .navigationBarBackButtonHidden()
-}
-func startTimer() {
-    timer = Timer.scheduledTimer(withTimeInterval: 0.9, repeats: true) { _ in
-        withAnimation(.easeInOut(duration: 0.8)) {
-            xOffset = CGFloat.random(in: -200...200)
+            
             
         }
-        if gameOver {
-            stopTimer()
+        
+        
+    }
+    
+    
+    func startTimer() {
+        timer = Timer.scheduledTimer(withTimeInterval: 0.9, repeats: true) { _ in
+            withAnimation(.easeInOut(duration: 0.8)) {
+                xOffset = CGFloat.random(in: -200...200)
+                
+            }
+            if gameOver {
+                stopTimer()
+            }
         }
     }
-}
-
-func stopTimer() {
-    timer?.invalidate()
-    timer = nil
-    xOffset = 0
-}
-
-
-private func checkIfAtCenter() {
-    if abs(xOffset) < tolerance {
-        
-        message = "You won!!!"
-        
-        gameOver = true
-        
-    } else {
-        message = "Try again..."
-        
+    
+    func stopTimer() {
+        timer?.invalidate()
+        timer = nil
+        xOffset = 0
     }
-}
-
+    
+    
+    private func checkIfAtCenter() {
+        if abs(xOffset) < tolerance {
+            
+            message = "You won!!!"
+            
+            gameOver = true
+            
+        } else {
+            message = "Try again..."
+            
+        }
+    }
+    
 }
 
 #Preview {
