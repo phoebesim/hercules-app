@@ -200,7 +200,9 @@ struct DeerView: View {
                             .background(Color.white)
                             .cornerRadius(15)
                             .foregroundColor(.black)
-                            .padding(50)
+                            //.padding(50)
+                            .padding(.horizontal, 60)
+                            .padding(.bottom, 40)
                             
                             
                         }
