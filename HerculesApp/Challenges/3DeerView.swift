@@ -205,9 +205,9 @@ struct DeerView: View {
                             //.padding(50)
                             //.padding(.horizontal, 60)
                             //.padding(.bottom, 40)
-                            .padding()
+                            //.padding()
                             //Change here!!!
-                            //.padding(.bottom,40)
+                            .padding(.bottom,40)
                             
                             //Change over here!!
                             Spacer()
