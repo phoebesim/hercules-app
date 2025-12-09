@@ -176,7 +176,7 @@ struct DeerView: View {
                             
                             
                             
-                            //Spacer()
+                            Spacer()
                             
                             Button {
                                 scene = .endDeer
@@ -207,6 +207,7 @@ struct DeerView: View {
                             //.padding(.bottom, 40)
                             //.padding()
                             //Change here!!!
+                            
                             .padding(.bottom,40)
                             
                             //Change over here!!
