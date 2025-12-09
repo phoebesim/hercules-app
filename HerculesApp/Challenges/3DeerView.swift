@@ -157,7 +157,7 @@ struct DeerView: View {
                         //.fill(.ultraThinMaterial)
                             .ignoresSafeArea()
                         VStack(spacing: 24) {
-                            Spacer()
+                            //Spacer()
                             Text("You Won")
                             
                                 .font(.system(size: 48, weight: .bold))
