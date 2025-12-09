@@ -178,7 +178,23 @@ struct AugeanView: View {
                             
                             Button {
                                 scene = .endAugean
+                                
                             } label: {
+                                Text("Continue")
+                                    .padding()
+                                    .frame(maxWidth: .infinity)
+                            }
+                            
+                            
+                            
+                            .background(Color.white)
+                            .cornerRadius(15)
+                            .foregroundColor(.black)
+                            .padding()
+                            .padding(.horizontal, 60)
+                                
+                                
+                            /*} label: {
                                 Text("Continue")
                                     .padding()
                                     .font(.title2.weight(.semibold))
@@ -197,7 +213,7 @@ struct AugeanView: View {
                             //.padding(50)
                             .padding(.horizontal, 60)
                             .padding(.bottom, 40)
-                            
+                            */
                             
                             
                         }
