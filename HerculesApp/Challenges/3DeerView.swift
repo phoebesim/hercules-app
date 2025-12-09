@@ -197,6 +197,8 @@ struct DeerView: View {
                                     .frame(maxWidth: .infinity)
                             }
                             
+                            
+                            
                             .background(Color.white)
                             .cornerRadius(15)
                             .foregroundColor(.black)
@@ -204,8 +206,11 @@ struct DeerView: View {
                             //.padding(.horizontal, 60)
                             //.padding(.bottom, 40)
                             .padding()
+                            //Change here!!!
+                            .padding(.bottom,40)
                             
-                            
+                            //Change over here!!
+                            Spacer()
                             
                             
                         }
