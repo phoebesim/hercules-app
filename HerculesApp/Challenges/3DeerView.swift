@@ -207,6 +207,7 @@ struct DeerView: View {
                             //.padding(.bottom, 40)
                             //.padding()
                             //Change here!!!
+                            .padding(.horizontal, 60)
                             .padding(.bottom,40)
                             
                             //Change over here!!
