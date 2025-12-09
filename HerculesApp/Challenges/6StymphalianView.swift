@@ -84,51 +84,51 @@ struct StymphalianView: View {
                 Bird(imageID: sitting7, positionX: -160, positionY: -360)
                 
                 if allBirdsAreFlying {
-                    
-                    Image(.greece)
-                        .resizable()
+                    ZStack {
+                        Image(.greece)
+                            .resizable()
                         //.fill(.ultraThinMaterial)
-                        .ignoresSafeArea()
+                            .ignoresSafeArea()
                         //.brightness(-0.3)
-                    
-                    VStack(spacing: 24) {
-                       Spacer()
-                        Text("You Won")
-                            .font(.system(size: 48, weight: .bold))
-                            .foregroundColor(.white)
-                            .multilineTextAlignment(.center)
-                            .confettiCannon(trigger: $confettiTrigger, num: 50, confettiSize: 20.0, radius: 800.0)
-                                                        
-                                        
-                                                        .onAppear {
-                                                            confettiTrigger += 1 
-                                                        }
                         
-                        
-                       Spacer()
-                        
-                        Button {
-                            scene = .endStymphalian
-                        } label: {
-                            Text("Continue")
-                                .padding()
-                                .font(.title2.weight(.semibold))
-                                .foregroundColor(.black)
-                                .frame(maxWidth: .infinity, minHeight: 56)
-                                .padding()
+                        VStack(spacing: 24) {
+                            Spacer()
+                            Text("You Won")
+                                .font(.system(size: 48, weight: .bold))
+                                .foregroundColor(.white)
+                                .multilineTextAlignment(.center)
+                                .confettiCannon(trigger: $confettiTrigger, num: 50, confettiSize: 20.0, radius: 800.0)
+                            
+                            
+                                .onAppear {
+                                    confettiTrigger += 1
+                                }
+                            
+                            
+                            Spacer()
+                            
+                            Button {
+                                scene = .endStymphalian
+                            } label: {
+                                Text("Continue")
+                                    .padding()
+                                    .font(.title2.weight(.semibold))
+                                    .foregroundColor(.black)
+                                    .frame(maxWidth: .infinity, minHeight: 56)
+                                    .padding()
+                            }
+                            //.background(Color.pink)
+                            //.cornerRadius(12)
+                            //.padding(.horizontal, 60)
+                            //.padding(.bottom, 150)
+                            
+                            .background(Color.white)
+                            .cornerRadius(15)
+                            .foregroundColor(.black)
+                            .padding(.horizontal, 60)
+                            .padding(.bottom, 40)
                         }
-                        //.background(Color.pink)
-                        //.cornerRadius(12)
-                        //.padding(.horizontal, 60)
-                        //.padding(.bottom, 150)
-                        
-                        .background(Color.white)
-                        .cornerRadius(15)
-                        .foregroundColor(.black)
-                        .padding(.horizontal, 60)
-                        .padding(.bottom, 40)
                     }
-                    
                     
                 }
             }
@@ -191,7 +191,7 @@ struct StymphalianView: View {
     
     func playSound() {
         
-        guard let soundURL = Bundle.main.url(forResource: "castanet", withExtension: ".m4a") else {
+        guard let soundURL = Bundle.main.url(forResource: "castanet", withExtension: ".mp3") else {
             print("no sound found")
             return
         }
