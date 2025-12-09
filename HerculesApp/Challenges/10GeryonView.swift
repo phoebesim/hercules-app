@@ -9,7 +9,7 @@ import SwiftUI
 import ConfettiSwiftUI
 
 struct GeryonView: View {
-    @State private var step: CGFloat = 230
+    @State private var step: CGFloat = 220
     @State private var timer: Timer?
     @State private var isGreen: Bool = true
     @State private var loseShown = false
@@ -78,7 +78,7 @@ struct GeryonView: View {
                     .padding(35)
                     .background(Color.white)
                     .clipShape(.circle)
-                    .offset(y:335)
+                    .offset(y:320)
                 
                     
                     if loseShown == true {
