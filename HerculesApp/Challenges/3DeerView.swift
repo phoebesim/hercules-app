@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import ConfettiSwiftUI 
+import ConfettiSwiftUI
 struct DeerView: View {
     
     @State private var xOffset: CGFloat = 20
@@ -22,7 +22,7 @@ struct DeerView: View {
     @Binding var showButton: Bool
     
     @Binding var scene: AppScene
-   
+    
     
     var body: some View {
         
@@ -62,12 +62,12 @@ struct DeerView: View {
                     
                     ZStack {
                         
-//                        if showButton == true {
-//                            Image(.net)
-//                                .resizable()
-//                                .frame(width:115, height:170)
-//                        }
-                            
+                        //                        if showButton == true {
+                        //                            Image(.net)
+                        //                                .resizable()
+                        //                                .frame(width:115, height:170)
+                        //                        }
+                        
                         
                         if let img = weaponImage {
                             
@@ -79,29 +79,29 @@ struct DeerView: View {
                                 .rotationEffect(Angle(degrees: 90))
                         }
                     }
-//                        if showButton == true {
-//                            Button("Get your weapon!"){
-//                                weaponSheet = true
-//                                showButton = false
-//                                
-//                            }
-//                            .buttonStyle(.bordered)
-//                            .background()
-//                            .cornerRadius(10)
-//                        }
+                    //                        if showButton == true {
+                    //                            Button("Get your weapon!"){
+                    //                                weaponSheet = true
+                    //                                showButton = false
+                    //
+                    //                            }
+                    //                            .buttonStyle(.bordered)
+                    //                            .background()
+                    //                            .cornerRadius(10)
+                    //                        }
                     
                     
-                   // .sheet(isPresented: $weaponSheet) {
-                        
+                    // .sheet(isPresented: $weaponSheet) {
+                    
                     BackgroundRemovalView(weapon: .constant("a net (e.g. a towel)"), onDone: { image in
                         weaponImage = image
                         weaponSheet = false
                         showButton = false
                     })
                     .offset(x: 0, y:-100)
-                       
-                     
-                  //  }
+                    
+                    
+                    //  }
                     
                     
                     Image(systemName: "arrowshape.up.fill")
@@ -133,7 +133,7 @@ struct DeerView: View {
                             .bold()
                         
                     }
-                   // .disabled(weaponImage == nil)
+                    // .disabled(weaponImage == nil)
                     .opacity(weaponImage == nil ? 0.5 : 1.0)
                     
                     Spacer()
@@ -153,107 +153,125 @@ struct DeerView: View {
                     ZStack {
                         Image("Greece")
                             .resizable()
-                            //.brightness(-0.3)
-                                                    //.fill(.ultraThinMaterial)
+                        //.brightness(-0.3)
+                        //.fill(.ultraThinMaterial)
                             .ignoresSafeArea()
                         VStack(spacing: 24) {
                             Spacer()
                             Text("You Won")
-                                
+                            
                                 .font(.system(size: 48, weight: .bold))
                                 .foregroundColor(.white)
                                 .multilineTextAlignment(.center)
-                                //.onTapGesture {confettiTrigger += 1
-                                //}
-                                //.confettiCannon(trigger: $confettiTrigger)
+                            //.onTapGesture {confettiTrigger += 1
+                            //}
+                            //.confettiCannon(trigger: $confettiTrigger)
                                 .confettiCannon(trigger: $confettiTrigger, num: 50, confettiSize: 20.0, radius: 800.0)
-                                                            
-                                                            
-                                                            .onAppear {
-                                                                confettiTrigger += 1
-                                                            }
                             
                             
-            
+                                .onAppear {
+                                    confettiTrigger += 1
+                                }
+                            
+                            
+                            
                             
                             Spacer()
                             
                             Button {
                                 scene = .endDeer
                                 
-                            } label:{
+                                /*
+                                 } label:{
+                                 Text("Continue")
+                                 .padding()
+                                 .font(.title2.weight(.semibold))
+                                 .foregroundColor(.black)
+                                 .frame(maxWidth: .infinity, minHeight: 56, )
+                                 .padding()
+                                 }
+                                 */
+                            } label: {
                                 Text("Continue")
                                     .padding()
-                                    .font(.title2.weight(.semibold))
-                                    .foregroundColor(.black)
-                                    .frame(maxWidth: .infinity, minHeight: 56, )
-                                    .padding()
+                                    .frame(maxWidth: .infinity)
                             }
-                           // .background(Color.pink)
-                            //.cornerRadius(12)
-                            //.padding(.horizontal, 60)
-                            //.padding(.bottom, 40)
                             
                             .background(Color.white)
                             .cornerRadius(15)
                             .foregroundColor(.black)
-                            .padding(.horizontal, 60)
-                            .padding(.bottom, 40)
+                            .padding(50)
+                            
+                            
+                            }
                             
                         }
-                    }
-                    
-                }
-                
-            }
-            
-            .toolbar{
-                ToolbarItem {
-                    Button{
-                        scene = .quest
-                    } label: {
-                        Image(systemName: "house")
-                            .foregroundStyle(.black)
-                            .frame(width: 50, height: 50)
+                        // .background(Color.pink)
+                        //.cornerRadius(12)
+                        //.padding(.horizontal, 60)
+                        //.padding(.bottom, 40)
+                        /*
+                         .background(Color.white)
+                         .cornerRadius(15)
+                         .foregroundColor(.black)
+                         .padding(.horizontal, 60)
+                         .padding(.bottom, 40)*/
+                        
                         
                     }
                 }
-            }
-        }
-        .navigationBarBackButtonHidden()
-    }
-    func startTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: 0.9, repeats: true) { _ in
-            withAnimation(.easeInOut(duration: 0.8)) {
-                xOffset = CGFloat.random(in: -200...200)
                 
             }
-            if gameOver {
-                stopTimer()
+            
+        }
+        
+        .toolbar{
+            ToolbarItem {
+                Button{
+                    scene = .quest
+                } label: {
+                    Image(systemName: "house")
+                        .foregroundStyle(.black)
+                        .frame(width: 50, height: 50)
+                    
+                }
             }
         }
     }
-    
-    func stopTimer() {
-        timer?.invalidate()
-        timer = nil
-        xOffset = 0
-    }
-    
-    
-    private func checkIfAtCenter() {
-        if abs(xOffset) < tolerance {
-            
-            message = "You won!!!"
-            
-            gameOver = true
-            
-        } else {
-            message = "Try again..."
+        .navigationBarBackButtonHidden()
+}
+func startTimer() {
+    timer = Timer.scheduledTimer(withTimeInterval: 0.9, repeats: true) { _ in
+        withAnimation(.easeInOut(duration: 0.8)) {
+            xOffset = CGFloat.random(in: -200...200)
             
         }
+        if gameOver {
+            stopTimer()
+        }
     }
-    
+}
+
+func stopTimer() {
+    timer?.invalidate()
+    timer = nil
+    xOffset = 0
+}
+
+
+private func checkIfAtCenter() {
+    if abs(xOffset) < tolerance {
+        
+        message = "You won!!!"
+        
+        gameOver = true
+        
+    } else {
+        message = "Try again..."
+        
+    }
+}
+
 }
 
 #Preview {
