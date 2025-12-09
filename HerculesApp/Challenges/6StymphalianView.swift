@@ -191,7 +191,7 @@ struct StymphalianView: View {
     
     func playSound() {
         
-        guard let soundURL = Bundle.main.url(forResource: "castanet", withExtension: ".mp3") else {
+        guard let soundURL = Bundle.main.url(forResource: "castanet", withExtension: ".m4a") else {
             print("no sound found")
             return
         }
