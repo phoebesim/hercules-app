@@ -46,7 +46,7 @@ struct AftDeerView: View   {
                     Spacer()
                     
                     Button {
-                        scene = .startStymphalian
+                        scene = .startAugean
                         completedDeer = true
                         
                     } label: {
