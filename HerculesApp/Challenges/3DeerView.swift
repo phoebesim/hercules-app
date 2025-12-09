@@ -125,7 +125,7 @@ struct DeerView: View {
                         
                         Text("Shoot!")
                             .font(.title2)
-                            .padding(50)
+                            .padding(35)
                             .background(Color.white)
                             .foregroundColor(.black)
                             .clipShape(Circle())
@@ -210,9 +210,9 @@ struct DeerView: View {
                             //.padding(.horizontal, 60)
                             //.padding(.bottom,40)
                             .padding()
-                            
+                            .padding(.horizontal, 60)
                             //Change over here!!
-                            Spacer()
+                            //Spacer()
                             
                             
                         }
