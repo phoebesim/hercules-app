@@ -61,7 +61,7 @@ struct BeforeDeerView: View   {
             
             
         }
-        .navigationBarBackButtonHidden()
+    //    .navigationBarBackButtonHidden()
     }
     
     

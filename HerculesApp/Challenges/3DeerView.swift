@@ -17,7 +17,7 @@ struct DeerView: View {
     @State private var confettiTrigger: Int = 0
     @State var weaponImage: UIImage?
     @State private var weaponYOffset = 0
-    @State private var tolerance: CGFloat = 20
+    @State private var tolerance: CGFloat = 100
     
     @Binding var showButton: Bool
     
@@ -232,22 +232,25 @@ struct DeerView: View {
                     
                 }
             }
-            .navigationBarBackButtonHidden()
-        }
-        .toolbar{
-            ToolbarItem {
-                Button{
-                    scene = .quest
-                } label: {
-                    Image(systemName: "house")
-                        .foregroundStyle(.black)
-                        .frame(width: 50, height: 50)
+    
+         //   .navigationBarBackButtonHidden()
+            .toolbar{
+                ToolbarItem (placement: .topBarLeading){
+                    Button{
+                        scene = .quest
+                    } label: {
+                        Image(systemName: "chevron.backward")
+                            .foregroundStyle(.black)
+                            .frame(width: 50, height: 50)
+                        
+                    }
                     
                 }
+                
+                
             }
-            
-            
         }
+        
         
         
     }
