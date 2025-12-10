@@ -127,6 +127,19 @@ struct GeryonView: View {
                             } label: {
                                 Text("Continue")
                                     .padding()
+                                    .frame(maxWidth: .infinity)
+                            }
+                            
+                            
+                            
+                            .background(Color.white)
+                            .cornerRadius(15)
+                            .foregroundColor(.black)
+                            .padding()
+                            .padding(.horizontal, 60)
+                            /*} label: {
+                                Text("Continue")
+                                    .padding()
                                     .font(.title2.weight(.semibold))
                                     .foregroundColor(.black)
                                     .frame(maxWidth: .infinity, minHeight: 56, )
@@ -143,7 +156,7 @@ struct GeryonView: View {
                             .cornerRadius(15)
                             .foregroundColor(.black)
                             .padding(.horizontal, 60)
-                            .padding(.bottom, 40)
+                            .padding(.bottom, 40)*/
                         }
                     }
             

@@ -202,6 +202,8 @@ struct DeerView: View {
                             .background(Color.white)
                             .cornerRadius(15)
                             .foregroundColor(.black)
+                            .padding()
+                            .padding(.horizontal, 60)
                             //.padding(50)
                             //.padding(.horizontal, 60)
                             //.padding(.bottom, 40)
@@ -209,8 +211,6 @@ struct DeerView: View {
                             //Change here!!!
                             //.padding(.horizontal, 60)
                             //.padding(.bottom,40)
-                            .padding()
-                            .padding(.horizontal, 60)
                             //Change over here!!
                             //Spacer()
                             
