@@ -22,6 +22,7 @@ struct DeerView: View {
     @Binding var showButton: Bool
     
     @Binding var scene: AppScene
+    @Environment(\.dismiss) private var dismiss
     
     
     var body: some View {
@@ -92,15 +93,14 @@ struct DeerView: View {
                     
                     
                     // .sheet(isPresented: $weaponSheet) {
-                    
-                    BackgroundRemovalView(weapon: .constant("a net (e.g. a towel)"), onDone: { image in
-                        weaponImage = image
-                        weaponSheet = false
-                        showButton = false
-                    })
-                    .offset(x: 0, y:-100)
-                    
-                    
+                    if weaponImage == nil {
+                        BackgroundRemovalView(weapon: .constant("a net (e.g. a towel)"), onDone: { image in
+                            weaponImage = image
+                            weaponSheet = false
+                            showButton = false
+                        })
+                        .offset(x: 0, y:-100)
+                    }
                     //  }
                     
                     
@@ -237,13 +237,16 @@ struct DeerView: View {
             .toolbar{
                 ToolbarItem (placement: .topBarLeading){
                     Button{
-                        scene = .quest
+                      //  scene = .quest
+                        dismiss()
                     } label: {
                         Image(systemName: "chevron.backward")
                             .foregroundStyle(.black)
                             .frame(width: 50, height: 50)
                         
                     }
+                    .buttonBorderShape(.circle)
+                    .cornerRadius(200)
                     
                 }
                 
