@@ -122,7 +122,7 @@ struct StymphalianView: View {
                             .foregroundColor(.black)
                             //Change OVEr HERejhdojhsvihdfiu
                             //.padding()
-                            .padding(.bottom, 70)  
+                            .padding(.bottom, 150)
                             .padding(.horizontal, 60)
                             /*} label: {
                                 Text("Continue")
