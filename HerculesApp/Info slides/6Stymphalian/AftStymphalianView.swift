@@ -24,21 +24,40 @@ struct AftStymphalianView: View   {
                 .ignoresSafeArea()
                 .brightness(-0.4)
                 .offset(x: -20)
-            Text(animatedText)
-                .padding()
-                .foregroundStyle(.white)
-                .font(.title)
-                .multilineTextAlignment(.leading)
-                .frame(maxWidth: .infinity)
+            VStack {
+                Text(animatedText)
+                
+                    .foregroundStyle(.white)
+                    .font(.title)
+                    .multilineTextAlignment(.leading)
+                    .padding(50)
+                
+                Spacer()
+                
+                Button {
+                    scene = .continueStymphalian
+                    
+                } label: {
+                    Text("Continue")
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                }
+                
+                .background(Color.white)
+                .cornerRadius(15)
+                .foregroundColor(.black)
                 .padding(50)
-                .onAppear {
-                    animateText()
+                
+            }
+            .padding()
+            .onAppear {
+                animateText()
+            }
                     
                 }
             
             Button {
                 scene = .startGeryon
-                completedStymphalian = true
                 
             } label: {
                 Text("Continue")
@@ -54,16 +73,6 @@ struct AftStymphalianView: View   {
             .padding()
             .padding(.horizontal, 60)
                 
-            /*} label: {
-                Text("Continue")
-                    .frame(maxWidth: .infinity)
-            }
-            .padding()
-            .background(Color.white)
-            .cornerRadius(15)
-            .offset(x: 0, y: 300)
-            .foregroundColor(.black)
-            .offset(x: 180)*/
             
         }
         

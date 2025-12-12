@@ -17,7 +17,7 @@ struct DeerView: View {
     @State private var confettiTrigger: Int = 0
     @State var weaponImage: UIImage?
     @State private var weaponYOffset = 0
-    @State private var tolerance: CGFloat = 100
+    @State private var tolerance: CGFloat = 30
     
     @Binding var showButton: Bool
     

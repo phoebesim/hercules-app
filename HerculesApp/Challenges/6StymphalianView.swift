@@ -148,20 +148,21 @@ struct StymphalianView: View {
                     
                 }
             }
-        }
-        .navigationBarBackButtonHidden()
-        .toolbar{
-            ToolbarItem {
-                Button {
-                    scene = .quest
-                } label: {
-                    Image(systemName: "house" )
-                        .foregroundStyle(.primary)
-                        .frame(width: 50, height: 50)
-                    
+            .navigationBarBackButtonHidden()
+            .toolbar{
+                ToolbarItem {
+                    Button {
+                        scene = .quest
+                    } label: {
+                        Image(systemName: "house" )
+                            .foregroundStyle(.primary)
+                            .frame(width: 50, height: 50)
+                        
+                    }
                 }
             }
         }
+        
         
     }
     
