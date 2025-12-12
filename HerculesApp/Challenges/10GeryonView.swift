@@ -137,7 +137,7 @@ struct GeryonView: View {
                             .foregroundColor(.black)
                             .padding()
                             .padding(.horizontal, 60)
-                            .padding(.bottom, 20)
+                            .padding(.bottom, 40)
                             /*} label: {
                                 Text("Continue")
                                     .padding()
