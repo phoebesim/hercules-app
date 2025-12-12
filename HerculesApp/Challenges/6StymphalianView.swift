@@ -124,6 +124,7 @@ struct StymphalianView: View {
                             //.padding()
                             .padding(.bottom, 150)
                             .padding(.horizontal, 60)
+                            .padding()
                             /*} label: {
                              Text("Continue")
                              .padding()

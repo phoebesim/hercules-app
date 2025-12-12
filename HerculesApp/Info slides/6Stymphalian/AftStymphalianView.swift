@@ -42,6 +42,7 @@ struct AftStymphalianView: View   {
                 
             } label: {
                 Text("Continue")
+                    .frame(maxWidth: .infinity)
             }
             .padding()
             .background(Color.white)
