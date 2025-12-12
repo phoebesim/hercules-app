@@ -62,7 +62,7 @@ struct BackgroundRemovalView: View {
                 
                 Text("Take a photo of an object you have that resembles \(weapon). It will be your weapon!")
                     .font(.headline)
-                    .foregroundStyle(.black)
+                    .foregroundStyle(.primary)
                     .background()
                     .cornerRadius(10)
                     .padding()
