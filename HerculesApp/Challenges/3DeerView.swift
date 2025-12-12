@@ -9,7 +9,7 @@ import SwiftUI
 import ConfettiSwiftUI
 struct DeerView: View {
     
-    @State private var xOffset: CGFloat = 20
+    @State private var xOffset: CGFloat = 200
     @State private var message: String = ""
     @State private var gameOver = false
     @State private var weaponSheet = false
