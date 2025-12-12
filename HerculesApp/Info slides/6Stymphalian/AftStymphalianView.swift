@@ -35,7 +35,7 @@ struct AftStymphalianView: View   {
                 Spacer()
                 
                 Button {
-                    scene = .continueStymphalian
+                    scene = .startGeryon
                     
                 } label: {
                     Text("Continue")
@@ -53,31 +53,24 @@ struct AftStymphalianView: View   {
             .onAppear {
                 animateText()
             }
-                    
-                }
-            
-            Button {
-                scene = .startGeryon
-                
-            } label: {
-                Text("Continue")
-                    .padding()
-                    .frame(maxWidth: .infinity)
-            }
-            
-            
-            
-            .background(Color.white)
-            .cornerRadius(15)
-            .foregroundColor(.black)
-            .padding()
-            .padding(.horizontal, 60)
-                
             
         }
         
-    
+        
+        
+        
+        
+        .background(Color.white)
+        .cornerRadius(15)
+        .foregroundColor(.black)
+        .padding()
+        .padding(.horizontal, 60)
+        
+        
     }
+    
+    
+    
     
     
     
