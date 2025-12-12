@@ -42,6 +42,20 @@ struct AftStymphalianView: View   {
                 
             } label: {
                 Text("Continue")
+                    .padding()
+                    .frame(maxWidth: .infinity)
+            }
+            
+            
+            
+            .background(Color.white)
+            .cornerRadius(15)
+            .foregroundColor(.black)
+            .padding()
+            .padding(.horizontal, 60)
+                
+            /*} label: {
+                Text("Continue")
                     .frame(maxWidth: .infinity)
             }
             .padding()
@@ -49,7 +63,7 @@ struct AftStymphalianView: View   {
             .cornerRadius(15)
             .offset(x: 0, y: 300)
             .foregroundColor(.black)
-            .offset(x: 180)
+            .offset(x: 180)*/
             
         }
         
