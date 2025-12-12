@@ -232,7 +232,7 @@ struct AugeanView: View {
                         scene = .quest
                     } label: {
                         Image(systemName: "house")
-                            .foregroundStyle(.black)
+                            .foregroundStyle(.primary)
                             .frame(width: 50, height: 50)
                         
                     }

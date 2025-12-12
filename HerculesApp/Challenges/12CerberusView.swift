@@ -30,9 +30,9 @@ struct CerberusView: View {
                     ZStack {
                         Image(.greece)
                             .resizable()
-                            //.fill(.ultraThinMaterial)
+                        //.fill(.ultraThinMaterial)
                             .ignoresSafeArea()
-                            //.brightness(-0.3)
+                        //.brightness(-0.3)
                         VStack(spacing: 24) {
                             Spacer()
                             Text("You Won")
@@ -64,38 +64,29 @@ struct CerberusView: View {
                             .padding()
                             .padding(.horizontal, 60)
                             /*} label: {
-                                Text("Continue")
-                                    .padding()
-                                    .font(.title2.weight(.semibold))
-                                    .foregroundColor(.black)
-                                    .frame(maxWidth: .infinity, minHeight: 56, )
-                                    .padding()
-                            }
-                            /*
-                            .background(Color.pink)
-                            .cornerRadius(12)
-                            .padding(.horizontal, 60)
-                            .padding(.bottom, 40)*/
-                            
-                            .background(Color.white)
-                            .cornerRadius(15)
-                            .foregroundColor(.black)
-                            //.padding(50)
-                            .padding(.horizontal, 60)
-                            .padding(.bottom, 40)*/
+                             Text("Continue")
+                             .padding()
+                             .font(.title2.weight(.semibold))
+                             .foregroundColor(.black)
+                             .frame(maxWidth: .infinity, minHeight: 56, )
+                             .padding()
+                             }
+                             /*
+                              .background(Color.pink)
+                              .cornerRadius(12)
+                              .padding(.horizontal, 60)
+                              .padding(.bottom, 40)*/
+                             
+                             .background(Color.white)
+                             .cornerRadius(15)
+                             .foregroundColor(.black)
+                             //.padding(50)
+                             .padding(.horizontal, 60)
+                             .padding(.bottom, 40)*/
                             
                         }
                     }
                     .navigationBarBackButtonHidden()
-                    .toolbar{
-                        ToolbarItem (placement: .topBarLeading){
-                            NavigationLink {
-                                //    QuestView()
-                            } label: {
-                                Image(systemName: "house" )
-                            }
-                        }
-                    }
                 } else {
                     VStack (spacing: 50) {
                         //    Slider()
@@ -131,11 +122,19 @@ struct CerberusView: View {
             }
             .toolbar{
                 ToolbarItem {
+                    Button{
+                        scene = .quest
+                    } label: {
+                        Image(systemName: "house")
+                            .foregroundStyle(.primary)
+                            .frame(width: 50, height: 50)
+                        
+                    }
                 }
             }
-        }
-        .navigationBarBackButtonHidden()
         
+        .navigationBarBackButtonHidden(true)
+        }
         
     }
     func addProgress() {

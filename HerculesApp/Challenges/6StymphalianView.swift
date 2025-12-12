@@ -12,7 +12,7 @@ import ConfettiSwiftUI
 struct StymphalianView: View {
     //Here is the change
     @State private var confettiTrigger: Int = 0
-
+    
     
     var allBirdsAreFlying: Bool {
         sitting1 == "StymphalianBirdFlying" &&
@@ -125,51 +125,43 @@ struct StymphalianView: View {
                             .padding(.bottom, 150)
                             .padding(.horizontal, 60)
                             /*} label: {
-                                Text("Continue")
-                                    .padding()
-                                    .font(.title2.weight(.semibold))
-                                    .foregroundColor(.black)
-                                    .frame(maxWidth: .infinity, minHeight: 56)
-                                    .padding()
-                            }
-                            //.background(Color.pink)
-                            //.cornerRadius(12)
-                            //.padding(.horizontal, 60)
-                            //.padding(.bottom, 150)
-                            
-                            .background(Color.white)
-                            .cornerRadius(15)
-                            .foregroundColor(.black)
-                            .padding(.horizontal, 60)
-                            .padding(.bottom, 40) */
+                             Text("Continue")
+                             .padding()
+                             .font(.title2.weight(.semibold))
+                             .foregroundColor(.black)
+                             .frame(maxWidth: .infinity, minHeight: 56)
+                             .padding()
+                             }
+                             //.background(Color.pink)
+                             //.cornerRadius(12)
+                             //.padding(.horizontal, 60)
+                             //.padding(.bottom, 150)
+                             
+                             .background(Color.white)
+                             .cornerRadius(15)
+                             .foregroundColor(.black)
+                             .padding(.horizontal, 60)
+                             .padding(.bottom, 40) */
                         }
                     }
                     
                 }
             }
-            .toolbar{
-                ToolbarItem {
-                    Button{
-                        scene = .quest
-                    } label: {
-                        Image(systemName: "house")
-                            .foregroundStyle(.black)
-                            .frame(width: 50, height: 50)
-                        
-                    }
-                }
-            }
         }
         .navigationBarBackButtonHidden()
         .toolbar{
-            ToolbarItem (placement: .topBarLeading){
+            ToolbarItem {
                 Button {
-                    scene = .startDeer
+                    scene = .quest
                 } label: {
                     Image(systemName: "house" )
+                        .foregroundStyle(.primary)
+                        .frame(width: 50, height: 50)
+                    
                 }
             }
         }
+        
     }
     
     

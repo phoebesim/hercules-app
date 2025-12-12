@@ -41,8 +41,8 @@ struct QuestView: View {
 //                                )
 //                        }
                         
-                        NavigationLink {
-                            BeforeDeerView(scene: $scene)
+                        Button {
+                            scene = .startDeer
                             
                         } label: {
                             Text("Ceryneian Hind")

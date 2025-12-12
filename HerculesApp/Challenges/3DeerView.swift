@@ -228,20 +228,16 @@ struct DeerView: View {
                      .foregroundColor(.black)
                      .padding(.horizontal, 60)
                      .padding(.bottom, 40)*/
-                    
-                    
                 }
             }
-    
-         //   .navigationBarBackButtonHidden()
             .toolbar{
-                ToolbarItem (placement: .topBarLeading){
+                ToolbarItem (placement: .topBarTrailing){
                     Button{
-                      //  scene = .quest
-                        dismiss()
+                        scene = .quest
+                        
                     } label: {
-                        Image(systemName: "chevron.backward")
-                            .foregroundStyle(.black)
+                        Image(systemName: "house")
+                            .foregroundStyle(.primary)
                             .frame(width: 50, height: 50)
                         
                     }
@@ -249,13 +245,8 @@ struct DeerView: View {
                     .cornerRadius(200)
                     
                 }
-                
-                
             }
         }
-        
-        
-        
     }
     
     
