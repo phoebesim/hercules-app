@@ -62,7 +62,7 @@ struct CerberusView: View {
                             .cornerRadius(15)
                             .foregroundColor(.black)
                             .padding()
-                            .padding(.horizontal, 60)
+                            .padding(.horizontal, 50)
                             .padding(.bottom, 40)
                             /*} label: {
                              Text("Continue")

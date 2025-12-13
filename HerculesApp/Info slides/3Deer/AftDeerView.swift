@@ -58,7 +58,6 @@ struct AftDeerView: View   {
                     .background(Color.white)
                     .cornerRadius(15)
                     .foregroundColor(.black)
-                    .padding(50)
                     
                 }
                 .padding()
