@@ -191,7 +191,7 @@ struct AugeanView: View {
                             .cornerRadius(15)
                             .foregroundColor(.black)
                             .padding()
-                            .padding(.horizontal, 50)
+                            .padding(.horizontal, 60)
                             .padding(.bottom, 50)
                                 
                                 
