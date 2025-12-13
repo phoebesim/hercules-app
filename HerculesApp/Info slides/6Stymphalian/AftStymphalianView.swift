@@ -16,75 +16,59 @@ struct AftStymphalianView: View   {
     
     var body: some View {
         
-        
-        ZStack (alignment: .leading){
-            Image("Hercules")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .ignoresSafeArea()
-                .brightness(-0.4)
-                .offset(x: -20)
-            VStack {
-                Text(animatedText)
+        NavigationStack {
+            ZStack(alignment: .center) {
                 
-                    .foregroundStyle(.white)
-                    .font(.title)
-                    .multilineTextAlignment(.leading)
-                    .padding(50)
+                Image("Hercules")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .ignoresSafeArea()
+                    .brightness(-0.4)
+                    .offset(x: -20)
                 
-                Spacer()
-                
-                Button {
-                    scene = .startGeryon
+                VStack {
+                    Text(animatedText)
+                      
+                        .foregroundStyle(.white)
+                        .font(.title)
+                        .multilineTextAlignment(.leading)
+                        .padding(50)
                     
-                } label: {
-                    Text("Continue")
-                        .padding()
-                        .frame(maxWidth: .infinity)
+                    Spacer()
+                    
+                    Button {
+                        scene = .startGeryon
+                        completedStymphalian = true
+                        
+                    } label: {
+                        Text("Continue")
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                    }
+                    
+                    .background(Color.white)
+                    .cornerRadius(15)
+                    .foregroundColor(.black)
+                    .padding(50)
+                    
+                }
+                .padding()
+                .onAppear {
+                    animateText()
                 }
                 
-                .background(Color.white)
-                .cornerRadius(15)
-                .foregroundColor(.black)
-                .padding(50)
                 
-            }
-            .padding()
-            .onAppear {
-                animateText()
             }
             
         }
-        
-        
-        
-        
-        
-        .background(Color.white)
-        .cornerRadius(15)
-        .foregroundColor(.black)
-        .padding()
-        .padding(.horizontal, 60)
-        
-        
+        .navigationBarBackButtonHidden(true)
     }
-    
-    
-    
-    
-    
     
     func animateText() {
         for (index, character) in textToType.enumerated() {
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(index) * 0.05) {
                 animatedText.append(character)
-                
-                
             }
         }
     }
 }
-
-//#Preview {
-//    AftStymphalianView(endStymphalian: .constant(true), startGeryon: .constant(false))
-//}
