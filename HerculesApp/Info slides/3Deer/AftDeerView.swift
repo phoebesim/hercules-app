@@ -30,11 +30,12 @@ struct AftDeerView: View   {
                 
                 Image("Hercules")
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .ignoresSafeArea()
-                    .brightness(-0.4)
-                    .offset(x: -20)
                 
+                    .aspectRatio(contentMode: .fill)
+                 //   .ignoresSafeArea()
+                    .brightness(-0.4)
+                  //  .offset(x: -20)
+                    .ignoresSafeArea()
                 VStack {
                     Text(animatedText)
                     

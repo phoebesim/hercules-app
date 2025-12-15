@@ -15,8 +15,6 @@
 import SwiftUI
 import ConfettiSwiftUI
 
-
-
 enum PipeType {
     case straight, corner, end, t
 }
@@ -91,16 +89,11 @@ struct AugeanView: View {
         Pipe(type: .corner, rotation: 180),
         Pipe(type: .corner, rotation: 90),
         Pipe(type: .end, rotation: 270)
-    ]
-    ]
-    
-    
+    ]]
     
     @Binding var scene: AppScene
-   
     
     var body: some View {
-       
         NavigationStack {
             ZStack {
                 Image(.grass)
@@ -108,14 +101,18 @@ struct AugeanView: View {
                     .ignoresSafeArea()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 500, height: 500)
-                Image(.dirt)
-                    .resizable()
-                    .frame(width:450, height: 450)
-                    .offset(x:-80, y: 70)
-                Image(.dirt)
-                    .resizable()
-                    .frame(width:450, height: 450)
-                    .offset(x:85, y: -60)
+                
+                GeometryReader { geometry in
+                    Image(.dirt)
+                        .resizable()
+                        .frame(width: 450, height: 450)
+                        .position(x: geometry.size.width / 1.3, y: geometry.size.height / 2.5)
+                    Image(.dirt)
+                        .resizable()
+                        .frame(width: 450, height: 450)
+                        .position(x: geometry.size.width / 3, y: geometry.size.height / 2)
+                }
+                
                 VStack {
                     Text("Tap the squares in the grid of river to rotate them and fill all the river!")
                         .font(.title)
@@ -125,10 +122,9 @@ struct AugeanView: View {
                         .cornerRadius(10)
                         .bold()
                         .multilineTextAlignment(.center)
-                        .padding(.horizontal,70)
+                        .padding(.horizontal, 70)
                     
                     VStack(spacing: 4) {
-                        
                         ForEach(0..<4) { row in
                             HStack(spacing: 4) {
                                 ForEach(0..<4) { col in
@@ -147,110 +143,36 @@ struct AugeanView: View {
                     .padding()
                     .background(Color.gray.opacity(0.2))
                     .cornerRadius(10)
-                    
                 }
+                
                 if isComplete {
-                    ZStack {
-                        Image(.greece)
-                            .resizable()
-                            //.brightness(-0.3)
-                            //.fill(.ultraThinMaterial)
-                            .ignoresSafeArea()
-                        VStack(spacing: 24) {
-                            Spacer()
-                            Text("You Won")
-                                .font(.system(size: 48, weight: .bold))
-                                .foregroundColor(.white)
-                                .multilineTextAlignment(.center)
-                                
-                                //.onTapGesture //{confettiTrigger += 1
-                                                                //}
-                                                                //.confettiCannon(trigger: $confettiTrigger)
-                            
-                                .confettiCannon(trigger: $confettiTrigger, num: 50, confettiSize: 20.0, radius: 800.0)
-                                                            
-                                                            
-                                                            .onAppear {
-                                                                confettiTrigger += 1
-                                                            }
-                            
-                            Spacer()
-                            
-                            Button {
-                                scene = .endAugean
-                                
-                            } label: {
-                                Text("Continue")
-                                    .padding()
-                                    .frame(maxWidth: .infinity)
-                            }
-                            
-                            
-                            
-                            .background(Color.white)
-                            .cornerRadius(15)
-                            .foregroundColor(.black)
-                            .padding()
-                            .padding(.horizontal, 60)
-                            .padding(.bottom, 50)
-                                
-                                
-                            /*} label: {
-                                Text("Continue")
-                                    .padding()
-                                    .font(.title2.weight(.semibold))
-                                    .foregroundColor(.black)
-                                    .frame(maxWidth: .infinity, minHeight: 56, )
-                                    .padding()
-                            }
-                            //.background(Color.pink)
-                            //.cornerRadius(12)
-                            //.padding(.horizontal, 60)
-                            //.padding(.bottom, 40)
-                            
-                            .background(Color.white)
-                            .cornerRadius(15)
-                            .foregroundColor(.black)
-                            //.padding(50)
-                            .padding(.horizontal, 60)
-                            .padding(.bottom, 40)
-                            */
-                            
-                            
-                        }
-                    }
-                    //WinView(nextInfoView: .constant(AnyView(AftAugeanView())))
-                    //                    WinView(nextInfoView: .constant(AnyView(EmptyView())))
-                    //                    changeView = 5
-                    
+                    WinOverlay(
+                        confettiTrigger: $confettiTrigger,
+                        continueAction: { scene = .endAugean }
+                    )
                 }
-                
-                
             }
-            .toolbar{
+            .toolbar {
                 ToolbarItem {
-                    Button{
+                    Button {
                         scene = .quest
                     } label: {
                         Image(systemName: "house")
                             .foregroundStyle(.primary)
                             .frame(width: 50, height: 50)
-                        
                     }
                 }
             }
-        
         }
         .navigationBarBackButtonHidden()
     }
     
-    
-    
     func rotatePipe(row: Int, col: Int) {
         let pipe = grid[row][col]
-        grid [row][col].rotation = (pipe.rotation + 90).truncatingRemainder(dividingBy:360)
+        grid[row][col].rotation = (pipe.rotation + 90).truncatingRemainder(dividingBy: 360)
     }
-    var connectedPipes: [(row:Int, col: Int)] {
+    
+    var connectedPipes: [(row: Int, col: Int)] {
         var connected: [(row: Int, col: Int)] = [(2, 2)]
         var queue: [(row: Int, col: Int)] = [(2, 2)]
         var visited = Set<String>()
@@ -263,11 +185,11 @@ struct AugeanView: View {
             
             let pipe = grid[current.row][current.col]
             
-            for dir in pipe.connections{
+            for dir in pipe.connections {
                 let next = neighbour(of: current, in: dir)
-                if let n = next, !visited.contains("\(n.row), \(n.col)"){
+                if let n = next, !visited.contains("\(n.row), \(n.col)") {
                     let neighbourPipe = grid[n.row][n.col]
-                    if neighbourPipe.connections.contains(dir.opposite){
+                    if neighbourPipe.connections.contains(dir.opposite) {
                         connected.append(n)
                         queue.append(n)
                     }
@@ -276,27 +198,67 @@ struct AugeanView: View {
         }
         return connected
     }
-    func neighbour(of pos: (row: Int, col: Int), in dir: Direction) -> (row:Int, col: Int)? {
+    
+    func neighbour(of pos: (row: Int, col: Int), in dir: Direction) -> (row: Int, col: Int)? {
         let (r, c) = pos
         switch dir {
         case .top: return r > 0 ? (r - 1, c) : nil
-        case .bottom: return r < 3 ? (r + 1, c): nil
+        case .bottom: return r < 3 ? (r + 1, c) : nil
         case .left: return c > 0 ? (r, c - 1) : nil
         case .right: return c < 3 ? (r, c + 1) : nil
         }
     }
+    
     var isComplete: Bool {
         connectedPipes.count == 16
     }
-    
 }
 
-//test
+// Extracted win overlay to reduce body complexity
+private struct WinOverlay: View {
+    @Binding var confettiTrigger: Int
+    var continueAction: () -> Void
+    
+    var body: some View {
+        ZStack {
+            Image(.greece)
+                .resizable()
+                .ignoresSafeArea()
+            VStack(spacing: 24) {
+                Spacer()
+                
+                Text("You Won")
+                    .font(.system(size: 48, weight: .bold))
+                    .foregroundColor(.white)
+                    .multilineTextAlignment(.center)
+                    .confettiCannon(trigger: $confettiTrigger, num: 50, confettiSize: 20.0, radius: 800.0)
+                    .onAppear { confettiTrigger += 1 }
+                
+                Spacer()
+                
+                Button {
+                    continueAction()
+                } label: {
+                    Text("Continue")
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                }
+                .background(Color.white)
+                .cornerRadius(15)
+                .foregroundColor(.black)
+                .padding()
+                .padding(.horizontal, 60)
+                .padding(.bottom, 50)
+            }
+        }
+    }
+}
 
 struct PipeView: View {
     let pipe: Pipe
     let isConnected: Bool
     var backgroundColor: Color = .white
+    
     var pipeShape: some Shape {
         switch pipe.type {
         case .straight:
@@ -310,29 +272,21 @@ struct PipeView: View {
         }
     }
     
-    
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 8)
                 .fill(backgroundColor)
                 .frame(width: 70, height: 70)
             pipeShape
-                .stroke(isConnected ? Color.blue: Color.gray, lineWidth: 8)
+                .stroke(isConnected ? Color.blue : Color.gray, lineWidth: 8)
                 .frame(width: 60, height: 60)
                 .rotationEffect(.degrees(pipe.rotation))
-            
-            
         }
     }
-    
 }
 
-
-
-
-
-struct StraightPipe: Shape { //like scratch pen up pen down
-    func path (in rect: CGRect) -> Path {
+struct StraightPipe: Shape {
+    func path(in rect: CGRect) -> Path {
         var path = Path()
         path.move(to: CGPoint(x: rect.midX, y: rect.minY))
         path.addLine(to: CGPoint(x: rect.midX, y: rect.maxY))
@@ -341,7 +295,7 @@ struct StraightPipe: Shape { //like scratch pen up pen down
 }
 
 struct CornerPipe: Shape {
-    func path (in rect: CGRect) -> Path {
+    func path(in rect: CGRect) -> Path {
         var path = Path()
         path.move(to: CGPoint(x: rect.midX, y: rect.minY))
         path.addLine(to: CGPoint(x: rect.midX, y: rect.midY))
@@ -351,7 +305,7 @@ struct CornerPipe: Shape {
 }
 
 struct EndPipe: Shape {
-    func path (in rect: CGRect) -> Path {
+    func path(in rect: CGRect) -> Path {
         var path = Path()
         path.addEllipse(in: CGRect(x: rect.midX - 8, y: rect.midY - 8, width: 16, height: 16))
         path.move(to: CGPoint(x: rect.midX, y: rect.midY))
@@ -361,7 +315,7 @@ struct EndPipe: Shape {
 }
 
 struct TPipe: Shape {
-    func path (in rect: CGRect) -> Path {
+    func path(in rect: CGRect) -> Path {
         var path = Path()
         path.move(to: CGPoint(x: rect.midX, y: rect.minY))
         path.addLine(to: CGPoint(x: rect.midX, y: rect.maxY))
@@ -371,7 +325,7 @@ struct TPipe: Shape {
     }
 }
 
-struct AnyShape: Shape { //so the other pipes can return as the same type
+struct AnyShape: Shape {
     private let _path: @Sendable (CGRect) -> Path
     
     init<S: Shape>(_ shape: S) {
@@ -387,4 +341,3 @@ struct AnyShape: Shape { //so the other pipes can return as the same type
 #Preview {
     AugeanView(scene: .constant(.continueAugean))
 }
-

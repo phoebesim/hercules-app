@@ -211,6 +211,7 @@ struct QuestView: View {
                         .resizable()
                         .scaledToFill()
                         .ignoresSafeArea()
+                        .frame(width:UIScreen.main.bounds.width + 40)
                         .offset(x: -20)
                         .brightness(-0.25)
                     

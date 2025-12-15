@@ -25,7 +25,7 @@ struct EndView: View   {
                     .aspectRatio(contentMode: .fill)
                     .ignoresSafeArea()
                     .brightness(-0.4)
-                    .offset(x: -20)
+                   // .offset(x: -20)
                     .confettiCannon(trigger: $confettiTrigger)
                 
                 VStack {
