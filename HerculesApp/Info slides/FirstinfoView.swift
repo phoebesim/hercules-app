@@ -18,7 +18,7 @@ struct FirstinfoView: View   {
                 
                     .aspectRatio(contentMode: .fill)
                     .frame(maxWidth: .infinity)
-                 //   .ignoresSafeArea()
+                //   .ignoresSafeArea()
                     .brightness(-0.4)
                     .offset(x: -40)
                     .ignoresSafeArea()
@@ -30,14 +30,14 @@ struct FirstinfoView: View   {
                         .multilineTextAlignment(.leading)
                         .padding()
                         .padding()
-                        .padding()
-                        .padding()
-                        .padding()
+                        .padding(.horizontal)
+                        .padding(.horizontal)
+                        .padding(.horizontal)
                     
                     Spacer()
                     
                     Button {
-                        scene = .startAugean
+                        scene = .quest
                         
                     } label: {
                         Text("Continue")

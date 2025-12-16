@@ -35,14 +35,15 @@ struct AftStymphalianView: View   {
                         .multilineTextAlignment(.leading)
                         .padding()
                         .padding()
-                        .padding()
-                        .padding()
-                        .padding()
+                        .padding(.horizontal)
+                        .padding(.horizontal)
+                        .padding(.horizontal)
                     
                     Spacer()
                     
                     Button {
-                        scene = .startAugean
+                        completedStymphalian = true
+                        scene = .startGeryon
                         
                     } label: {
                         Text("Continue")

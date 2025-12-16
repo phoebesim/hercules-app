@@ -36,14 +36,15 @@ struct AftCerberusView: View   {
                         .multilineTextAlignment(.leading)
                         .padding()
                         .padding()
-                        .padding()
-                        .padding()
-                        .padding()
+                        .padding(.horizontal)
+                        .padding(.horizontal)
+                        .padding(.horizontal)
                     
                     Spacer()
                     
                     Button {
-                        scene = .startAugean
+                        completedCerberus = true
+                        scene = .lastInfo
                         
                     } label: {
                         Text("Continue")

@@ -36,14 +36,14 @@ struct BeforeStymphalianView: View   {
                         .multilineTextAlignment(.leading)
                         .padding()
                         .padding()
-                        .padding()
-                        .padding()
-                        .padding()
+                        .padding(.horizontal)
+                        .padding(.horizontal)
+                        .padding(.horizontal)
                     
                     Spacer()
                     
                     Button {
-                        scene = .startAugean
+                        scene = .continueStymphalian
                         
                     } label: {
                         Text("Continue")
