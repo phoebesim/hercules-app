@@ -22,7 +22,8 @@ struct FirstinfoView: View   {
                     .brightness(-0.4)
                     .offset(x: -40)
                     .ignoresSafeArea()
-                VStack {
+                
+               /* VStack {
                     Text(animatedText)
                     
                         .foregroundStyle(.white)
@@ -59,7 +60,7 @@ struct FirstinfoView: View   {
                 .padding()
                 .onAppear {
                     animateText()
-                }
+                }*/
                 
                 
             }
