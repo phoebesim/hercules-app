@@ -21,24 +21,29 @@ struct AftCerberusView: View   {
                 
                 Image("Hercules")
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .ignoresSafeArea()
-                    .brightness(-0.4)
-                 //   .offset(x: -20)
                 
+                    .aspectRatio(contentMode: .fill)
+                    .frame(maxWidth: .infinity)
+                 //   .ignoresSafeArea()
+                    .brightness(-0.4)
+                    .offset(x: -40)
+                    .ignoresSafeArea()
                 VStack {
                     Text(animatedText)
-                      
+                    
                         .foregroundStyle(.white)
                         .font(.title)
                         .multilineTextAlignment(.leading)
-                        .padding(50)
+                        .padding()
+                        .padding()
+                        .padding()
+                        .padding()
+                        .padding()
                     
                     Spacer()
                     
                     Button {
-                        scene = .lastInfo
-                        completedCerberus = true
+                        scene = .startAugean
                         
                     } label: {
                         Text("Continue")
@@ -49,7 +54,12 @@ struct AftCerberusView: View   {
                     .background(Color.white)
                     .cornerRadius(15)
                     .foregroundColor(.black)
-                    .padding(50)
+                    .padding()
+                    .padding(.horizontal)
+                    .padding(.horizontal)
+                    .padding(.horizontal)
+                    .padding(.horizontal)
+                    .padding(.horizontal)
                     
                 }
                 .padding()

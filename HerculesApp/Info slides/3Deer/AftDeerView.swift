@@ -32,9 +32,10 @@ struct AftDeerView: View   {
                     .resizable()
                 
                     .aspectRatio(contentMode: .fill)
+                    .frame(maxWidth: .infinity)
                  //   .ignoresSafeArea()
                     .brightness(-0.4)
-                  //  .offset(x: -20)
+                    .offset(x: -40)
                     .ignoresSafeArea()
                 VStack {
                     Text(animatedText)
@@ -42,7 +43,11 @@ struct AftDeerView: View   {
                         .foregroundStyle(.white)
                         .font(.title)
                         .multilineTextAlignment(.leading)
-                        .padding(50)
+                        .padding()
+                        .padding()
+                        .padding()
+                        .padding()
+                        .padding()
                     
                     Spacer()
                     
@@ -59,8 +64,12 @@ struct AftDeerView: View   {
                     .background(Color.white)
                     .cornerRadius(15)
                     .foregroundColor(.black)
-                    .padding(.horizontal, 60)
-                    .padding(.bottom, 40)
+                    .padding()
+                    .padding(.horizontal)
+                    .padding(.horizontal)
+                    .padding(.horizontal)
+                    .padding(.horizontal)
+                    .padding(.horizontal)
                     
                 }
                 .padding()

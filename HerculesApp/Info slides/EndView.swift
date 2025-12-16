@@ -22,43 +22,52 @@ struct EndView: View   {
                 
                 Image("Hercules")
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .ignoresSafeArea()
-                    .brightness(-0.4)
-                   // .offset(x: -20)
-                    .confettiCannon(trigger: $confettiTrigger)
                 
+                    .aspectRatio(contentMode: .fill)
+                    .frame(maxWidth: .infinity)
+                 //   .ignoresSafeArea()
+                    .brightness(-0.4)
+                    .offset(x: -40)
+                    .ignoresSafeArea()
                 VStack {
                     Text(animatedText)
+                    
                         .foregroundStyle(.white)
                         .font(.title)
                         .multilineTextAlignment(.leading)
-                        .padding(50)
+                        .padding()
+                        .padding()
+                        .padding()
+                        .padding()
+                        .padding()
                     
                     Spacer()
                     
                     Button {
-                        scene = .quest
+                        scene = .startAugean
                         
                     } label: {
-                        Text("Finish")
+                        Text("Continue")
                             .padding()
                             .frame(maxWidth: .infinity)
-                           
                     }
+                    
                     .background(Color.white)
                     .cornerRadius(15)
                     .foregroundColor(.black)
-                    .padding(50)
+                    .padding()
+                    .padding(.horizontal)
+                    .padding(.horizontal)
+                    .padding(.horizontal)
+                    .padding(.horizontal)
+                    .padding(.horizontal)
+                    
                 }
+                .padding()
                 .onAppear {
                     animateText()
-                    confettiTrigger += 1
                 }
                 
-                
-                
-                .padding()
                 
             }
             
