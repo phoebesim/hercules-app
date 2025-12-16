@@ -212,6 +212,7 @@ struct QuestView: View {
                         .scaledToFill()
                         .ignoresSafeArea()
                         .frame(width:UIScreen.main.bounds.width + 40)
+                        .frame(height:UIScreen.main.bounds.height + 40)
                         .offset(x: -20)
                         .brightness(-0.25)
                     
