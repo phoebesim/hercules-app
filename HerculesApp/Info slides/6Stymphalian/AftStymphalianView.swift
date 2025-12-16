@@ -13,23 +13,40 @@ struct AftStymphalianView: View   {
     
     @Binding var scene: AppScene
     @Binding var completedStymphalian: Bool
-    
     var body: some View {
         
-        
-        ZStack (alignment: .leading){
-            Image("Hercules")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .ignoresSafeArea()
-                .brightness(-0.4)
-              //  .offset(x: -20)
-            VStack {
-                Text(animatedText)
+        NavigationStack {
+            ZStack(alignment: .center) {
                 
-                    .foregroundStyle(.white)
-                    .font(.title)
-                    .multilineTextAlignment(.leading)
+                Image("Hercules")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .ignoresSafeArea()
+                    .brightness(-0.4)
+                 //   .offset(x: -20)
+                
+                VStack {
+                    Text(animatedText)
+                    
+                        .foregroundStyle(.white)
+                        .font(.title)
+                        .multilineTextAlignment(.leading)
+                        .padding(50)
+                    
+                    Spacer()
+                    
+                    Button {
+                        scene = .continueStymphalian
+                        
+                    } label: {
+                        Text("Continue")
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                    }
+                    
+                    .background(Color.white)
+                    .cornerRadius(15)
+                    .foregroundColor(.black)
                     .padding(50)
                     
                 }
@@ -38,17 +55,17 @@ struct AftStymphalianView: View   {
                     animateText()
                 }
                 
-                
+                .navigationBarBackButtonHidden(true)
             }
-            
         }
-        .navigationBarBackButtonHidden(true)
     }
     
     func animateText() {
         for (index, character) in textToType.enumerated() {
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(index) * 0.05) {
                 animatedText.append(character)
+                
+                
             }
         }
     }
