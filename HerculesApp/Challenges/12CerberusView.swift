@@ -56,8 +56,6 @@ struct CerberusView: View {
                                     .frame(maxWidth: .infinity)
                             }
                             
-                            
-                            
                             .background(Color.white)
                             .cornerRadius(15)
                             .foregroundColor(.black)
