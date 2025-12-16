@@ -8,6 +8,7 @@
 
 import SwiftUI
 import ConfettiSwiftUI
+
 struct YouWonView: View {
     @State private var confettiTrigger: Int = 0
     @Binding var scene: AppScene

@@ -35,9 +35,8 @@ struct Pipe: Identifiable {
             base = [.right]
         case .t:
             base = [.top, .bottom, .right]
-            
         }
-        return Set(base.map {$0.rotated(by:Int(rotation))}) //take each pipe and spin
+        return Set(base.map { $0.rotated(by: Int(rotation)) })
     }
 }
 
@@ -48,7 +47,7 @@ enum Direction: CaseIterable {
         let turns = Int(degrees / 90) % 4
         let all = Direction.allCases
         let index = all.firstIndex(of: self)!
-        return all [(index + turns) % 4]
+        return all[(index + turns) % 4]
     }
     var opposite: Direction {
         switch self {
@@ -60,14 +59,10 @@ enum Direction: CaseIterable {
     }
 }
 
-
-
 struct AugeanView: View {
     //here is the change
     @State private var confettiTrigger: Int = 0
 
-    
-    
     let lightRed = Color(red: 0.969, green: 0.667, blue: 0.584)
     @State private var grid: [[Pipe]] = [[
         Pipe(type: .end, rotation: 0),
@@ -125,17 +120,10 @@ struct AugeanView: View {
                         .padding(.horizontal, 70)
                     
                     VStack(spacing: 4) {
-                        ForEach(0..<4) { row in
+                        ForEach(0..<4, id: \.self) { row in
                             HStack(spacing: 4) {
-                                ForEach(0..<4) { col in
-                                    PipeView(
-                                        pipe: grid[row][col],
-                                        isConnected: connectedPipes.contains(where: { $0.row == row && $0.col == col }),
-                                        backgroundColor: (row == 2 && col == 2) ? lightRed : .white
-                                    )
-                                    .onTapGesture {
-                                        rotatePipe(row: row, col: col)
-                                    }
+                                ForEach(0..<4, id: \.self) { col in
+                                    pipeCell(row: row, col: col)
                                 }
                             }
                         }
@@ -146,7 +134,7 @@ struct AugeanView: View {
                 }
                 
                 if isComplete {
-                    YouWonView()
+                    YouWonView(scene: $scene)
                 }
             }
             .toolbar {
@@ -162,6 +150,18 @@ struct AugeanView: View {
             }
         }
         .navigationBarBackButtonHidden()
+    }
+    
+    @ViewBuilder
+    func pipeCell(row: Int, col: Int) -> some View {
+        PipeView(
+            pipe: grid[row][col],
+            isConnected: connectedPipes.contains(where: { $0.row == row && $0.col == col }),
+            backgroundColor: (row == 2 && col == 2) ? lightRed : .white
+        )
+        .onTapGesture {
+            rotatePipe(row: row, col: col)
+        }
     }
     
     func rotatePipe(row: Int, col: Int) {
