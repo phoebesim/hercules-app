@@ -46,22 +46,28 @@ struct StymphalianView: View {
                 Image("GrassBranches")
                     .resizable()
                     .frame(width: 500, height: 1000)
-                
-                Image("Krotala")
-                    .resizable()
-                    .frame(width: 300, height: 300)
-                    .rotationEffect(.degrees(130))
-                    .offset(y: 290)
+              
+                GeometryReader { geometry in
+                    Image("Krotala")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .rotationEffect(.degrees(130))
+                        .position(x: geometry.size.width / 2,y: geometry.size.height / 1.27)
+                }
                 
                 HStack {
-                    Image(systemName: "iphone.gen3.radiowaves.left.and.right")
-                        .foregroundStyle(.white)
-                    Text("Hold your phone sideways\nand flick it like a handbell!")
-                        .foregroundStyle(.white)
-                    
-                    
+                    GeometryReader { geometry in
+                        Image(systemName: "iphone.gen3.radiowaves.left.and.right")
+                            .foregroundStyle(.white)
+                            .position(x: geometry.size.width / 2, y: geometry.size.height / 1.57)
+                        Text("Hold your phone sideways\nand flick it like a handbell!")
+                            .foregroundStyle(.white)
+                            .position(x: geometry.size.width / 2, y: geometry.size.height / 1.67)
+                                   
+                        
+                    }
                 }
-                .offset(y:120)
+//                .offset(y:120)
                 
                 
                 .onShake {
@@ -93,56 +99,40 @@ struct StymphalianView: View {
                         
                         VStack(spacing: 24) {
                             Spacer()
-                            Text("You Won")
-                                .font(.system(size: 48, weight: .bold))
-                                .foregroundColor(.white)
-                                .multilineTextAlignment(.center)
-                                .confettiCannon(trigger: $confettiTrigger, num: 50, confettiSize: 20.0, radius: 800.0)
-                            
-                            
+                            GeometryReader { geometry in
+                                Text("You Won")
+                                    .font(.system(size: 48, weight: .bold))
+                                    .foregroundColor(.white)
+                                    .multilineTextAlignment(.center)
+                                    .position(x: geometry.size.width / 2, y: geometry.size.height / 1.5)
+                                    .confettiCannon(trigger: $confettiTrigger, num: 50, confettiSize: 20.0, radius: 800.0)
+                                
+                            }
                                 .onAppear {
                                     confettiTrigger += 1
                                 }
                             
                             
                             Spacer()
-                            
-                            Button {
-                                scene = .endStymphalian
-                            } label: {
-                                Text("Continue")
-                                    .padding()
-                                    .frame(maxWidth: .infinity)
+                            GeometryReader { geometry in
+                                Button {
+                                    scene = .endStymphalian
+                                } label: {
+                                    Text("Continue")
+                                        .padding()
+                                        .frame(maxWidth: .infinity)
+                                }
+                                .background(Color.white)
+                                .cornerRadius(15)
+                                .foregroundColor(.black)
+                                .padding()
+                                .padding(.horizontal, 60)
+                                .padding(.bottom, 40)
+                                .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
+                                
+                                
                             }
                             
-                            
-                            
-                            .background(Color.white)
-                            .cornerRadius(15)
-                            .foregroundColor(.black)
-                            //Change OVEr HERejhdojhsvihdfiu
-                            //.padding()
-                            .padding(.bottom, 180)
-                            .padding(.horizontal, 70)
-                            .padding()
-                            /*} label: {
-                             Text("Continue")
-                             .padding()
-                             .font(.title2.weight(.semibold))
-                             .foregroundColor(.black)
-                             .frame(maxWidth: .infinity, minHeight: 56)
-                             .padding()
-                             }
-                             //.background(Color.pink)
-                             //.cornerRadius(12)
-                             //.padding(.horizontal, 60)
-                             //.padding(.bottom, 150)
-                             
-                             .background(Color.white)
-                             .cornerRadius(15)
-                             .foregroundColor(.black)
-                             .padding(.horizontal, 60)
-                             .padding(.bottom, 40) */
                         }
                     }
                     
@@ -221,10 +211,12 @@ struct Bird: View {
     var positionX: CGFloat
     var positionY: CGFloat
     var body: some View {
+        
         Image(imageID)
             .resizable()
             .frame(width: 200, height: 230)
             .offset(x:positionX, y:positionY)
+        
     }
 }
 

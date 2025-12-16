@@ -16,39 +16,20 @@ struct AftStymphalianView: View   {
     
     var body: some View {
         
-        NavigationStack {
-            ZStack(alignment: .center) {
+        
+        ZStack (alignment: .leading){
+            Image("Hercules")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .ignoresSafeArea()
+                .brightness(-0.4)
+              //  .offset(x: -20)
+            VStack {
+                Text(animatedText)
                 
-                Image("Hercules")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .ignoresSafeArea()
-                    .brightness(-0.4)
-                    .offset(x: -20)
-                
-                VStack {
-                    Text(animatedText)
-                      
-                        .foregroundStyle(.white)
-                        .font(.title)
-                        .multilineTextAlignment(.leading)
-                        .padding(50)
-                    
-                    Spacer()
-                    
-                    Button {
-                        scene = .startGeryon
-                        completedStymphalian = true
-                        
-                    } label: {
-                        Text("Continue")
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                    }
-                    
-                    .background(Color.white)
-                    .cornerRadius(15)
-                    .foregroundColor(.black)
+                    .foregroundStyle(.white)
+                    .font(.title)
+                    .multilineTextAlignment(.leading)
                     .padding(50)
                     
                 }

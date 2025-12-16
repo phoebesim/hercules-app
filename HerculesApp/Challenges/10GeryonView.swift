@@ -9,7 +9,7 @@ import SwiftUI
 import ConfettiSwiftUI
 
 struct GeryonView: View {
-    @State private var step: CGFloat = 220
+    @State private var step: CGFloat = 140
     @State private var timer: Timer?
     @State private var isGreen: Bool = true
     @State private var loseShown = false
@@ -21,44 +21,58 @@ struct GeryonView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Image(.grass)
-                    .resizable()
-                    .ignoresSafeArea()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 500, height: 500)
-                Image(.geryon)
-                    .resizable()
-                    .frame(width: 250, height: 300)
-                    .offset(y:-170)
-                Image(.cow)
-                    .resizable()
-                    .frame(width: 180, height: 120)
-                    .offset(x:-80, y:-80)
-                Image(.cow)
-                    .resizable()
-                    .frame(width: 180, height: 120)
-                    .offset(y:-80)
-                Image(.cow)
-                    .resizable()
-                    .frame(width: 180, height: 120)
-                    .offset(x:80, y:-50)
-                Image(.cow)
-                    .resizable()
-                    .frame(width: 180, height: 120)
-                    .offset(x:-100, y:-25)
-                Image(.cow)
-                    .resizable()
-                    .frame(width: 180, height: 120)
-                    .offset(x:-10, y:-10)
-                Image(.cow)
-                    .resizable()
-                    .frame(width: 180, height: 120)
-                    .offset(x:50, y:10)
+               
+                    Image(.grass)
+                        .resizable()
+                        .ignoresSafeArea()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 500, height: 500)
+                GeometryReader { geometry in
+                    Image(.geryon)
+                        .resizable()
+                        .frame(width: 250, height: 300)
+                        .position(x: geometry.size.width / 2, y: geometry.size.height / 6.9)
+                               
+                    Image(.cow)
+                        .resizable()
+                        .frame(width: 180, height: 120)
+                        .position(x: geometry.size.width / 2, y: geometry.size.height / 2.8)
+
+                    Image(.cow)
+                        .resizable()
+                        .frame(width: 180, height: 120)
+                        .position(x: geometry.size.width / 1.5, y: geometry.size.height / 2.7)
+
+                    Image(.cow)
+                        .resizable()
+                        .frame(width: 180, height: 120)
+                        .position(x: geometry.size.width / 3, y: geometry.size.height / 2.5)
+
+                    Image(.cow)
+                        .resizable()
+                        .frame(width: 180, height: 120)
+                        .position(x: geometry.size.width / 2, y: geometry.size.height / 2.5)
+
+                    Image(.cow)
+                        .resizable()
+                        .frame(width: 180, height: 120)
+                        .position(x: geometry.size.width / 1.6, y: geometry.size.height / 2.6)
+
+                    Image(.cow)
+                        .resizable()
+                        .frame(width: 180, height: 120)
+                        .position(x: geometry.size.width / 1.5, y: geometry.size.height / 2.5)
+
+                }
+              
                 Image(.stickman)
                     .resizable()
                     .frame(width: 50, height: 100)
                     .offset(y: step)
 
+                
+                
+                GeometryReader { geometry in
                     Button("Walk") {
                         step -= 10
                         changeLight()
@@ -67,20 +81,22 @@ struct GeryonView: View {
                             step = 230
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
-                                        loseShown = false
-                                    }
+                                loseShown = false
+                            }
                         }
                         
                     }
+                    
                     
                     .foregroundColor(.black)
                     .bold()
                     .padding(35)
                     .background(Color.white)
                     .clipShape(.circle)
-                    .offset(y:320)
-                
+                    .position(x: geometry.size.width / 2, y: geometry.size.height / 1.1)
+
                     
+                }
                     if loseShown == true {
                        
                         Text("Try again")
@@ -93,10 +109,11 @@ struct GeryonView: View {
               
             
 
-                
-                Image(isGreen ? "GreenLight":"RedLight")
-                    .offset(x: 130, y: -190)
-                
+                GeometryReader { geometry in
+                    Image(isGreen ? "GreenLight":"RedLight")
+                        .position(x: geometry.size.width / 1.3, y: geometry.size.height / 5)
+                    //      .offset(x: 130, y: -190)
+                }
                 if step <= 45 {
                
                     ZStack {

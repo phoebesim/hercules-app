@@ -71,13 +71,15 @@ struct DeerView: View {
                         
                         
                         if let img = weaponImage {
-                            
-                            Image (uiImage: img)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 200, height: 200)
-                                .offset(x: CGFloat(weaponYOffset))
-                                .rotationEffect(Angle(degrees: 90))
+                            GeometryReader { geometry in
+                                Image (uiImage: img)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 200, height: 200)
+                                    .position(x: CGFloat(weaponYOffset), y: geometry.size.height / 2)
+                                    
+                                    .rotationEffect(Angle(degrees: 90))
+                            }
                         }
                     }
                     //                        if showButton == true {
@@ -103,39 +105,40 @@ struct DeerView: View {
                     }
                     //  }
                     
-                    
-                    Image(systemName: "arrowshape.up.fill")
-                        .resizable()
-                        .frame(width: 80, height: 80)
-                        .foregroundStyle(.white)
-                    
-                    
-                    
-                    Button{
-                        checkIfAtCenter()
-                        
-                        withAnimation(.easeInOut) {
-                            weaponYOffset = -200
-                            
-                            withAnimation(.easeInOut) {
-                                weaponYOffset = 0
-                            }
-                        }
-                    } label: {
-                        
-                        Text("Shoot!")
-                            .font(.title2)
-                            .padding(35)
-                            .background(Color.white)
-                            .foregroundColor(.black)
-                            .clipShape(Circle())
-                            .offset(y: 20)
-                            .bold()
+                    GeometryReader { geometry in
+                        Image(systemName: "arrowshape.up.fill")
+                            .resizable()
+                            .frame(width: 80, height: 80)
+                            .foregroundStyle(.white)
+                            .offset(x: 150, y: -80)
                         
                     }
-                    // .disabled(weaponImage == nil)
-                    .opacity(weaponImage == nil ? 0.5 : 1.0)
-                    
+                    GeometryReader { geometry in
+                        Button{
+                            checkIfAtCenter()
+                            
+                            withAnimation(.easeInOut) {
+                                weaponYOffset = -200
+                                
+                                withAnimation(.easeInOut) {
+                                    weaponYOffset = 0
+                                }
+                            }
+                        } label: {
+                            
+                            Text("Shoot!")
+                                .font(.title2)
+                                .padding(35)
+                                .background(Color.white)
+                                .foregroundColor(.black)
+                                .clipShape(Circle())
+                                .position(x: geometry.size.width / 2, y: geometry.size.height / 4)
+                                .bold()
+                            
+                        }
+                        // .disabled(weaponImage == nil)
+                        .opacity(weaponImage == nil ? 0.5 : 1.0)
+                    }
                     Spacer()
                     
                     Text(message)
@@ -158,11 +161,15 @@ struct DeerView: View {
                             .ignoresSafeArea()
                         VStack(spacing: 24) {
                             Spacer()
-                            Text("You Won")
                             
-                                .font(.system(size: 48, weight: .bold))
-                                .foregroundColor(.white)
-                                .multilineTextAlignment(.center)
+                            GeometryReader { geometry in
+                                Text("You Won")
+                                
+                                    .font(.system(size: 48, weight: .bold))
+                                    .foregroundColor(.white)
+                                    .multilineTextAlignment(.center)
+                                    .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
+                            }
                             //.onTapGesture {confettiTrigger += 1
                             //}
                             //.confettiCannon(trigger: $confettiTrigger)
@@ -177,34 +184,23 @@ struct DeerView: View {
                             
                             
                             Spacer()
-                            
-                            Button {
-                                scene = .endDeer
-                                
-                                /*
-                                 } label:{
-                                 Text("Continue")
-                                 .padding()
-                                 .font(.title2.weight(.semibold))
-                                 .foregroundColor(.black)
-                                 .frame(maxWidth: .infinity, minHeight: 56, )
-                                 .padding()
-                                 }
-                                 */
-                            } label: {
-                                Text("Continue")
-                                    .padding()
-                                    .frame(maxWidth: .infinity)
+                            GeometryReader { geometry in
+                                Button {
+                                    scene = .endDeer
+                                } label: {
+                                    Text("Continue")
+                                        .padding()
+                                        .frame(maxWidth: .infinity)
+                                }
+                              
+                                .background(Color.white)
+                                .cornerRadius(15)
+                                .foregroundColor(.black)
+                                .padding()
+                                .padding(.horizontal, 60)
+                                .padding(.bottom, 40)
+                                .position(x: geometry.size.width / 2, y: geometry.size.height / 1.5)
                             }
-                            
-                            
-                            
-                            .background(Color.white)
-                            .cornerRadius(15)
-                            .foregroundColor(.black)
-                            .padding()
-                            .padding(.horizontal, 60)
-                            .padding(.bottom, 40)
                             
                             //.padding(50)
                             //.padding(.horizontal, 60)

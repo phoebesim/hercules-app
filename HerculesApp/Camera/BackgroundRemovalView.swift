@@ -59,15 +59,16 @@ struct BackgroundRemovalView: View {
             ZStack {
                 CameraView(selectedImage: $processedImage, onCapture: handleCapturedImage)
                     .ignoresSafeArea()
-                
-                Text("Take a photo of an object you have that resembles \(weapon). It will be your weapon!")
-                    .font(.headline)
-                    .foregroundStyle(.primary)
-                    .background()
-                    .cornerRadius(10)
-                    .padding()
-                    .multilineTextAlignment(.center)
-                    .offset(x: 0, y: 170)
+                GeometryReader { geometry in
+                    Text("Take a photo of an object you have that resembles \(weapon). It will be your weapon!")
+                        .font(.headline)
+                        .foregroundStyle(.primary)
+                        .background()
+                        .cornerRadius(10)
+                        .padding()
+                        .multilineTextAlignment(.center)
+                        .position(x: geometry.size.width / 2, y: geometry.size.height / 1.5)
+                }
                 
             }
         }
