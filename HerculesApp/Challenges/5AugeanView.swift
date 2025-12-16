@@ -146,10 +146,7 @@ struct AugeanView: View {
                 }
                 
                 if isComplete {
-                    WinOverlay(
-                        confettiTrigger: $confettiTrigger,
-                        continueAction: { scene = .endAugean }
-                    )
+                    YouWonView()
                 }
             }
             .toolbar {
