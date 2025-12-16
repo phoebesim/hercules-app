@@ -134,7 +134,7 @@ struct AugeanView: View {
                 }
                 
                 if isComplete {
-                    YouWonView(scene: $scene)
+                    YouWonViewAugean(scene: $scene)
                 }
             }
             .toolbar {
