@@ -90,51 +90,7 @@ struct StymphalianView: View {
                 Bird(imageID: sitting7, positionX: -160, positionY: -360)
                 
                 if allBirdsAreFlying {
-                    ZStack {
-                        Image(.greece)
-                            .resizable()
-                        //.fill(.ultraThinMaterial)
-                            .ignoresSafeArea()
-                        //.brightness(-0.3)
-                        
-                        VStack(spacing: 24) {
-                            Spacer()
-                            GeometryReader { geometry in
-                                Text("You Won")
-                                    .font(.system(size: 48, weight: .bold))
-                                    .foregroundColor(.white)
-                                    .multilineTextAlignment(.center)
-                                    .position(x: geometry.size.width / 2, y: geometry.size.height / 1.5)
-                                    .confettiCannon(trigger: $confettiTrigger, num: 50, confettiSize: 20.0, radius: 800.0)
-                                
-                            }
-                                .onAppear {
-                                    confettiTrigger += 1
-                                }
-                            
-                            
-                            Spacer()
-                            GeometryReader { geometry in
-                                Button {
-                                    scene = .endStymphalian
-                                } label: {
-                                    Text("Continue")
-                                        .padding()
-                                        .frame(maxWidth: .infinity)
-                                }
-                                .background(Color.white)
-                                .cornerRadius(15)
-                                .foregroundColor(.black)
-                                .padding()
-                                .padding(.horizontal, 60)
-                                .padding(.bottom, 40)
-                                .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
-                                
-                                
-                            }
-                            
-                        }
-                    }
+                    YouWonViewStymphalian(scene: $scene)
                     
                 }
             }

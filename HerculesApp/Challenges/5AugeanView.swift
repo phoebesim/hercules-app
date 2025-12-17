@@ -214,40 +214,10 @@ struct AugeanView: View {
 // Extracted win overlay to reduce body complexity
 private struct WinOverlay: View {
     @Binding var confettiTrigger: Int
-    var continueAction: () -> Void
+    @Binding var scene: AppScene
     
     var body: some View {
-        ZStack {
-            Image(.greece)
-                .resizable()
-                .ignoresSafeArea()
-            VStack(spacing: 24) {
-                Spacer()
-                
-                Text("You Won")
-                    .font(.system(size: 48, weight: .bold))
-                    .foregroundColor(.white)
-                    .multilineTextAlignment(.center)
-                    .confettiCannon(trigger: $confettiTrigger, num: 50, confettiSize: 20.0, radius: 800.0)
-                    .onAppear { confettiTrigger += 1 }
-                
-                Spacer()
-                
-                Button {
-                    continueAction()
-                } label: {
-                    Text("Continue")
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                }
-                .background(Color.white)
-                .cornerRadius(15)
-                .foregroundColor(.black)
-                .padding()
-                .padding(.horizontal, 60)
-                .padding(.bottom, 50)
-            }
-        }
+        YouWonViewDeer(scene: $scene)
     }
 }
 

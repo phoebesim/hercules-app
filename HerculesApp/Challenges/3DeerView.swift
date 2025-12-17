@@ -153,69 +153,7 @@ struct DeerView: View {
                     
                 }
                 if gameOver {
-                    ZStack {
-                        Image("Greece")
-                            .resizable()
-                        //.brightness(-0.3)
-                        //.fill(.ultraThinMaterial)
-                            .ignoresSafeArea()
-                        VStack(spacing: 24) {
-                            Spacer()
-                            
-                            GeometryReader { geometry in
-                                Text("You Won")
-                                
-                                    .font(.system(size: 48, weight: .bold))
-                                    .foregroundColor(.white)
-                                    .multilineTextAlignment(.center)
-                                    .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
-                            }
-                            //.onTapGesture {confettiTrigger += 1
-                            //}
-                            //.confettiCannon(trigger: $confettiTrigger)
-                                .confettiCannon(trigger: $confettiTrigger, num: 50, confettiSize: 20.0, radius: 800.0)
-                            
-                            
-                                .onAppear {
-                                    confettiTrigger += 1
-                                }
-                            
-                            
-                            
-                            
-                            Spacer()
-                            GeometryReader { geometry in
-                                Button {
-                                    scene = .endDeer
-                                } label: {
-                                    Text("Continue")
-                                        .padding()
-                                        .frame(maxWidth: .infinity)
-                                }
-                              
-                                .background(Color.white)
-                                .cornerRadius(15)
-                                .foregroundColor(.black)
-                                .padding()
-                                .padding(.horizontal, 60)
-                                .padding(.bottom, 40)
-                                .position(x: geometry.size.width / 2, y: geometry.size.height / 1.5)
-                            }
-                            
-                            //.padding(50)
-                            //.padding(.horizontal, 60)
-                            //.padding(.bottom, 40)
-                            //.padding()
-                            //Change here!!!
-                            //.padding(.horizontal, 60)
-                            //.padding(.bottom,40)
-                            //Change over here!!
-                            //Spacer()
-                            
-                            
-                        }
-                        
-                    }
+                    YouWonViewDeer(scene: $scene)
                     // .background(Color.pink)
                     //.cornerRadius(12)
                     //.padding(.horizontal, 60)

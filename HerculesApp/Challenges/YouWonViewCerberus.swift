@@ -9,7 +9,7 @@
 import SwiftUI
 import ConfettiSwiftUI
 
-struct YouWonView: View {
+struct YouWonViewCerberus: View {
     @State private var confettiTrigger: Int = 0
     @Binding var scene: AppScene
     var body: some View {
@@ -57,5 +57,5 @@ struct YouWonView: View {
 }
 
 #Preview {
-    YouWonView(scene: .constant(.endCerberus))
+    YouWonViewCerberus(scene: .constant(.endCerberus))
 }
