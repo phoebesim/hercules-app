@@ -36,14 +36,15 @@ struct AftAugeanView: View   {
                         .multilineTextAlignment(.leading)
                         .padding()
                         .padding()
-                        .padding()
-                        .padding()
-                        .padding()
+                        .padding(.horizontal)
+                        .padding(.horizontal)
+                        .padding(.horizontal)
                     
                     Spacer()
                     
                     Button {
-                        scene = .startAugean
+                        completedAugean = true
+                        scene = .startStymphalian
                         
                     } label: {
                         Text("Continue")

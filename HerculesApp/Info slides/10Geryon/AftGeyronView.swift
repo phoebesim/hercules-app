@@ -30,14 +30,15 @@ struct AftGeryonView: View   {
                         .multilineTextAlignment(.leading)
                         .padding()
                         .padding()
-                        .padding()
-                        .padding()
-                        .padding()
+                        .padding(.horizontal)
+                        .padding(.horizontal)
+                        .padding(.horizontal)
                     
                     Spacer()
                     
                     Button {
-                        scene = .startAugean
+                        completedGeryon = true
+                        scene = .startCerberus
                         
                     } label: {
                         Text("Continue")

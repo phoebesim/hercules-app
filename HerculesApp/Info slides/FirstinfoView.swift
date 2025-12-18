@@ -18,11 +18,12 @@ struct FirstinfoView: View   {
                 
                     .aspectRatio(contentMode: .fill)
                     .frame(maxWidth: .infinity)
-                 //   .ignoresSafeArea()
+                //   .ignoresSafeArea()
                     .brightness(-0.4)
                     .offset(x: -40)
                     .ignoresSafeArea()
-                VStack {
+                
+               /* VStack {
                     Text(animatedText)
                     
                         .foregroundStyle(.white)
@@ -30,14 +31,14 @@ struct FirstinfoView: View   {
                         .multilineTextAlignment(.leading)
                         .padding()
                         .padding()
-                        .padding()
-                        .padding()
-                        .padding()
+                        .padding(.horizontal)
+                        .padding(.horizontal)
+                        .padding(.horizontal)
                     
                     Spacer()
                     
                     Button {
-                        scene = .startAugean
+                        scene = .quest
                         
                     } label: {
                         Text("Continue")
@@ -59,7 +60,7 @@ struct FirstinfoView: View   {
                 .padding()
                 .onAppear {
                     animateText()
-                }
+                }*/
                 
                 
             }

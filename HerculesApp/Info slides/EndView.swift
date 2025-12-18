@@ -9,7 +9,7 @@ import SwiftUI
 import ConfettiSwiftUI
 
 struct EndView: View   {
-    let textToType = "After finishing your 12 labours, you joined the Argonauts and lived a life of constant heroism. In death, Zeus made you a minor god, and you married Hebe. Your journey as Hercules ends here."
+    let textToType = "After finishing your 12 labours, you joined the Argonauts in their quest to find the Golden Fleece and lived a life of heroism. In death, Zeus made you a minor god, and you married Hebe. Your journey as Hercules ends here."
     
     @State private var confettiTrigger: Int = 0
     @State private var animatedText: String = ""
@@ -35,16 +35,16 @@ struct EndView: View   {
                         .foregroundStyle(.white)
                         .font(.title)
                         .multilineTextAlignment(.leading)
-                        .padding()
-                        .padding()
-                        .padding()
+                        .padding(.horizontal)
+                        .padding(.horizontal)
+                        .padding(.horizontal)
                         .padding()
                         .padding()
                     
                     Spacer()
                     
                     Button {
-                        scene = .startAugean
+                        scene = .quest
                         
                     } label: {
                         Text("Continue")
@@ -63,6 +63,7 @@ struct EndView: View   {
                     .padding(.horizontal)
                     
                 }
+              
                 .padding()
                 .onAppear {
                     animateText()
@@ -79,8 +80,6 @@ struct EndView: View   {
         for (index, character) in textToType.enumerated() {
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(index) * 0.05) {
                 animatedText.append(character)
-                
-                
             }
         }
     }
