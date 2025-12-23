@@ -95,25 +95,19 @@ struct DeerView: View {
                     
                     
                     // .sheet(isPresented: $weaponSheet) {
+                    GeometryReader { geometry in
                     if weaponImage == nil {
                         BackgroundRemovalView(weapon: .constant("a net (e.g. a towel)"), onDone: { image in
                             weaponImage = image
                             weaponSheet = false
                             showButton = false
                         })
-                        .offset(x: 0, y:-100)
+                        .position(x: geometry.size.width / 2, y: geometry.size.height / 20)
                     }
                     //  }
-                    
-                    GeometryReader { geometry in
-                        Image(systemName: "arrowshape.up.fill")
-                            .resizable()
-                            .frame(width: 80, height: 80)
-                            .foregroundStyle(.white)
-                            .offset(x: 150, y: -80)
+                   
+                   
                         
-                    }
-                    GeometryReader { geometry in
                         Button{
                             checkIfAtCenter()
                             
@@ -132,21 +126,31 @@ struct DeerView: View {
                                 .background(Color.white)
                                 .foregroundColor(.black)
                                 .clipShape(Circle())
-                                .position(x: geometry.size.width / 2, y: geometry.size.height / 4)
+                                .position(x: geometry.size.width / 2, y: geometry.size.height / 1.5)
                                 .bold()
                             
                         }
                         // .disabled(weaponImage == nil)
                         .opacity(weaponImage == nil ? 0.5 : 1.0)
+                        
+                        
+                        Image(systemName: "arrowshape.up.fill")
+                            .resizable()
+                            .frame(width: 80, height: 80)
+                            .foregroundStyle(.white)
+                            .position(x: geometry.size.width / 2, y: geometry.size.height / 2.4)
+
+                        
+                        
+                        
+                        Text(message)
+                            .padding()
+                            .font(.title3)
+                            .foregroundColor(.white)
+                            .position(x: geometry.size.width / 2, y: geometry.size.height / 1.2)
+                        
+                        Spacer()
                     }
-                    Spacer()
-                    
-                    Text(message)
-                        .padding()
-                        .font(.title3)
-                        .foregroundColor(.white)
-                    
-                    Spacer()
                 }
                 .onAppear{
                     startTimer()
