@@ -130,7 +130,7 @@ struct DeerView: View {
                                 .bold()
                             
                         }
-                        // .disabled(weaponImage == nil)
+                         .disabled(weaponImage == nil)
                         .opacity(weaponImage == nil ? 0.5 : 1.0)
                         
                         
